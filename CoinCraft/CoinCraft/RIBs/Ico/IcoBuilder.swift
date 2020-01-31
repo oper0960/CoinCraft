@@ -9,13 +9,15 @@
 import RIBs
 
 protocol IcoDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
-    // created by this RIB.
+    
 }
 
-final class IcoComponent: Component<IcoDependency> {
-
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+final class IcoComponent: Component<IcoDependency>, ActiveDependency, UpComingDependency {
+    fileprivate var segmentInnerViews: [SegmentInnerView] {
+        return shared {
+            return [ActiveAdapter(dependency: self), UpComingAdapter(dependency: self)]
+        }
+    }
 }
 
 // MARK: - Builder
@@ -31,10 +33,10 @@ final class IcoBuilder: Builder<IcoDependency>, IcoBuildable {
     }
 
     func build(withListener listener: IcoListener) -> IcoRouting {
-        let _ = IcoComponent(dependency: dependency)
+        let component = IcoComponent(dependency: dependency)
         let viewController = IcoViewController()
         let interactor = IcoInteractor(presenter: viewController)
         interactor.listener = listener
-        return IcoRouter(interactor: interactor, viewController: viewController)
+        return IcoRouter(interactor: interactor, viewController: viewController, innerViews: component.segmentInnerViews)
     }
 }

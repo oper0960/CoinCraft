@@ -19,4 +19,8 @@ protocol AboutPresentableListener: class {
 final class AboutViewController: UIViewController, AboutPresentable, AboutViewControllable {
 
     weak var listener: AboutPresentableListener?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }

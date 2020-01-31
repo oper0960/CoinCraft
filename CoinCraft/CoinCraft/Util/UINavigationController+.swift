@@ -14,4 +14,17 @@ extension UINavigationController: ViewControllable {
     public convenience init(root: ViewControllable) {
         self.init(rootViewController: root.uiviewController)
     }
+    
+    func defaultNavigation() -> UINavigationController {
+        self.navigationBar.barTintColor = .black
+        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
+                                                  NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)]
+        return self
+    }
+}
+
+extension UIViewController {
+    func setTitle(_ title: String) {
+        self.title = title
+    }
 }

@@ -13,10 +13,10 @@ protocol MainDependency: Dependency {
     // created by this RIB.
 }
 
-final class MainComponent: Component<MainDependency>, CoinDependency, IcoDependency {
+final class MainComponent: Component<MainDependency>, CoinDependency, IcoDependency, AboutDependency {
     fileprivate var tabbarInnerViews: [TabbarInnerView] {
         return shared {
-            return [CoinAdapter(dependency: self), IcoAdapter(dependency: self)]
+            return [CoinAdapter(dependency: self), IcoAdapter(dependency: self), AboutAdapter(dependency: self)]
         }
     }
 }
@@ -35,7 +35,7 @@ final class MainBuilder: Builder<MainDependency>, MainBuildable {
 
     func build(withListener listener: MainListener) -> MainRouting {
         let component = MainComponent(dependency: dependency)
-        let viewController = ViewController()
+        let viewController = MainViewController()
         let interactor = MainInteractor(presenter: viewController, tabbarViews: component.tabbarInnerViews)
         interactor.listener = listener
         return MainRouter(interactor: interactor, viewController: viewController)

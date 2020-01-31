@@ -20,9 +20,15 @@ final class IcoViewController: UIViewController, IcoPresentable, IcoViewControll
 
     weak var listener: IcoPresentableListener?
     
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .gray
+        
+        
+    }
+    @IBAction func segmentControl(_ sender: UISegmentedControl) {
     }
 }

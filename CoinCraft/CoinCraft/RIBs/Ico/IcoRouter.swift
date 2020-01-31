@@ -20,8 +20,22 @@ protocol IcoViewControllable: ViewControllable {
 final class IcoRouter: ViewableRouter<IcoInteractable, IcoViewControllable>, IcoRouting {
 
     // TODO: Constructor inject child builder protocols to allow building children.
-    override init(interactor: IcoInteractable, viewController: IcoViewControllable) {
+    init(interactor: IcoInteractable, viewController: IcoViewControllable, innerViews: [SegmentInnerView]) {
+        
+        self.segmentInnerViews = innerViews
+        
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
+    }
+    
+    private var segmentInnerViews: [SegmentInnerView]
+    
+    override func didLoad() {
+        super.didLoad()
+        
+        
+        
+        
+        
     }
 }

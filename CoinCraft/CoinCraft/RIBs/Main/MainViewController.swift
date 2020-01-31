@@ -11,31 +11,43 @@ import RxSwift
 import UIKit
 
 protocol MainPresentableListener: class {
-    // TODO: Declare properties and methods that the view controller can invoke to perform
-    // business logic, such as signIn(). This protocol is implemented by the corresponding
-    // interactor class.
+    func convertTitle(selectView: UIViewController)
 }
 
-//final class MainViewController: UIViewController, MainPresentable, MainViewControllable {
-//
-//    weak var listener: MainPresentableListener?
-//    
-//    private var mainTabBarController = UITabBarController()
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        
-//        view.backgroundColor = .green
-//        
-//        
-//        self.mainTabBarController.setViewControllers([], animated: false)
-//        self.mainTabBarController.tabBar.barTintColor = .white
-//        self.mainTabBarController.delegate = self
-//        self.view.addSubview(self.mainTabBarController.view)
-//    }
-//}
-//
-//// MARK: - UITabbarControllerDelegate
-//extension MainViewController: UITabBarControllerDelegate {
-//    
-//}
+class MainViewController: UIViewController, MainViewControllable {
+    
+    weak var listener: MainPresentableListener?
+    private var tabbarInnerViews = [UIViewController]()
+    private var mainTabBarController = UITabBarController()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Coin"
+        
+        mainTabBarController.delegate = self
+        mainTabBarController.tabBar.barTintColor = .white
+        addChild(mainTabBarController)
+        mainTabBarController.view.frame = view.bounds
+        view.addSubview(mainTabBarController.view)
+    }
+    
+    func setTabbar(viewControllers: [UIViewController]) {
+        tabbarInnerViews = viewControllers
+        mainTabBarController.setViewControllers(tabbarInnerViews, animated: false)
+    }
+}
+
+// MARK: - MainPresentable
+extension MainViewController: MainPresentable {
+    func changeNavigationTitle(title: String) {
+        setTitle(title)
+    }
+}
+
+// MARK: - UITabbarControllerDelegate
+extension MainViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        listener?.convertTitle(selectView: viewController)
+    }
+}

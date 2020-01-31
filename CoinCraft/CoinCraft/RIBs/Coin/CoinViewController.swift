@@ -23,6 +23,5 @@ final class CoinViewController: UIViewController, CoinPresentable, CoinViewContr
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .yellow
     }
 }

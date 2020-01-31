@@ -30,7 +30,6 @@ extension RootComponent: MainDependency {
 }
 
 // MARK: - Builder
-
 protocol RootBuildable: Buildable {
     func build() -> LaunchRouting
 }

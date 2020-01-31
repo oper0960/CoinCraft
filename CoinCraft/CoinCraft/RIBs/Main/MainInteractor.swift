@@ -10,25 +10,26 @@ import RIBs
 import RxSwift
 
 protocol MainRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
     func convertTabbarInnerViews(innerViews: [TabbarInnerView])
 }
 
 protocol MainPresentable: Presentable {
     var listener: MainPresentableListener? { get set }
+    
+    func changeNavigationTitle(title: String)
 }
 
 protocol MainListener: class {
-    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    
 }
 
-final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteractable, MainPresentableListener {
+final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteractable {
 
     weak var router: MainRouting?
     weak var listener: MainListener?
+    
+    private var tabbarInnerViews: [TabbarInnerView]
 
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
     init(presenter: MainPresentable, tabbarViews: [TabbarInnerView]) {
         
         self.tabbarInnerViews = tabbarViews
@@ -44,8 +45,11 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
 
     override func willResignActive() {
         super.willResignActive()
-        
     }
-    
-    private var tabbarInnerViews: [TabbarInnerView]
+}
+
+extension MainInteractor: MainPresentableListener {
+    func convertTitle(selectView: UIViewController) {
+        presenter.changeNavigationTitle(title: tabbarInnerViews[selectView.tabBarItem.tag].name)
+    }
 }

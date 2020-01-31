@@ -44,6 +44,6 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         let main = mainBuilder.build(withListener: interactor)
         self.mainRouter = main
         attachChild(main)
-        viewController.present(viewController: main.viewControllable)
+        viewController.present(viewController: UINavigationController(root: main.viewControllable).defaultNavigation())
     }
 }

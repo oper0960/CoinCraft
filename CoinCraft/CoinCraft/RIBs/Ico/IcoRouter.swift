@@ -8,34 +8,32 @@
 
 import RIBs
 
-protocol IcoInteractable: Interactable {
+protocol IcoInteractable: Interactable, SegmentInnerViewListener {
     var router: IcoRouting? { get set }
     var listener: IcoListener? { get set }
 }
 
 protocol IcoViewControllable: ViewControllable {
-    // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+    func swichingViewController(viewController: ViewControllable)
 }
 
-final class IcoRouter: ViewableRouter<IcoInteractable, IcoViewControllable>, IcoRouting {
-
-    // TODO: Constructor inject child builder protocols to allow building children.
-    init(interactor: IcoInteractable, viewController: IcoViewControllable, innerViews: [SegmentInnerView]) {
-        
-        self.segmentInnerViews = innerViews
-        
+final class IcoRouter: ViewableRouter<IcoInteractable, IcoViewControllable> {
+    
+    override init(interactor: IcoInteractable, viewController: IcoViewControllable) {
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
     
-    private var segmentInnerViews: [SegmentInnerView]
-    
     override func didLoad() {
         super.didLoad()
-        
-        
-        
-        
-        
+    }
+}
+
+extension IcoRouter: IcoRouting {
+    func swichingSegmentInnerViews(innerViews: [SegmentInnerView], index: IcoType) {
+        let builder = innerViews[index.rawValue].builder
+        let router = builder.build(withListener: interactor)
+        router.viewControllable.uiviewController.view.tag = index.rawValue
+        viewController.swichingViewController(viewController: router.viewControllable)
     }
 }

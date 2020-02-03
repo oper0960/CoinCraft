@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IcoViewController">
             <connections>
                 <outlet property="segmentControl" destination="EnS-he-SVy" id="rZ9-4E-q4E"/>
+                <outlet property="subViewContainer" destination="hJs-bR-DFz" id="mC4-xu-10W"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jYO-eb-xeE"/>
             </connections>
         </placeholder>
@@ -30,12 +31,20 @@
                         <action selector="segmentControl:" destination="-1" eventType="valueChanged" id="1x0-xF-3oC"/>
                     </connections>
                 </segmentedControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJs-bR-DFz">
+                    <rect key="frame" x="0.0" y="75" width="414" height="787"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="EnS-he-SVy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Cb8-IU-cjn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hJs-bR-DFz" secondAttribute="trailing" id="D9J-bt-XwH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hJs-bR-DFz" secondAttribute="bottom" id="LvI-sU-dVD"/>
+                <constraint firstItem="hJs-bR-DFz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Mw2-88-1ai"/>
                 <constraint firstItem="EnS-he-SVy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="WFm-vl-i4V"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EnS-he-SVy" secondAttribute="trailing" id="agc-2d-GzK"/>
+                <constraint firstItem="hJs-bR-DFz" firstAttribute="top" secondItem="EnS-he-SVy" secondAttribute="bottom" id="fKa-QR-p2U"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="130" y="153"/>

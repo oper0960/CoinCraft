@@ -10,26 +10,30 @@ import RIBs
 import RxSwift
 
 protocol IcoRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func swichingSegmentInnerViews(innerViews: [SegmentInnerView], index: IcoType)
 }
 
 protocol IcoPresentable: Presentable {
     var listener: IcoPresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
+    
+    func setSegment(innerViews: [SegmentInnerView])
 }
 
 protocol IcoListener: class {
-    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    
 }
 
-final class IcoInteractor: PresentableInteractor<IcoPresentable>, IcoInteractable, IcoPresentableListener {
+final class IcoInteractor: PresentableInteractor<IcoPresentable> {
 
     weak var router: IcoRouting?
     weak var listener: IcoListener?
-
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
-    override init(presenter: IcoPresentable) {
+    
+    private var segmentInnerViews: [SegmentInnerView]
+    
+    init(presenter: IcoPresentable, innerViews: [SegmentInnerView]) {
+        
+        self.segmentInnerViews = innerViews
+        
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -42,5 +46,23 @@ final class IcoInteractor: PresentableInteractor<IcoPresentable>, IcoInteractabl
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+}
+
+// MARK: - IcoPresentable
+extension IcoInteractor: IcoInteractable {
+    
+}
+
+// MARK: - IcoPresentableListener
+extension IcoInteractor: IcoPresentableListener {
+    func getSegmentInfo() {
+        presenter.setSegment(innerViews: segmentInnerViews)
+    }
+    
+    func convertIndexToVC(index: IcoType) {
+        if index != .none {
+            router?.swichingSegmentInnerViews(innerViews: segmentInnerViews, index: index)
+        }
     }
 }

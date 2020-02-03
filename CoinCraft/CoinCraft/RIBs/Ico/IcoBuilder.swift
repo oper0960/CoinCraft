@@ -35,8 +35,8 @@ final class IcoBuilder: Builder<IcoDependency>, IcoBuildable {
     func build(withListener listener: IcoListener) -> IcoRouting {
         let component = IcoComponent(dependency: dependency)
         let viewController = IcoViewController()
-        let interactor = IcoInteractor(presenter: viewController)
+        let interactor = IcoInteractor(presenter: viewController, innerViews: component.segmentInnerViews)
         interactor.listener = listener
-        return IcoRouter(interactor: interactor, viewController: viewController, innerViews: component.segmentInnerViews)
+        return IcoRouter(interactor: interactor, viewController: viewController)
     }
 }

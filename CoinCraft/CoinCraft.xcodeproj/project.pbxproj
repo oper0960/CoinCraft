@@ -54,6 +54,8 @@
 		EF880BF023E435A000068CEC /* SegmentInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BEF23E435A000068CEC /* SegmentInnerView.swift */; };
 		EF880BF223E435B400068CEC /* ActiveAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BF123E435B400068CEC /* ActiveAdapter.swift */; };
 		EF880BF423E435C000068CEC /* UpcomingAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BF323E435C000068CEC /* UpcomingAdapter.swift */; };
+		EF880BFA23E7EFD700068CEC /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BF823E7EFD700068CEC /* CoinTableViewCell.swift */; };
+		EF880BFB23E7EFD700068CEC /* CoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880BF923E7EFD700068CEC /* CoinTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +110,8 @@
 		EF880BEF23E435A000068CEC /* SegmentInnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentInnerView.swift; sourceTree = "<group>"; };
 		EF880BF123E435B400068CEC /* ActiveAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveAdapter.swift; sourceTree = "<group>"; };
 		EF880BF323E435C000068CEC /* UpcomingAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingAdapter.swift; sourceTree = "<group>"; };
+		EF880BF823E7EFD700068CEC /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
+		EF880BF923E7EFD700068CEC /* CoinTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,9 @@
 		EF880B6723E2ABA400068CEC /* Ico */ = {
 			isa = PBXGroup;
 			children = (
+				EF880BF723E7EFC500068CEC /* View */,
+				EF880BF523E7EEA800068CEC /* Network */,
+				EF880BF623E7EEAE00068CEC /* ViewModel */,
 				EF880B8123E2B5AD00068CEC /* IcoRouter.swift */,
 				EF880B8423E2B5AD00068CEC /* IcoInteractor.swift */,
 				EF880B8323E2B5AD00068CEC /* IcoBuilder.swift */,
@@ -299,6 +306,29 @@
 			path = UpComing;
 			sourceTree = "<group>";
 		};
+		EF880BF523E7EEA800068CEC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EF880BF623E7EEAE00068CEC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF880BF723E7EFC500068CEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF880BF823E7EFD700068CEC /* CoinTableViewCell.swift */,
+				EF880BF923E7EFD700068CEC /* CoinTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -367,6 +397,7 @@
 				EF880B8023E2B59F00068CEC /* CoinViewController.xib in Resources */,
 				EF880B9423E2B5BA00068CEC /* AboutViewController.xib in Resources */,
 				EF880B8A23E2B5AD00068CEC /* IcoViewController.xib in Resources */,
+				EF880BFB23E7EFD700068CEC /* CoinTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +459,7 @@
 				EF880B9323E2B5BA00068CEC /* AboutInteractor.swift in Sources */,
 				EF880B9E23E2C54800068CEC /* ActiveBuilder.swift in Sources */,
 				EF880BF023E435A000068CEC /* SegmentInnerView.swift in Sources */,
+				EF880BFA23E7EFD700068CEC /* CoinTableViewCell.swift in Sources */,
 				EF880B9123E2B5BA00068CEC /* AboutViewController.swift in Sources */,
 				EF880BA723E2C55400068CEC /* UpComingViewController.swift in Sources */,
 				EF880B9D23E2C54800068CEC /* ActiveViewController.swift in Sources */,

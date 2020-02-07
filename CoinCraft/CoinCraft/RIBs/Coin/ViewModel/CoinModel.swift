@@ -44,8 +44,8 @@ struct Coin: Codable {
     }
 }
 
-struct AllCoinResponse: Decodable {
-    let allCoins: [AllCoin]
+struct CryptoCompareResponse: Decodable {
+    let coins: [CompareCoin]
     
     enum CodingKeys: String, CodingKey {
         case data = "Data"
@@ -53,13 +53,12 @@ struct AllCoinResponse: Decodable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        let data = try values.decode(Dictionary<String,AllCoin>.self, forKey: .data)
-        allCoins = Array(data.values)
-//        print(data)
+        let data = try values.decode(Dictionary<String,CompareCoin>.self, forKey: .data)
+        coins = Array(data.values)
     }
 }
 
-struct AllCoin: Decodable {
+struct CompareCoin: Decodable {
     let id: String?
     let url: String?
     let imageUrl: String?

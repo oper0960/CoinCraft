@@ -14,12 +14,12 @@ protocol RootInteractable: Interactable, MainListener {
 }
 
 protocol RootViewControllable: ViewControllable {
+    // MARK: - To ViewController
     func present(viewController: ViewControllable)
     func dismiss(viewController: ViewControllable)
-    func replaceModal(viewController: ViewControllable?)
 }
 
-final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
+final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable> {
 
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: RootInteractable,
@@ -37,7 +37,6 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     
     override func didLoad() {
         super.didLoad()
-        routeMain()
     }
     
     private func routeMain() {
@@ -45,5 +44,11 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         self.mainRouter = main
         attachChild(main)
         viewController.present(viewController: UINavigationController(root: main.viewControllable).defaultNavigation())
+    }
+}
+
+extension RootRouter: RootRouting {
+    func routeToMain() {
+        routeMain()
     }
 }

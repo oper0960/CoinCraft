@@ -10,22 +10,28 @@ import RIBs
 import RxSwift
 
 protocol RootRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    // MARK: - To Router
+    func routeToMain()
 }
 
 protocol RootPresentable: Presentable {
     var listener: RootPresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
+    
+    // MARK: - To ViewController
+    func setProgressBar(percent: Double)
+    func stopLoadingView()
 }
 
 protocol RootListener: class {
-    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    // MARK: - To Other Router
 }
 
-final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener {
+final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable {
 
     weak var router: RootRouting?
     weak var listener: RootListener?
+    
+    private let repository = CoinRepositoryFactory.create(type: .remote)
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
@@ -42,5 +48,18 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+}
+
+extension RootInteractor: RootPresentableListener {
+    func getCryptoCompareList() {
+        repository.getCryptoCompareList(progressBar: { progress in
+            if progress == 1.0 {
+                self.presenter.stopLoadingView()
+            }
+        }) { coins in
+            Global.current.cryptoCoins = coins.coins
+            self.router?.routeToMain()
+        }
     }
 }

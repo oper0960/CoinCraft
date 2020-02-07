@@ -24,54 +24,65 @@ class NetworkService {
         
         Alamofire.request(reqURL, method: method, parameters: parameters,
                           encoding: method == .get ? URLEncoding(destination: .methodDependent) : JSONEncoding.default,
-                          headers: headers).validate().responseData{ response in
-                            switch response.result{
-                            case .success:
-                                if let data = response.data {
-                                    do {
-//                                        print(JSON(data))
-                                        let decodedData = try JSONDecoder().decode(T.self, from: data)
-                                        success(decodedData)
-                                    } catch let error {
-                                        print(error)
-                                    }
-                                }
-                            case .failure:
-                                failed?(response.error!.localizedDescription)
-                                print("error : \(response.error!.localizedDescription)")
-                            }
+                          headers: headers)
+            .validate()
+            .responseData{ response in
+                switch response.result{
+                case .success:
+                    if let data = response.data {
+                        do {
+                            success(try JSONDecoder().decode(T.self, from: data))
+                        } catch let error {
+                            print(error)
+                        }
+                    }
+                case .failure:
+                    failed?(response.error!.localizedDescription)
+                    print("error : \(response.error!.localizedDescription)")
+                }
         }
     }
     
-    static func progressRequest<T: Decodable>(method: HTTPMethod, reqURL: String, parameters: DictionaryType, headers: HeadersType, failed: ((String) -> (Void))? = nil, success: @escaping (T) -> (Void)) {
-            
-            #if DEBUG
-            print("전송 URL :",reqURL)
-            print("전송 파라미터 :",parameters)
-            print("전송 헤더 :",headers)
-            #endif
-            
-            Alamofire.request(reqURL, method: method, parameters: parameters,
-                              encoding: method == .get ? URLEncoding(destination: .methodDependent) : JSONEncoding.default,
-                              headers: headers).downloadProgress(closure: { pregress in
-                                print(pregress.fractionCompleted)
-                              }).validate().responseData{ response in
-                                switch response.result{
-                                case .success:
-                                    if let data = response.data {
-                                        do {
-                                            let decodedData = try JSONDecoder().decode(T.self, from: data)
-                                            success(decodedData)
-                                        } catch let error {
-                                            print(error)
-                                        }
-                                    }
-                                case .failure:
-                                    failed?(response.error!.localizedDescription)
-                                    print("error : \(response.error!.localizedDescription)")
-                                }
-            }
+    static func progressRequest<T: Decodable>(method: HTTPMethod,
+                                              reqURL: String,
+                                              parameters: DictionaryType,
+                                              headers: HeadersType,
+                                              progressBar: @escaping (Double) -> (Void),
+                                              failed: ((String) -> (Void))? = nil,
+                                              success: @escaping (T) -> (Void)) {
+        
+        #if DEBUG
+        print("전송 URL :",reqURL)
+        print("전송 파라미터 :",parameters)
+        print("전송 헤더 :",headers)
+        #endif
+        
+        var header = headers
+        header.updateValue("Content-Length", forKey: "Content-Length")
+        
+        Alamofire.request(reqURL, method: method, parameters: parameters,
+                          encoding: method == .get ? URLEncoding(destination: .methodDependent) : JSONEncoding.default,
+                          headers: headers)
+            .downloadProgress(queue: DispatchQueue.global(qos: .utility), closure: { progress in
+                progressBar(progress.fractionCompleted)
+            })
+            .validate()
+            .responseData{ response in
+                switch response.result{
+                case .success:
+                    if let data = response.data {
+                        do {
+                            success(try JSONDecoder().decode(T.self, from: data))
+                        } catch let error {
+                            print(error)
+                        }
+                    }
+                case .failure:
+                    failed?(response.error!.localizedDescription)
+                    print("error : \(response.error!.localizedDescription)")
+                }
         }
+    }
 }
 
 struct Constants {

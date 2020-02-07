@@ -15,7 +15,7 @@ class IndicatorView {
     private var animationView = AnimationView()
     
     enum IndicatorType {
-        case loading
+        case launch, loading
     }
     
     init(type: IndicatorType) {
@@ -26,8 +26,10 @@ class IndicatorView {
     
     func play(superView: UIView) {
         switch type {
+        case .launch:
+            animationView = AnimationView(name: "LaunchLoading")
         case .loading:
-            animationView = AnimationView(name: "14975-loading")
+            animationView = AnimationView(name: "NormalLoading")
         }
         
         animationView.contentMode = .scaleAspectFill
@@ -40,11 +42,15 @@ class IndicatorView {
             $0.width.equalTo(50)
         }
         animationView.loopMode = .loop
-        animationView.play()
+        DispatchQueue.main.async {
+            self.animationView.play()
+        }
     }
     
     func stop() {
-        animationView.stop()
-        animationView.removeFromSuperview()
+        DispatchQueue.main.async {
+            self.animationView.stop()
+            self.animationView.removeFromSuperview()
+        }
     }
 }

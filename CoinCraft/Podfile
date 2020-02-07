@@ -7,8 +7,12 @@ target 'CoinCraft' do
 
   pod 'RIBs', :path => 'RIBsLib'
   pod 'RxCocoa', '~> 5.0.0'
+  pod 'RxSwift', '~> 5.0.0'
   pod 'SnapKit'
   pod 'Alamofire'
+  pod 'lottie-ios'
+  pod 'Kingfisher'
+  pod 'SwiftyJSON'
 
   # Pods for CoinCraft
 

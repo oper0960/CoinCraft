@@ -26,7 +26,7 @@ class MainViewController: UIViewController, MainViewControllable {
         title = "Coin"
         
         mainTabBarController.delegate = self
-        mainTabBarController.tabBar.barTintColor = .lightGray
+        mainTabBarController.tabBar.barTintColor = .black
         addChild(mainTabBarController)
         mainTabBarController.view.frame = view.bounds
         view.addSubview(mainTabBarController.view)

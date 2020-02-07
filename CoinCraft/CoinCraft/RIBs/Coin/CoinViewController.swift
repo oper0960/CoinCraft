@@ -8,20 +8,100 @@
 
 import RIBs
 import RxSwift
+import RxCocoa
 import UIKit
+import Lottie
 
 protocol CoinPresentableListener: class {
-    // TODO: Declare properties and methods that the view controller can invoke to perform
-    // business logic, such as signIn(). This protocol is implemented by the corresponding
-    // interactor class.
+    func getCoinList()
+    func getAllCoinList()
+    func routeToDetail(coin: CoinViewModel)
 }
 
-final class CoinViewController: UIViewController, CoinPresentable, CoinViewControllable {
+final class CoinViewController: UIViewController, CoinViewControllable {
 
     weak var listener: CoinPresentableListener?
     
+    @IBOutlet weak var coinTableView: UITableView!
+    
+    private let indicator = IndicatorView(type: .loading)
+    private var coins = [CoinViewModel]() {
+        didSet {
+            coinTableView.reloadData()
+        }
+    }
+    
+    let refresh = UIRefreshControl()
+    let disposeBag = DisposeBag()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        coinTableView.register(UINib(nibName: "CoinTableViewCell", bundle: nil), forCellReuseIdentifier: "coinCell")
+        coinTableView.delegate = self
+        coinTableView.dataSource = self
+        coinTableView.refreshControl = refresh
+        
+        indicator.play(superView: self.view)
+//        listener?.getCoinList()
+        listener?.getAllCoinList()
+        
+        setRx()
+    }
+    
+    private func setRx() {
+        
+        coinTableView.rx
+            .itemSelected
+            .subscribe { [weak self] event in
+                guard let self = self else { return }
+                switch event {
+                case .next(let indexPath):
+                    self.listener?.routeToDetail(coin: self.coins[indexPath.row])
+                case .error(let error):
+                    print(error)
+                case .completed:
+                    break
+                }
+        }.disposed(by: disposeBag)
+        
+        refresh.rx
+            .controlEvent(.valueChanged)
+            .subscribe { [weak self] _ in
+                self?.listener?.getCoinList()
+                self?.refresh.endRefreshing()
+        }.disposed(by: disposeBag)
+    }
+}
+
+extension CoinViewController: CoinPresentable {
+    func setCoinList(coins: [CoinViewModel]) {
+        self.coins = coins
+        indicator.stop()
+    }
+}
+
+extension CoinViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return coins.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let coinCell = tableView.dequeueReusableCell(withIdentifier: "coinCell", for: indexPath) as! CoinTableViewCell
+        let coin = coins[indexPath.row]
+        coinCell.bind(coin: coin)
+        return coinCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
 }

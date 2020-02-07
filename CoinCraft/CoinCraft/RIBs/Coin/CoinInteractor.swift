@@ -10,22 +10,25 @@ import RIBs
 import RxSwift
 
 protocol CoinRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    
 }
 
 protocol CoinPresentable: Presentable {
     var listener: CoinPresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
+    
+    func setCoinList(coins: [CoinViewModel])
 }
 
 protocol CoinListener: class {
-    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    
 }
 
-final class CoinInteractor: PresentableInteractor<CoinPresentable>, CoinInteractable, CoinPresentableListener {
-
+final class CoinInteractor: PresentableInteractor<CoinPresentable>, CoinInteractable {
+    
     weak var router: CoinRouting?
     weak var listener: CoinListener?
+    
+    private let repository = CoinRepositoryFactory.create(type: .remote)
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
@@ -42,5 +45,23 @@ final class CoinInteractor: PresentableInteractor<CoinPresentable>, CoinInteract
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+}
+
+extension CoinInteractor: CoinPresentableListener {
+    func getAllCoinList() {
+        repository.getAllList { response in
+//            print(response)
+        }
+    }
+    
+    func getCoinList() {
+        repository.getAll { coins in
+            self.presenter.setCoinList(coins: coins)
+        }
+    }
+    
+    func routeToDetail(coin: CoinViewModel) {
+        print("detail", coin)
     }
 }

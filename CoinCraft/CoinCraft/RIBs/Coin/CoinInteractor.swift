@@ -16,6 +16,7 @@ protocol CoinRouting: ViewableRouting {
 protocol CoinPresentable: Presentable {
     var listener: CoinPresentableListener? { get set }
     
+    // MARK: - To ViewController
     func setCoinList(coins: [CoinViewModel])
 }
 
@@ -49,14 +50,8 @@ final class CoinInteractor: PresentableInteractor<CoinPresentable>, CoinInteract
 }
 
 extension CoinInteractor: CoinPresentableListener {
-    func getAllCoinList() {
-        repository.getAllList { response in
-//            print(response)
-        }
-    }
-    
-    func getCoinList() {
-        repository.getAll { coins in
+    func getCoinMarketCapList() {
+        repository.getCoinMarketCapList { coins in
             self.presenter.setCoinList(coins: coins)
         }
     }

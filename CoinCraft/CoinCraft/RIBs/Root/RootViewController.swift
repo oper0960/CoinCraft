@@ -11,16 +11,15 @@ import RxSwift
 import UIKit
 
 protocol RootPresentableListener: class {
-    
-    
+    // MARK: - To Interactor
+    func getCryptoCompareList()
 }
 
 final class RootViewController: UIViewController {
 
     weak var listener: RootPresentableListener?
     
-    private var targetViewController: ViewControllable?
-    
+    private let indicator = IndicatorView(type: .launch)
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -32,13 +31,21 @@ final class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.red
+        
+        indicator.play(superView: self.view)
+        listener?.getCryptoCompareList()
     }
 }
 
 // MARK: - RootPresentable
 extension RootViewController: RootPresentable {
+    func setProgressBar(percent: Double) {
+        print(percent)
+    }
     
+    func stopLoadingView() {
+        indicator.stop()
+    }
 }
 
 // MARK: - RootViewControllable
@@ -51,24 +58,6 @@ extension RootViewController: RootViewControllable {
     func dismiss(viewController: ViewControllable) {
         if presentedViewController === viewController.uiviewController {
             dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    func replaceModal(viewController: ViewControllable?) {
-        targetViewController = viewController
-        
-        if presentedViewController != nil {
-            dismiss(animated: true) { [weak self] in
-                self?.presentTargetViewController()
-            }
-        } else {
-            presentTargetViewController()
-        }
-    }
-    
-    private func presentTargetViewController() {
-        if let targetViewController = targetViewController {
-            present(targetViewController.uiviewController, animated: true, completion: nil)
         }
     }
 }

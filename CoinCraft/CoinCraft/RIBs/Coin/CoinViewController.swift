@@ -13,8 +13,7 @@ import UIKit
 import Lottie
 
 protocol CoinPresentableListener: class {
-    func getCoinList()
-    func getAllCoinList()
+    func getCoinMarketCapList()
     func routeToDetail(coin: CoinViewModel)
 }
 
@@ -46,8 +45,7 @@ final class CoinViewController: UIViewController, CoinViewControllable {
         coinTableView.refreshControl = refresh
         
         indicator.play(superView: self.view)
-//        listener?.getCoinList()
-        listener?.getAllCoinList()
+        listener?.getCoinMarketCapList()
         
         setRx()
     }
@@ -71,7 +69,7 @@ final class CoinViewController: UIViewController, CoinViewControllable {
         refresh.rx
             .controlEvent(.valueChanged)
             .subscribe { [weak self] _ in
-                self?.listener?.getCoinList()
+                self?.listener?.getCoinMarketCapList()
                 self?.refresh.endRefreshing()
         }.disposed(by: disposeBag)
     }

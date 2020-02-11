@@ -1,5 +1,5 @@
 //
-//  IcoModel.swift
+//  GeneralViewModel.swift
 //  CoinCraft
 //
 //  Created by Buxi on 2020/02/11.
@@ -7,4 +7,5 @@
 //
 
 import UIKit
+
 

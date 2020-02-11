@@ -49,12 +49,12 @@ final class GeneralInteractor: PresentableInteractor<GeneralPresentable> {
     }
 }
 
-// MARK: - IcoPresentable
+// MARK: - GeneralInteractable
 extension GeneralInteractor: GeneralInteractable {
     
 }
 
-// MARK: - IcoPresentableListener
+// MARK: - GeneralPresentableListener
 extension GeneralInteractor: GeneralPresentableListener {
     func getSegmentInfo() {
         presenter.setSegment(innerViews: segmentInnerViews)

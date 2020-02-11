@@ -1,5 +1,5 @@
 //
-//  IcoAdapter.swift
+//  GeneralAdapter.swift
 //  CoinCraft
 //
 //  Created by Buxi on 2020/01/30.

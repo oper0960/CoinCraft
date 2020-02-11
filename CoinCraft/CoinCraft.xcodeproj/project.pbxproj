@@ -252,7 +252,7 @@
 				EF880B5D23E2A43500068CEC /* Root */,
 				EF880B6923E2ABC100068CEC /* Main */,
 				EF880B6623E2AB9700068CEC /* Coin */,
-				EF880B6723E2ABA400068CEC /* Ico */,
+				EF880B6723E2ABA400068CEC /* General */,
 				EF880B6823E2ABAE00068CEC /* About */,
 			);
 			path = RIBs;
@@ -281,16 +281,16 @@
 			path = Coin;
 			sourceTree = "<group>";
 		};
-		EF880B6723E2ABA400068CEC /* Ico */ = {
+		EF880B6723E2ABA400068CEC /* General */ = {
 			isa = PBXGroup;
 			children = (
 				EF880C4923F2A1FC00068CEC /* Repository */,
 				EF880C4A23F2A20900068CEC /* ViewModel */,
-				EF880C4823F2A1E400068CEC /* Ico */,
+				EF880C4823F2A1E400068CEC /* General */,
 				EF880C5123F2B4F400068CEC /* News */,
 				EF880C5223F2B4F900068CEC /* Social */,
 			);
-			path = Ico;
+			path = General;
 			sourceTree = "<group>";
 		};
 		EF880B6823E2ABAE00068CEC /* About */ = {
@@ -442,7 +442,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		EF880C4823F2A1E400068CEC /* Ico */ = {
+		EF880C4823F2A1E400068CEC /* General */ = {
 			isa = PBXGroup;
 			children = (
 				EF880B8123E2B5AD00068CEC /* GeneralRouter.swift */,
@@ -454,7 +454,7 @@
 				EF880BF123E435B400068CEC /* NewsAdapter.swift */,
 				EF880BF323E435C000068CEC /* SocialAdapter.swift */,
 			);
-			path = Ico;
+			path = General;
 			sourceTree = "<group>";
 		};
 		EF880C4923F2A1FC00068CEC /* Repository */ = {

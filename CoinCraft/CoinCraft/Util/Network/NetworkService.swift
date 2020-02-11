@@ -102,7 +102,7 @@ struct Constants {
         }
     }
     
-    struct Ico {
+    struct General {
         struct Active {
             private static let baseUrl = "https://chasing-coins.com"
             static let list = "\(baseUrl)/api/v1/icos/active"

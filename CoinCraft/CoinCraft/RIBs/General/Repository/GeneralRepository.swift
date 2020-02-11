@@ -1,5 +1,5 @@
 //
-//  IcoRepository.swift
+//  GeneralRepository.swift
 //  CoinCraft
 //
 //  Created by Buxi on 2020/02/11.

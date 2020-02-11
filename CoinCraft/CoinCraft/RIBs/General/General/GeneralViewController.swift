@@ -41,7 +41,7 @@ extension GeneralViewController {
     }
 }
 
-// MARK: - IcoPresentable
+// MARK: - GeneralPresentable
 extension GeneralViewController: GeneralPresentable {
     func setSegment(innerViews: [SegmentInnerView]) {
         segmentControl.removeAllSegments()
@@ -52,7 +52,7 @@ extension GeneralViewController: GeneralPresentable {
     }
 }
 
-// MARK: - IcoViewControllable
+// MARK: - GeneralViewControllable
 extension GeneralViewController: GeneralViewControllable {
     func swichingViewController(viewController: ViewControllable) {
         if let subview = subViewContainer.subviews.first {

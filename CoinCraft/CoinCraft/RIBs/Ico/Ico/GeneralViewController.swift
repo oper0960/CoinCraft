@@ -1,5 +1,5 @@
 //
-//  IcoViewController.swift
+//  GeneralViewController.swift
 //  CoinCraft
 //
 //  Created by Buxi on 2020/01/30.
@@ -11,18 +11,18 @@ import RxSwift
 import UIKit
 import SnapKit
 
-enum IcoType: Int {
+enum GeneralType: Int {
     case active, upcoming, none
 }
 
-protocol IcoPresentableListener: class {
-    func convertIndexToVC(index: IcoType)
+protocol GeneralPresentableListener: class {
+    func convertIndexToVC(index: GeneralType)
     func getSegmentInfo()
 }
 
-final class IcoViewController: UIViewController {
+final class GeneralViewController: UIViewController {
 
-    weak var listener: IcoPresentableListener?
+    weak var listener: GeneralPresentableListener?
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var subViewContainer: UIView!
@@ -35,14 +35,14 @@ final class IcoViewController: UIViewController {
 }
 
 // MARK: - Event
-extension IcoViewController {
+extension GeneralViewController {
     @IBAction func segmentControl(_ sender: UISegmentedControl) {
-        listener?.convertIndexToVC(index: IcoType(rawValue: sender.selectedSegmentIndex) ?? .none)
+        listener?.convertIndexToVC(index: GeneralType(rawValue: sender.selectedSegmentIndex) ?? .none)
     }
 }
 
 // MARK: - IcoPresentable
-extension IcoViewController: IcoPresentable {
+extension GeneralViewController: GeneralPresentable {
     func setSegment(innerViews: [SegmentInnerView]) {
         segmentControl.removeAllSegments()
         for (index, view) in innerViews.enumerated() {
@@ -53,7 +53,7 @@ extension IcoViewController: IcoPresentable {
 }
 
 // MARK: - IcoViewControllable
-extension IcoViewController: IcoViewControllable {
+extension GeneralViewController: GeneralViewControllable {
     func swichingViewController(viewController: ViewControllable) {
         if let subview = subViewContainer.subviews.first {
             if subview.tag != segmentControl.selectedSegmentIndex {

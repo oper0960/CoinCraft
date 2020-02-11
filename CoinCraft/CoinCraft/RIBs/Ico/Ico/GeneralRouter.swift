@@ -1,5 +1,5 @@
 //
-//  IcoRouter.swift
+//  GeneralRouter.swift
 //  CoinCraft
 //
 //  Created by Buxi on 2020/01/30.
@@ -8,18 +8,18 @@
 
 import RIBs
 
-protocol IcoInteractable: Interactable, SegmentInnerViewListener {
-    var router: IcoRouting? { get set }
-    var listener: IcoListener? { get set }
+protocol GeneralInteractable: Interactable, SegmentInnerViewListener {
+    var router: GeneralRouting? { get set }
+    var listener: GeneralListener? { get set }
 }
 
-protocol IcoViewControllable: ViewControllable {
+protocol GeneralViewControllable: ViewControllable {
     func swichingViewController(viewController: ViewControllable)
 }
 
-final class IcoRouter: ViewableRouter<IcoInteractable, IcoViewControllable> {
+final class GeneralRouter: ViewableRouter<GeneralInteractable, GeneralViewControllable> {
     
-    override init(interactor: IcoInteractable, viewController: IcoViewControllable) {
+    override init(interactor: GeneralInteractable, viewController: GeneralViewControllable) {
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
@@ -29,8 +29,8 @@ final class IcoRouter: ViewableRouter<IcoInteractable, IcoViewControllable> {
     }
 }
 
-extension IcoRouter: IcoRouting {
-    func swichingSegmentInnerViews(innerViews: [SegmentInnerView], index: IcoType) {
+extension GeneralRouter: GeneralRouting {
+    func swichingSegmentInnerViews(innerViews: [SegmentInnerView], index: GeneralType) {
         let builder = innerViews[index.rawValue].builder
         let router = builder.build(withListener: interactor)
         router.viewControllable.uiviewController.view.tag = index.rawValue

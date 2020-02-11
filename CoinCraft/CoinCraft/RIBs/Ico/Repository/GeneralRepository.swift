@@ -8,27 +8,27 @@
 
 import UIKit
 
-protocol IcoRepository {
+protocol GeneralRepository {
     func getActiveList()
     func getUpComingList()
 }
 
-enum IcoRepoType {
+enum GeneralRepoType {
     case remote, local
 }
 
-class IcoRepositoryFactory {
-    static func create(type: IcoRepoType) -> IcoRepository {
+class GeneralRepositoryFactory {
+    static func create(type: GeneralRepoType) -> GeneralRepository {
         switch type {
         case .remote:
-            return RemoteIcoRepository()
+            return RemoteGeneralRepository()
         case .local:
-            return LocalIcoRepository()
+            return LocalGeneralRepository()
         }
     }
 }
 
-class RemoteIcoRepository: IcoRepository {
+class RemoteGeneralRepository: GeneralRepository {
     func getActiveList() {
         
     }
@@ -39,7 +39,7 @@ class RemoteIcoRepository: IcoRepository {
 }
 
 // MARK: - Only Local Network (Not Usable)
-class LocalIcoRepository: IcoRepository {
+class LocalGeneralRepository: GeneralRepository {
     func getActiveList() {
         
     }

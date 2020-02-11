@@ -13,10 +13,10 @@ protocol MainDependency: Dependency {
     // created by this RIB.
 }
 
-final class MainComponent: Component<MainDependency>, CoinDependency, IcoDependency, AboutDependency {
+final class MainComponent: Component<MainDependency>, CoinDependency, GeneralDependency, AboutDependency {
     fileprivate var tabbarInnerViews: [TabbarInnerView] {
         return shared {
-            return [CoinAdapter(dependency: self), IcoAdapter(dependency: self), AboutAdapter(dependency: self)]
+            return [CoinAdapter(dependency: self), GeneralAdapter(dependency: self), AboutAdapter(dependency: self)]
         }
     }
 }

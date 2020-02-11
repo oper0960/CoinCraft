@@ -1,5 +1,5 @@
 //
-//  UpcomingAdapter.swift
+//  NewsAdapter.swift
 //  CoinCraft
 //
 //  Created by Buxi on 2020/01/31.
@@ -8,24 +8,24 @@
 
 import RIBs
 
-class UpComingAdapter: SegmentInnerView, SegmentBuildable, UpComingListener {
+class NewsAdapter: SegmentInnerView, SegmentBuildable, NewsListener {
 
-    let name = "UpComing"
+    let name = "News"
     
     var builder: SegmentBuildable {
         return self
     }
 
-    private let upcomingBuilder: UpComingBuilder
+    private let newsBuilder: NewsBuilder
 
     private weak var listener: SegmentInnerViewListener?
 
-    init(dependency: UpComingDependency) {
-        upcomingBuilder = UpComingBuilder(dependency: dependency)
+    init(dependency: NewsDependency) {
+        newsBuilder = NewsBuilder(dependency: dependency)
     }
 
     func build(withListener listener: SegmentInnerViewListener) -> ViewableRouting {
         self.listener = listener
-        return upcomingBuilder.build(withListener: self)
+        return newsBuilder.build(withListener: self)
     }
 }

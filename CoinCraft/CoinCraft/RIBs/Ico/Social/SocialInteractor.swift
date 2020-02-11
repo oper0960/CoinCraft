@@ -1,35 +1,35 @@
 //
-//  UpComingInteractor.swift
+//  SocialInteractor.swift
 //  CoinCraft
 //
-//  Created by Buxi on 2020/01/30.
+//  Created by Buxi on 2020/02/11.
 //  Copyright © 2020 Buxi. All rights reserved.
 //
 
 import RIBs
 import RxSwift
 
-protocol UpComingRouting: ViewableRouting {
+protocol SocialRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
 }
 
-protocol UpComingPresentable: Presentable {
-    var listener: UpComingPresentableListener? { get set }
+protocol SocialPresentable: Presentable {
+    var listener: SocialPresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
-protocol UpComingListener: class {
+protocol SocialListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class UpComingInteractor: PresentableInteractor<UpComingPresentable>, UpComingInteractable, UpComingPresentableListener {
+final class SocialInteractor: PresentableInteractor<SocialPresentable>, SocialInteractable, SocialPresentableListener {
 
-    weak var router: UpComingRouting?
-    weak var listener: UpComingListener?
+    weak var router: SocialRouting?
+    weak var listener: SocialListener?
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    override init(presenter: UpComingPresentable) {
+    override init(presenter: SocialPresentable) {
         super.init(presenter: presenter)
         presenter.listener = self
     }

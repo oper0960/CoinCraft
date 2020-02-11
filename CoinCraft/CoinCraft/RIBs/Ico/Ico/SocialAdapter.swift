@@ -1,5 +1,5 @@
 //
-//  ActiveAdapter.swift
+//  SocialAdapter.swift
 //  CoinCraft
 //
 //  Created by Buxi on 2020/01/31.
@@ -8,24 +8,24 @@
 
 import RIBs
 
-class ActiveAdapter: SegmentInnerView, SegmentBuildable, ActiveListener {
+class SocialAdapter: SegmentInnerView, SegmentBuildable, SocialListener {
 
-    let name = "Active"
+    let name = "Social"
     
     var builder: SegmentBuildable {
         return self
     }
 
-    private let activeBuilder: ActiveBuilder
+    private let socialBuilder: SocialBuilder
 
     private weak var listener: SegmentInnerViewListener?
 
-    init(dependency: ActiveDependency) {
-        activeBuilder = ActiveBuilder(dependency: dependency)
+    init(dependency: SocialDependency) {
+        socialBuilder = SocialBuilder(dependency: dependency)
     }
 
     func build(withListener listener: SegmentInnerViewListener) -> ViewableRouting {
         self.listener = listener
-        return activeBuilder.build(withListener: self)
+        return socialBuilder.build(withListener: self)
     }
 }

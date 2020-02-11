@@ -22,29 +22,19 @@
 		EF880B7E23E2B59F00068CEC /* CoinBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B7923E2B59F00068CEC /* CoinBuilder.swift */; };
 		EF880B7F23E2B59F00068CEC /* CoinInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B7A23E2B59F00068CEC /* CoinInteractor.swift */; };
 		EF880B8023E2B59F00068CEC /* CoinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880B7B23E2B59F00068CEC /* CoinViewController.xib */; };
-		EF880B8623E2B5AD00068CEC /* IcoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B8123E2B5AD00068CEC /* IcoRouter.swift */; };
-		EF880B8723E2B5AD00068CEC /* IcoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B8223E2B5AD00068CEC /* IcoViewController.swift */; };
-		EF880B8823E2B5AD00068CEC /* IcoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B8323E2B5AD00068CEC /* IcoBuilder.swift */; };
-		EF880B8923E2B5AD00068CEC /* IcoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B8423E2B5AD00068CEC /* IcoInteractor.swift */; };
-		EF880B8A23E2B5AD00068CEC /* IcoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880B8523E2B5AD00068CEC /* IcoViewController.xib */; };
+		EF880B8623E2B5AD00068CEC /* GeneralRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B8123E2B5AD00068CEC /* GeneralRouter.swift */; };
+		EF880B8723E2B5AD00068CEC /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B8223E2B5AD00068CEC /* GeneralViewController.swift */; };
+		EF880B8823E2B5AD00068CEC /* GeneralBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B8323E2B5AD00068CEC /* GeneralBuilder.swift */; };
+		EF880B8923E2B5AD00068CEC /* GeneralInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B8423E2B5AD00068CEC /* GeneralInteractor.swift */; };
+		EF880B8A23E2B5AD00068CEC /* GeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880B8523E2B5AD00068CEC /* GeneralViewController.xib */; };
 		EF880B9023E2B5BA00068CEC /* AboutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B8B23E2B5BA00068CEC /* AboutRouter.swift */; };
 		EF880B9123E2B5BA00068CEC /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B8C23E2B5BA00068CEC /* AboutViewController.swift */; };
 		EF880B9223E2B5BA00068CEC /* AboutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B8D23E2B5BA00068CEC /* AboutBuilder.swift */; };
 		EF880B9323E2B5BA00068CEC /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B8E23E2B5BA00068CEC /* AboutInteractor.swift */; };
 		EF880B9423E2B5BA00068CEC /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880B8F23E2B5BA00068CEC /* AboutViewController.xib */; };
-		EF880B9C23E2C54800068CEC /* ActiveRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B9723E2C54800068CEC /* ActiveRouter.swift */; };
-		EF880B9D23E2C54800068CEC /* ActiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B9823E2C54800068CEC /* ActiveViewController.swift */; };
-		EF880B9E23E2C54800068CEC /* ActiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B9923E2C54800068CEC /* ActiveBuilder.swift */; };
-		EF880B9F23E2C54800068CEC /* ActiveInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B9A23E2C54800068CEC /* ActiveInteractor.swift */; };
-		EF880BA023E2C54800068CEC /* ActiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880B9B23E2C54800068CEC /* ActiveViewController.xib */; };
-		EF880BA623E2C55400068CEC /* UpComingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BA123E2C55400068CEC /* UpComingRouter.swift */; };
-		EF880BA723E2C55400068CEC /* UpComingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BA223E2C55400068CEC /* UpComingViewController.swift */; };
-		EF880BA823E2C55400068CEC /* UpComingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BA323E2C55400068CEC /* UpComingBuilder.swift */; };
-		EF880BA923E2C55400068CEC /* UpComingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BA423E2C55400068CEC /* UpComingInteractor.swift */; };
-		EF880BAA23E2C55400068CEC /* UpComingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880BA523E2C55400068CEC /* UpComingViewController.xib */; };
 		EF880BAC23E2C9E600068CEC /* TabbarInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BAB23E2C9E600068CEC /* TabbarInnerView.swift */; };
 		EF880BAE23E2CA7700068CEC /* CoinAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BAD23E2CA7700068CEC /* CoinAdapter.swift */; };
-		EF880BB023E2CA8100068CEC /* IcoAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BAF23E2CA8100068CEC /* IcoAdapter.swift */; };
+		EF880BB023E2CA8100068CEC /* GeneralAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BAF23E2CA8100068CEC /* GeneralAdapter.swift */; };
 		EF880BB223E2CA8D00068CEC /* AboutAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BB123E2CA8D00068CEC /* AboutAdapter.swift */; };
 		EF880BE623E3FDC600068CEC /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BE123E3FDC600068CEC /* MainRouter.swift */; };
 		EF880BE723E3FDC600068CEC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BE223E3FDC600068CEC /* MainViewController.swift */; };
@@ -52,8 +42,8 @@
 		EF880BE923E3FDC600068CEC /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BE423E3FDC600068CEC /* MainInteractor.swift */; };
 		EF880BEA23E3FDC600068CEC /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880BE523E3FDC600068CEC /* MainViewController.xib */; };
 		EF880BF023E435A000068CEC /* SegmentInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BEF23E435A000068CEC /* SegmentInnerView.swift */; };
-		EF880BF223E435B400068CEC /* ActiveAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BF123E435B400068CEC /* ActiveAdapter.swift */; };
-		EF880BF423E435C000068CEC /* UpcomingAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BF323E435C000068CEC /* UpcomingAdapter.swift */; };
+		EF880BF223E435B400068CEC /* NewsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BF123E435B400068CEC /* NewsAdapter.swift */; };
+		EF880BF423E435C000068CEC /* SocialAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BF323E435C000068CEC /* SocialAdapter.swift */; };
 		EF880BFA23E7EFD700068CEC /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BF823E7EFD700068CEC /* CoinTableViewCell.swift */; };
 		EF880BFB23E7EFD700068CEC /* CoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880BF923E7EFD700068CEC /* CoinTableViewCell.xib */; };
 		EF880BFF23E7F33B00068CEC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BFE23E7F33B00068CEC /* NetworkService.swift */; };
@@ -80,9 +70,19 @@
 		EF880C4323F2542A00068CEC /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C4223F2542A00068CEC /* String+.swift */; };
 		EF880C4523F2756200068CEC /* UIViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C4423F2756200068CEC /* UIViewCustom.swift */; };
 		EF880C4723F2791B00068CEC /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C4623F2791B00068CEC /* UIColor+.swift */; };
-		EF880C4C23F2A22400068CEC /* IcoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C4B23F2A22400068CEC /* IcoRepository.swift */; };
-		EF880C4E23F2A28300068CEC /* IcoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C4D23F2A28300068CEC /* IcoModel.swift */; };
-		EF880C5023F2A29400068CEC /* IcoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C4F23F2A29400068CEC /* IcoViewModel.swift */; };
+		EF880C4C23F2A22400068CEC /* GeneralRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C4B23F2A22400068CEC /* GeneralRepository.swift */; };
+		EF880C4E23F2A28300068CEC /* GeneralModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C4D23F2A28300068CEC /* GeneralModel.swift */; };
+		EF880C5023F2A29400068CEC /* GeneralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C4F23F2A29400068CEC /* GeneralViewModel.swift */; };
+		EF880C5823F2B50800068CEC /* NewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C5323F2B50800068CEC /* NewsRouter.swift */; };
+		EF880C5923F2B50800068CEC /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C5423F2B50800068CEC /* NewsViewController.swift */; };
+		EF880C5A23F2B50800068CEC /* NewsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C5523F2B50800068CEC /* NewsBuilder.swift */; };
+		EF880C5B23F2B50800068CEC /* NewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C5623F2B50800068CEC /* NewsInteractor.swift */; };
+		EF880C5C23F2B50800068CEC /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880C5723F2B50800068CEC /* NewsViewController.xib */; };
+		EF880C6223F2B51700068CEC /* SocialRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C5D23F2B51700068CEC /* SocialRouter.swift */; };
+		EF880C6323F2B51700068CEC /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C5E23F2B51700068CEC /* SocialViewController.swift */; };
+		EF880C6423F2B51700068CEC /* SocialBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C5F23F2B51700068CEC /* SocialBuilder.swift */; };
+		EF880C6523F2B51700068CEC /* SocialInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C6023F2B51700068CEC /* SocialInteractor.swift */; };
+		EF880C6623F2B51700068CEC /* SocialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880C6123F2B51700068CEC /* SocialViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,29 +105,19 @@
 		EF880B7923E2B59F00068CEC /* CoinBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinBuilder.swift; sourceTree = "<group>"; };
 		EF880B7A23E2B59F00068CEC /* CoinInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInteractor.swift; sourceTree = "<group>"; };
 		EF880B7B23E2B59F00068CEC /* CoinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinViewController.xib; sourceTree = "<group>"; };
-		EF880B8123E2B5AD00068CEC /* IcoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcoRouter.swift; sourceTree = "<group>"; };
-		EF880B8223E2B5AD00068CEC /* IcoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcoViewController.swift; sourceTree = "<group>"; };
-		EF880B8323E2B5AD00068CEC /* IcoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcoBuilder.swift; sourceTree = "<group>"; };
-		EF880B8423E2B5AD00068CEC /* IcoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcoInteractor.swift; sourceTree = "<group>"; };
-		EF880B8523E2B5AD00068CEC /* IcoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IcoViewController.xib; sourceTree = "<group>"; };
+		EF880B8123E2B5AD00068CEC /* GeneralRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralRouter.swift; sourceTree = "<group>"; };
+		EF880B8223E2B5AD00068CEC /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
+		EF880B8323E2B5AD00068CEC /* GeneralBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralBuilder.swift; sourceTree = "<group>"; };
+		EF880B8423E2B5AD00068CEC /* GeneralInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInteractor.swift; sourceTree = "<group>"; };
+		EF880B8523E2B5AD00068CEC /* GeneralViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralViewController.xib; sourceTree = "<group>"; };
 		EF880B8B23E2B5BA00068CEC /* AboutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutRouter.swift; sourceTree = "<group>"; };
 		EF880B8C23E2B5BA00068CEC /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		EF880B8D23E2B5BA00068CEC /* AboutBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutBuilder.swift; sourceTree = "<group>"; };
 		EF880B8E23E2B5BA00068CEC /* AboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInteractor.swift; sourceTree = "<group>"; };
 		EF880B8F23E2B5BA00068CEC /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
-		EF880B9723E2C54800068CEC /* ActiveRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveRouter.swift; sourceTree = "<group>"; };
-		EF880B9823E2C54800068CEC /* ActiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveViewController.swift; sourceTree = "<group>"; };
-		EF880B9923E2C54800068CEC /* ActiveBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveBuilder.swift; sourceTree = "<group>"; };
-		EF880B9A23E2C54800068CEC /* ActiveInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveInteractor.swift; sourceTree = "<group>"; };
-		EF880B9B23E2C54800068CEC /* ActiveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActiveViewController.xib; sourceTree = "<group>"; };
-		EF880BA123E2C55400068CEC /* UpComingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingRouter.swift; sourceTree = "<group>"; };
-		EF880BA223E2C55400068CEC /* UpComingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingViewController.swift; sourceTree = "<group>"; };
-		EF880BA323E2C55400068CEC /* UpComingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingBuilder.swift; sourceTree = "<group>"; };
-		EF880BA423E2C55400068CEC /* UpComingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingInteractor.swift; sourceTree = "<group>"; };
-		EF880BA523E2C55400068CEC /* UpComingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpComingViewController.xib; sourceTree = "<group>"; };
 		EF880BAB23E2C9E600068CEC /* TabbarInnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarInnerView.swift; sourceTree = "<group>"; };
 		EF880BAD23E2CA7700068CEC /* CoinAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinAdapter.swift; sourceTree = "<group>"; };
-		EF880BAF23E2CA8100068CEC /* IcoAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcoAdapter.swift; sourceTree = "<group>"; };
+		EF880BAF23E2CA8100068CEC /* GeneralAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAdapter.swift; sourceTree = "<group>"; };
 		EF880BB123E2CA8D00068CEC /* AboutAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAdapter.swift; sourceTree = "<group>"; };
 		EF880BE123E3FDC600068CEC /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		EF880BE223E3FDC600068CEC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -135,8 +125,8 @@
 		EF880BE423E3FDC600068CEC /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		EF880BE523E3FDC600068CEC /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		EF880BEF23E435A000068CEC /* SegmentInnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentInnerView.swift; sourceTree = "<group>"; };
-		EF880BF123E435B400068CEC /* ActiveAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveAdapter.swift; sourceTree = "<group>"; };
-		EF880BF323E435C000068CEC /* UpcomingAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingAdapter.swift; sourceTree = "<group>"; };
+		EF880BF123E435B400068CEC /* NewsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAdapter.swift; sourceTree = "<group>"; };
+		EF880BF323E435C000068CEC /* SocialAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAdapter.swift; sourceTree = "<group>"; };
 		EF880BF823E7EFD700068CEC /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		EF880BF923E7EFD700068CEC /* CoinTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinTableViewCell.xib; sourceTree = "<group>"; };
 		EF880BFE23E7F33B00068CEC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -163,9 +153,19 @@
 		EF880C4223F2542A00068CEC /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		EF880C4423F2756200068CEC /* UIViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewCustom.swift; sourceTree = "<group>"; };
 		EF880C4623F2791B00068CEC /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		EF880C4B23F2A22400068CEC /* IcoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcoRepository.swift; sourceTree = "<group>"; };
-		EF880C4D23F2A28300068CEC /* IcoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcoModel.swift; sourceTree = "<group>"; };
-		EF880C4F23F2A29400068CEC /* IcoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcoViewModel.swift; sourceTree = "<group>"; };
+		EF880C4B23F2A22400068CEC /* GeneralRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralRepository.swift; sourceTree = "<group>"; };
+		EF880C4D23F2A28300068CEC /* GeneralModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralModel.swift; sourceTree = "<group>"; };
+		EF880C4F23F2A29400068CEC /* GeneralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewModel.swift; sourceTree = "<group>"; };
+		EF880C5323F2B50800068CEC /* NewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRouter.swift; sourceTree = "<group>"; };
+		EF880C5423F2B50800068CEC /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		EF880C5523F2B50800068CEC /* NewsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBuilder.swift; sourceTree = "<group>"; };
+		EF880C5623F2B50800068CEC /* NewsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsInteractor.swift; sourceTree = "<group>"; };
+		EF880C5723F2B50800068CEC /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
+		EF880C5D23F2B51700068CEC /* SocialRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialRouter.swift; sourceTree = "<group>"; };
+		EF880C5E23F2B51700068CEC /* SocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
+		EF880C5F23F2B51700068CEC /* SocialBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialBuilder.swift; sourceTree = "<group>"; };
+		EF880C6023F2B51700068CEC /* SocialInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialInteractor.swift; sourceTree = "<group>"; };
+		EF880C6123F2B51700068CEC /* SocialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,8 +287,8 @@
 				EF880C4923F2A1FC00068CEC /* Repository */,
 				EF880C4A23F2A20900068CEC /* ViewModel */,
 				EF880C4823F2A1E400068CEC /* Ico */,
-				EF880B9523E2C51E00068CEC /* Active */,
-				EF880B9623E2C52500068CEC /* UpComing */,
+				EF880C5123F2B4F400068CEC /* News */,
+				EF880C5223F2B4F900068CEC /* Social */,
 			);
 			path = Ico;
 			sourceTree = "<group>";
@@ -315,7 +315,7 @@
 				EF880BE523E3FDC600068CEC /* MainViewController.xib */,
 				EF880BAB23E2C9E600068CEC /* TabbarInnerView.swift */,
 				EF880BAD23E2CA7700068CEC /* CoinAdapter.swift */,
-				EF880BAF23E2CA8100068CEC /* IcoAdapter.swift */,
+				EF880BAF23E2CA8100068CEC /* GeneralAdapter.swift */,
 				EF880BB123E2CA8D00068CEC /* AboutAdapter.swift */,
 			);
 			path = Main;
@@ -330,30 +330,6 @@
 				EF880C3123ED51BA00068CEC /* Singleton */,
 			);
 			path = Util;
-			sourceTree = "<group>";
-		};
-		EF880B9523E2C51E00068CEC /* Active */ = {
-			isa = PBXGroup;
-			children = (
-				EF880B9723E2C54800068CEC /* ActiveRouter.swift */,
-				EF880B9A23E2C54800068CEC /* ActiveInteractor.swift */,
-				EF880B9923E2C54800068CEC /* ActiveBuilder.swift */,
-				EF880B9823E2C54800068CEC /* ActiveViewController.swift */,
-				EF880B9B23E2C54800068CEC /* ActiveViewController.xib */,
-			);
-			path = Active;
-			sourceTree = "<group>";
-		};
-		EF880B9623E2C52500068CEC /* UpComing */ = {
-			isa = PBXGroup;
-			children = (
-				EF880BA123E2C55400068CEC /* UpComingRouter.swift */,
-				EF880BA423E2C55400068CEC /* UpComingInteractor.swift */,
-				EF880BA323E2C55400068CEC /* UpComingBuilder.swift */,
-				EF880BA223E2C55400068CEC /* UpComingViewController.swift */,
-				EF880BA523E2C55400068CEC /* UpComingViewController.xib */,
-			);
-			path = UpComing;
 			sourceTree = "<group>";
 		};
 		EF880BF523E7EEA800068CEC /* Repository */ = {
@@ -469,14 +445,14 @@
 		EF880C4823F2A1E400068CEC /* Ico */ = {
 			isa = PBXGroup;
 			children = (
-				EF880B8123E2B5AD00068CEC /* IcoRouter.swift */,
-				EF880B8423E2B5AD00068CEC /* IcoInteractor.swift */,
-				EF880B8323E2B5AD00068CEC /* IcoBuilder.swift */,
-				EF880B8223E2B5AD00068CEC /* IcoViewController.swift */,
-				EF880B8523E2B5AD00068CEC /* IcoViewController.xib */,
+				EF880B8123E2B5AD00068CEC /* GeneralRouter.swift */,
+				EF880B8423E2B5AD00068CEC /* GeneralInteractor.swift */,
+				EF880B8323E2B5AD00068CEC /* GeneralBuilder.swift */,
+				EF880B8223E2B5AD00068CEC /* GeneralViewController.swift */,
+				EF880B8523E2B5AD00068CEC /* GeneralViewController.xib */,
 				EF880BEF23E435A000068CEC /* SegmentInnerView.swift */,
-				EF880BF123E435B400068CEC /* ActiveAdapter.swift */,
-				EF880BF323E435C000068CEC /* UpcomingAdapter.swift */,
+				EF880BF123E435B400068CEC /* NewsAdapter.swift */,
+				EF880BF323E435C000068CEC /* SocialAdapter.swift */,
 			);
 			path = Ico;
 			sourceTree = "<group>";
@@ -484,7 +460,7 @@
 		EF880C4923F2A1FC00068CEC /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				EF880C4B23F2A22400068CEC /* IcoRepository.swift */,
+				EF880C4B23F2A22400068CEC /* GeneralRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -492,10 +468,34 @@
 		EF880C4A23F2A20900068CEC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				EF880C4D23F2A28300068CEC /* IcoModel.swift */,
-				EF880C4F23F2A29400068CEC /* IcoViewModel.swift */,
+				EF880C4D23F2A28300068CEC /* GeneralModel.swift */,
+				EF880C4F23F2A29400068CEC /* GeneralViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF880C5123F2B4F400068CEC /* News */ = {
+			isa = PBXGroup;
+			children = (
+				EF880C5323F2B50800068CEC /* NewsRouter.swift */,
+				EF880C5423F2B50800068CEC /* NewsViewController.swift */,
+				EF880C5523F2B50800068CEC /* NewsBuilder.swift */,
+				EF880C5623F2B50800068CEC /* NewsInteractor.swift */,
+				EF880C5723F2B50800068CEC /* NewsViewController.xib */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		EF880C5223F2B4F900068CEC /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				EF880C5D23F2B51700068CEC /* SocialRouter.swift */,
+				EF880C5E23F2B51700068CEC /* SocialViewController.swift */,
+				EF880C5F23F2B51700068CEC /* SocialBuilder.swift */,
+				EF880C6023F2B51700068CEC /* SocialInteractor.swift */,
+				EF880C6123F2B51700068CEC /* SocialViewController.xib */,
+			);
+			path = Social;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,15 +561,15 @@
 				EF880B5123E274BA00068CEC /* LaunchScreen.storyboard in Resources */,
 				EF880C3023ED4DBA00068CEC /* LaunchLoading.json in Resources */,
 				EF880C0823E9039700068CEC /* NormalLoading.json in Resources */,
+				EF880C5C23F2B50800068CEC /* NewsViewController.xib in Resources */,
 				EF880B4E23E274BA00068CEC /* Assets.xcassets in Resources */,
-				EF880BA023E2C54800068CEC /* ActiveViewController.xib in Resources */,
 				EF880BEA23E3FDC600068CEC /* MainViewController.xib in Resources */,
 				EF880C4123F243AE00068CEC /* CoinDetailTextViewCell.xib in Resources */,
-				EF880BAA23E2C55400068CEC /* UpComingViewController.xib in Resources */,
 				EF880C3923F2438400068CEC /* CoinDetailFirstHeaderCell.xib in Resources */,
 				EF880B8023E2B59F00068CEC /* CoinViewController.xib in Resources */,
+				EF880C6623F2B51700068CEC /* SocialViewController.xib in Resources */,
 				EF880B9423E2B5BA00068CEC /* AboutViewController.xib in Resources */,
-				EF880B8A23E2B5AD00068CEC /* IcoViewController.xib in Resources */,
+				EF880B8A23E2B5AD00068CEC /* GeneralViewController.xib in Resources */,
 				EF880C1A23E9652700068CEC /* CoinDetailViewController.xib in Resources */,
 				EF880BFB23E7EFD700068CEC /* CoinTableViewCell.xib in Resources */,
 				EF880C3D23F2439800068CEC /* CoinDetailOtherHeaderCell.xib in Resources */,
@@ -631,60 +631,60 @@
 				EF880BAE23E2CA7700068CEC /* CoinAdapter.swift in Sources */,
 				EF880B7623E2AD3E00068CEC /* UINavigationController+.swift in Sources */,
 				EF880B9223E2B5BA00068CEC /* AboutBuilder.swift in Sources */,
-				EF880BF223E435B400068CEC /* ActiveAdapter.swift in Sources */,
+				EF880BF223E435B400068CEC /* NewsAdapter.swift in Sources */,
 				EF880C1723E9652700068CEC /* CoinDetailViewController.swift in Sources */,
 				EF880C4323F2542A00068CEC /* String+.swift in Sources */,
-				EF880BA623E2C55400068CEC /* UpComingRouter.swift in Sources */,
 				EF880B6523E2A43F00068CEC /* RootInteractor.swift in Sources */,
 				EF880B9323E2B5BA00068CEC /* AboutInteractor.swift in Sources */,
-				EF880B9E23E2C54800068CEC /* ActiveBuilder.swift in Sources */,
 				EF880C3823F2438400068CEC /* CoinDetailFirstHeaderCell.swift in Sources */,
 				EF880C4723F2791B00068CEC /* UIColor+.swift in Sources */,
 				EF880BF023E435A000068CEC /* SegmentInnerView.swift in Sources */,
 				EF880C0123E7F5F600068CEC /* CoinRepository.swift in Sources */,
 				EF880BFA23E7EFD700068CEC /* CoinTableViewCell.swift in Sources */,
-				EF880C4E23F2A28300068CEC /* IcoModel.swift in Sources */,
+				EF880C4E23F2A28300068CEC /* GeneralModel.swift in Sources */,
 				EF880BFF23E7F33B00068CEC /* NetworkService.swift in Sources */,
 				EF880B9123E2B5BA00068CEC /* AboutViewController.swift in Sources */,
-				EF880BA723E2C55400068CEC /* UpComingViewController.swift in Sources */,
-				EF880B9D23E2C54800068CEC /* ActiveViewController.swift in Sources */,
+				EF880C6323F2B51700068CEC /* SocialViewController.swift in Sources */,
 				EF880B4523E274B600068CEC /* AppDelegate.swift in Sources */,
-				EF880C5023F2A29400068CEC /* IcoViewModel.swift in Sources */,
-				EF880B8923E2B5AD00068CEC /* IcoInteractor.swift in Sources */,
+				EF880C5023F2A29400068CEC /* GeneralViewModel.swift in Sources */,
+				EF880B8923E2B5AD00068CEC /* GeneralInteractor.swift in Sources */,
 				EF880BE723E3FDC600068CEC /* MainViewController.swift in Sources */,
-				EF880B8723E2B5AD00068CEC /* IcoViewController.swift in Sources */,
-				EF880BB023E2CA8100068CEC /* IcoAdapter.swift in Sources */,
-				EF880B9C23E2C54800068CEC /* ActiveRouter.swift in Sources */,
+				EF880B8723E2B5AD00068CEC /* GeneralViewController.swift in Sources */,
+				EF880BB023E2CA8100068CEC /* GeneralAdapter.swift in Sources */,
 				EF880B6223E2A43F00068CEC /* RootRouter.swift in Sources */,
-				EF880BA923E2C55400068CEC /* UpComingInteractor.swift in Sources */,
 				EF880BE623E3FDC600068CEC /* MainRouter.swift in Sources */,
-				EF880BF423E435C000068CEC /* UpcomingAdapter.swift in Sources */,
+				EF880BF423E435C000068CEC /* SocialAdapter.swift in Sources */,
 				EF880BB223E2CA8D00068CEC /* AboutAdapter.swift in Sources */,
-				EF880B8623E2B5AD00068CEC /* IcoRouter.swift in Sources */,
+				EF880B8623E2B5AD00068CEC /* GeneralRouter.swift in Sources */,
 				EF880BAC23E2C9E600068CEC /* TabbarInnerView.swift in Sources */,
-				EF880BA823E2C55400068CEC /* UpComingBuilder.swift in Sources */,
 				EF880B7D23E2B59F00068CEC /* CoinViewController.swift in Sources */,
+				EF880C5B23F2B50800068CEC /* NewsInteractor.swift in Sources */,
 				EF880B6423E2A43F00068CEC /* RootBuilder.swift in Sources */,
 				EF880B7E23E2B59F00068CEC /* CoinBuilder.swift in Sources */,
 				EF880C1823E9652700068CEC /* CoinDetailBuilder.swift in Sources */,
+				EF880C6223F2B51700068CEC /* SocialRouter.swift in Sources */,
 				EF880C0F23E94DC100068CEC /* Double+.swift in Sources */,
+				EF880C5823F2B50800068CEC /* NewsRouter.swift in Sources */,
 				EF880C0D23E914D900068CEC /* UIViewController+.swift in Sources */,
 				EF880B6323E2A43F00068CEC /* RootViewController.swift in Sources */,
 				EF880B7F23E2B59F00068CEC /* CoinInteractor.swift in Sources */,
+				EF880C6423F2B51700068CEC /* SocialBuilder.swift in Sources */,
 				EF880C0323E7F77F00068CEC /* CoinModel.swift in Sources */,
+				EF880C5A23F2B50800068CEC /* NewsBuilder.swift in Sources */,
 				EF880C1623E9652700068CEC /* CoinDetailRouter.swift in Sources */,
 				EF880C0B23E9045A00068CEC /* IndicatorView.swift in Sources */,
 				EF880B7C23E2B59F00068CEC /* CoinRouter.swift in Sources */,
 				EF880C3C23F2439800068CEC /* CoinDetailOtherHeaderCell.swift in Sources */,
 				EF880C0523E7F82C00068CEC /* CoinViewModel.swift in Sources */,
-				EF880B9F23E2C54800068CEC /* ActiveInteractor.swift in Sources */,
-				EF880C4C23F2A22400068CEC /* IcoRepository.swift in Sources */,
+				EF880C6523F2B51700068CEC /* SocialInteractor.swift in Sources */,
+				EF880C4C23F2A22400068CEC /* GeneralRepository.swift in Sources */,
 				EF880BE823E3FDC600068CEC /* MainBuilder.swift in Sources */,
 				EF880B9023E2B5BA00068CEC /* AboutRouter.swift in Sources */,
 				EF880B5B23E2A41B00068CEC /* AppComponent.swift in Sources */,
 				EF880BE923E3FDC600068CEC /* MainInteractor.swift in Sources */,
-				EF880B8823E2B5AD00068CEC /* IcoBuilder.swift in Sources */,
+				EF880B8823E2B5AD00068CEC /* GeneralBuilder.swift in Sources */,
 				EF880C3323ED526A00068CEC /* Global.swift in Sources */,
+				EF880C5923F2B50800068CEC /* NewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

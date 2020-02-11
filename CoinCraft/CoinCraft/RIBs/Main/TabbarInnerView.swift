@@ -9,6 +9,7 @@
 import RIBs
 
 public protocol TabbarInnerViewListener: class {
+    
 }
 
 public protocol TabbarBuildable: Buildable {

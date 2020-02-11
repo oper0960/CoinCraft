@@ -19,8 +19,6 @@ protocol CoinPresentableListener: class {
 
 final class CoinViewController: UIViewController {
     
-    
-
     weak var listener: CoinPresentableListener?
     
     @IBOutlet weak var coinTableView: UITableView!
@@ -51,9 +49,10 @@ final class CoinViewController: UIViewController {
         
         setRx()
     }
-    
+}
+
+extension CoinViewController {
     private func setRx() {
-        
         coinTableView.rx
             .itemSelected
             .subscribe { [weak self] event in

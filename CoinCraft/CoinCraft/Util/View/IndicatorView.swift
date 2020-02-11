@@ -38,8 +38,14 @@ class IndicatorView {
         superView.addSubview(animationView)
         animationView.snp.makeConstraints {
             $0.center.equalTo(superView.snp.center)
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
+            switch type {
+            case .launch:
+                $0.height.equalTo(100)
+                $0.width.equalTo(100)
+            case .loading:
+                $0.height.equalTo(200)
+                $0.width.equalTo(200)
+            }
         }
         animationView.loopMode = .loop
         DispatchQueue.main.async {

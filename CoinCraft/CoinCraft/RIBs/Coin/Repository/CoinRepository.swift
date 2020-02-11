@@ -33,7 +33,7 @@ class RemoteCoinRepository: CoinRepository {
     // MARK: - CoinMarketCap List
     func getCoinMarketCapList(complete: @escaping ([CoinViewModel]) -> (Void)) {
         NetworkService.request(method: .get,
-                               reqURL: Constants.CoinMarketCap.list,
+                               reqURL: Constants.Coin.CoinMarketCap.list,
                                parameters: DictionaryType(),
                                headers: HeadersType())
         { (coins: [Coin]) in
@@ -48,7 +48,7 @@ class RemoteCoinRepository: CoinRepository {
     // MARK: - CryptoCompareCoin List
     func getCryptoCompareList(progressBar: @escaping (Double) -> (Void), complete: @escaping (CryptoCompareResponse) -> (Void)) {
         NetworkService.progressRequest(method: .get,
-                                       reqURL: Constants.CryptoCompare.list,
+                                       reqURL: Constants.Coin.CryptoCompare.list,
                                        parameters: DictionaryType(),
                                        headers: HeadersType(),
                                        progressBar: { progress in
@@ -65,7 +65,7 @@ class RemoteCoinRepository: CoinRepository {
         paramaters.updateValue(id, forKey: "id")
         
         NetworkService.request(method: .get,
-                               reqURL: Constants.CryptoCompare.detail,
+                               reqURL: Constants.Coin.CryptoCompare.detail,
                                parameters: paramaters,
                                headers: HeadersType())
         { (coin: CryptoCompareDetailResponse) in
@@ -78,7 +78,7 @@ class RemoteCoinRepository: CoinRepository {
 class LocalCoinRepository: CoinRepository {
     func getCryptoCompareList(progressBar: @escaping (Double) -> (Void), complete: @escaping (CryptoCompareResponse) -> (Void)) {
         NetworkService.progressRequest(method: .get,
-                                       reqURL: Constants.CryptoCompare.list,
+                                       reqURL: Constants.Coin.CryptoCompare.list,
                                        parameters: DictionaryType(),
                                        headers: HeadersType(),
                                        progressBar: { progress in
@@ -98,7 +98,7 @@ class LocalCoinRepository: CoinRepository {
         paramaters.updateValue(id, forKey: "id")
         
         NetworkService.request(method: .get,
-                               reqURL: Constants.CryptoCompare.detail,
+                               reqURL: Constants.Coin.CryptoCompare.detail,
                                parameters: paramaters,
                                headers: HeadersType())
         { (coin: CryptoCompareDetailResponse) in

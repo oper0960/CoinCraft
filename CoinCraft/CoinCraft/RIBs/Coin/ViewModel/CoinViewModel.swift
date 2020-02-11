@@ -27,7 +27,7 @@ struct CoinViewModel: CoinViewModelViewable {
     }
     
     var imageURL: String {
-        return Constants.CoinMarketCap.imageBaseUrl + (self.coin.symbol ?? "")
+        return Constants.Coin.CoinMarketCap.imageBaseUrl + (self.coin.symbol ?? "")
     }
     
     var name: String {

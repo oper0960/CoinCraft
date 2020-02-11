@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Coin
 struct Coin: Codable {
     let percent_change_24h: String?
     let percent_change_7d: String?
@@ -58,6 +59,7 @@ struct CryptoCompareResponse: Decodable {
     }
 }
 
+// MARK: - CompareCoin
 struct CompareCoin: Codable {
     let id: String?
     let url: String?

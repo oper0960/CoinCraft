@@ -31,7 +31,7 @@ class NetworkService {
                 case .success:
                     if let data = response.data {
                         do {
-                            print(JSON(data))
+//                            print(JSON(data))
                             success(try JSONDecoder().decode(T.self, from: data))
                         } catch let error {
                             print(error)
@@ -87,16 +87,34 @@ class NetworkService {
 }
 
 struct Constants {
-    struct CoinMarketCap {
-        private static let BaseUrl = "https://api.coinmarketcap.com"
-        static let imageBaseUrl = "https://chasing-coins.com/api/v1/std/logo/"
-        static let list = "\(BaseUrl)/v1/ticker/?limit=0"
+    struct Coin {
+        struct CoinMarketCap {
+            private static let BaseUrl = "https://api.coinmarketcap.com"
+            static let imageBaseUrl = "https://chasing-coins.com/api/v1/std/logo/"
+            static let list = "\(BaseUrl)/v1/ticker/?limit=0"
+        }
+        
+        struct CryptoCompare {
+            private static let BaseUrl = "https://min-api.cryptocompare.com"
+            private static let detailBaseUrl = "https://www.cryptocompare.com"
+            static let list = "\(BaseUrl)/data/all/coinlist"
+            static let detail = "\(detailBaseUrl)/api/data/coinsnapshotfullbyid"
+        }
     }
     
-    struct CryptoCompare {
-        private static let BaseUrl = "https://min-api.cryptocompare.com"
-        private static let detailBaseUrl = "https://www.cryptocompare.com"
-        static let list = "\(BaseUrl)/data/all/coinlist"
-        static let detail = "\(detailBaseUrl)/api/data/coinsnapshotfullbyid"
+    struct Ico {
+        struct Active {
+            private static let baseUrl = "https://chasing-coins.com"
+            static let list = "\(baseUrl)/api/v1/icos/active"
+        }
+        
+        struct Upcoming {
+            private static let baseUrl = "https://chasing-coins.com"
+            static let list = "\(baseUrl)/api/v1/icos/upcoming"
+        }
+    }
+    
+    struct About {
+        
     }
 }

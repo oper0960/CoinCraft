@@ -9,9 +9,15 @@
 import RIBs
 
 protocol CoinDependency: Dependency {
+    
 }
 
 final class CoinComponent: Component<CoinDependency> {
+    
+}
+
+extension CoinComponent: CoinDetailDependency {
+    
 }
 
 // MARK: - Builder
@@ -21,16 +27,16 @@ protocol CoinBuildable: Buildable {
 }
 
 final class CoinBuilder: Builder<CoinDependency>, CoinBuildable {
-
     override init(dependency: CoinDependency) {
         super.init(dependency: dependency)
     }
 
     func build(withListener listener: CoinListener) -> CoinRouting {
-        let _ = CoinComponent(dependency: dependency)
+        let component = CoinComponent(dependency: dependency)
         let viewController = CoinViewController()
         let interactor = CoinInteractor(presenter: viewController)
         interactor.listener = listener
-        return CoinRouter(interactor: interactor, viewController: viewController)
+        let detailBuilder = CoinDetailBuilder(dependency: component)
+        return CoinRouter(interactor: interactor, viewController: viewController, coinDetailBuilder: detailBuilder)
     }
 }

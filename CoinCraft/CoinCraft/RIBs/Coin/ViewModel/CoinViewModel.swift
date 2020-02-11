@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - CMCCoin ViewModel
 protocol CoinViewModelViewable {
     var imageURL: String { get }
     var name: String { get }
@@ -53,5 +54,88 @@ struct CoinViewModel: CoinViewModelViewable {
     
     var sortOrder: String {
         return coin.rank ?? "0"
+    }
+}
+
+// MARK: - CompareCoin ViewModel
+protocol CompareCoinViewModelViewable {
+    var symbol: String { get }
+    var id: String { get }
+}
+
+struct CompareCoinViewModel: CompareCoinViewModelViewable {
+    
+    private let coin: CompareCoin
+    
+    init(coin: CompareCoin) {
+        self.coin = coin
+    }
+    
+    var symbol: String {
+        return coin.symbol ?? ""
+    }
+    
+    var id: String {
+        return coin.id ?? ""
+    }
+}
+
+// MARK: - CompareCoinDetail ViewModel
+protocol CompareCoinDetailViewModelViewable {
+    var id: String { get }
+    var imageUrl: String? { get }
+    var symbol: String { get }
+    var name: String { get }
+    var description: String? { get }
+    var features: String? { get }
+    var totalCoinSupply: String { get }
+    var startDate: String { get }
+}
+
+struct CompareCoinDetailViewModel: CompareCoinDetailViewModelViewable {
+    private let detail: CompareCoinDetail
+    
+    init(detail: CompareCoinDetail) {
+        self.detail = detail
+    }
+    
+    var id: String {
+        return detail.general?.id ?? ""
+    }
+    
+    var symbol: String {
+        return detail.general?.symbol ?? ""
+    }
+    
+    var name: String {
+        return detail.general?.name ?? ""
+    }
+    
+    var totalCoinSupply: String {
+        if let coinSupply = detail.general?.totalCoinSupply, !coinSupply.isEmpty {
+            let supply: Double = Double(coinSupply.trimmingCharacters(in: .whitespacesAndNewlines))!
+            return supply.addComma
+        } else {
+            return "0"
+        }
+    }
+    
+    var startDate: String {
+        return detail.general?.startDate ?? ""
+    }
+    
+    var description: String? {
+        return detail.general?.generalDescription
+    }
+    
+    var features: String? {
+        return detail.general?.features
+    }
+    
+    var imageUrl: String? {
+        guard let base = detail.seo?.baseImageURL, let image = detail.seo?.ogImageURL else {
+            return nil
+        }
+        return base + image
     }
 }

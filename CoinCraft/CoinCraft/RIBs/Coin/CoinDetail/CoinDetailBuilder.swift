@@ -14,14 +14,13 @@ protocol CoinDetailDependency: Dependency {
 }
 
 final class CoinDetailComponent: Component<CoinDetailDependency> {
-
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    
 }
 
 // MARK: - Builder
 
 protocol CoinDetailBuildable: Buildable {
-    func build(withListener listener: CoinDetailListener) -> CoinDetailRouting
+    func build(withListener listener: CoinDetailListener, detailInfo: CompareCoinDetailViewModel) -> CoinDetailRouting
 }
 
 final class CoinDetailBuilder: Builder<CoinDetailDependency>, CoinDetailBuildable {
@@ -30,10 +29,10 @@ final class CoinDetailBuilder: Builder<CoinDetailDependency>, CoinDetailBuildabl
         super.init(dependency: dependency)
     }
 
-    func build(withListener listener: CoinDetailListener) -> CoinDetailRouting {
-        let component = CoinDetailComponent(dependency: dependency)
+    func build(withListener listener: CoinDetailListener, detailInfo: CompareCoinDetailViewModel) -> CoinDetailRouting {
+        let _ = CoinDetailComponent(dependency: dependency)
         let viewController = CoinDetailViewController()
-        let interactor = CoinDetailInteractor(presenter: viewController)
+        let interactor = CoinDetailInteractor(presenter: viewController, detailInfo: detailInfo)
         interactor.listener = listener
         return CoinDetailRouter(interactor: interactor, viewController: viewController)
     }

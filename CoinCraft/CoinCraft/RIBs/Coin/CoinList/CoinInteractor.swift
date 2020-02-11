@@ -10,7 +10,7 @@ import RIBs
 import RxSwift
 
 protocol CoinRouting: ViewableRouting {
-    
+    func routeToDetail(info: CompareCoinDetailViewModel)
 }
 
 protocol CoinPresentable: Presentable {
@@ -39,7 +39,7 @@ final class CoinInteractor: PresentableInteractor<CoinPresentable>, CoinInteract
     }
 
     override func didBecomeActive() {
-        super.didBecomeActive()
+        super.didBecomeActive()  
         // TODO: Implement business logic here.
     }
 
@@ -50,13 +50,24 @@ final class CoinInteractor: PresentableInteractor<CoinPresentable>, CoinInteract
 }
 
 extension CoinInteractor: CoinPresentableListener {
+    func getCompareCoinInfo(coin: CoinViewModel) {
+        
+        let compareCoin = Global.current.cryptoCoins.map {
+            return CompareCoinViewModel(coin: $0)
+        }.filter { compareCoin in
+            return compareCoin.symbol == coin.name
+        }
+        
+        guard let coinInfo = compareCoin.first else { return }
+        
+        repository.getCompareCoinDetail(id: coinInfo.id) { detail in
+            self.router?.routeToDetail(info: CompareCoinDetailViewModel(detail: detail))
+        }
+    }
+    
     func getCoinMarketCapList() {
         repository.getCoinMarketCapList { coins in
             self.presenter.setCoinList(coins: coins)
         }
-    }
-    
-    func routeToDetail(coin: CoinViewModel) {
-        print("detail", coin)
     }
 }

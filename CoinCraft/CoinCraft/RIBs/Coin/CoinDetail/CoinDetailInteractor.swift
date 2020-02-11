@@ -15,21 +15,22 @@ protocol CoinDetailRouting: ViewableRouting {
 
 protocol CoinDetailPresentable: Presentable {
     var listener: CoinDetailPresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
+    
+    // MARK: - To ViewController
+    func bindViewModel(viewModel: CompareCoinDetailViewModel)
 }
 
 protocol CoinDetailListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class CoinDetailInteractor: PresentableInteractor<CoinDetailPresentable>, CoinDetailInteractable, CoinDetailPresentableListener {
-
+final class CoinDetailInteractor: PresentableInteractor<CoinDetailPresentable>, CoinDetailInteractable {
+    
     weak var router: CoinDetailRouting?
     weak var listener: CoinDetailListener?
 
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
-    override init(presenter: CoinDetailPresentable) {
+    init(presenter: CoinDetailPresentable, detailInfo: CompareCoinDetailViewModel) {
+        self.detailInfo = detailInfo
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -42,5 +43,13 @@ final class CoinDetailInteractor: PresentableInteractor<CoinDetailPresentable>, 
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+    
+    private let detailInfo: CompareCoinDetailViewModel
+}
+
+extension CoinDetailInteractor: CoinDetailPresentableListener {
+    func getViewModel() {
+        presenter.bindViewModel(viewModel: detailInfo)
     }
 }

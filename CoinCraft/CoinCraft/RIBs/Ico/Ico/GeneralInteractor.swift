@@ -1,5 +1,5 @@
 //
-//  IcoInteractor.swift
+//  GeneralInteractor.swift
 //  CoinCraft
 //
 //  Created by Buxi on 2020/01/30.
@@ -9,28 +9,28 @@
 import RIBs
 import RxSwift
 
-protocol IcoRouting: ViewableRouting {
-    func swichingSegmentInnerViews(innerViews: [SegmentInnerView], index: IcoType)
+protocol GeneralRouting: ViewableRouting {
+    func swichingSegmentInnerViews(innerViews: [SegmentInnerView], index: GeneralType)
 }
 
-protocol IcoPresentable: Presentable {
-    var listener: IcoPresentableListener? { get set }
+protocol GeneralPresentable: Presentable {
+    var listener: GeneralPresentableListener? { get set }
     
     func setSegment(innerViews: [SegmentInnerView])
 }
 
-protocol IcoListener: class {
+protocol GeneralListener: class {
     
 }
 
-final class IcoInteractor: PresentableInteractor<IcoPresentable> {
+final class GeneralInteractor: PresentableInteractor<GeneralPresentable> {
 
-    weak var router: IcoRouting?
-    weak var listener: IcoListener?
+    weak var router: GeneralRouting?
+    weak var listener: GeneralListener?
     
     private var segmentInnerViews: [SegmentInnerView]
     
-    init(presenter: IcoPresentable, innerViews: [SegmentInnerView]) {
+    init(presenter: GeneralPresentable, innerViews: [SegmentInnerView]) {
         
         self.segmentInnerViews = innerViews
         
@@ -50,17 +50,17 @@ final class IcoInteractor: PresentableInteractor<IcoPresentable> {
 }
 
 // MARK: - IcoPresentable
-extension IcoInteractor: IcoInteractable {
+extension GeneralInteractor: GeneralInteractable {
     
 }
 
 // MARK: - IcoPresentableListener
-extension IcoInteractor: IcoPresentableListener {
+extension GeneralInteractor: GeneralPresentableListener {
     func getSegmentInfo() {
         presenter.setSegment(innerViews: segmentInnerViews)
     }
     
-    func convertIndexToVC(index: IcoType) {
+    func convertIndexToVC(index: GeneralType) {
         if index != .none {
             router?.swichingSegmentInnerViews(innerViews: segmentInnerViews, index: index)
         }

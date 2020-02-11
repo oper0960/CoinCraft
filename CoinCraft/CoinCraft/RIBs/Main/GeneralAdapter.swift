@@ -8,24 +8,24 @@
 
 import RIBs
 
-class IcoAdapter: TabbarInnerView, TabbarBuildable, IcoListener {
+class GeneralAdapter: TabbarInnerView, TabbarBuildable, GeneralListener {
 
-    let name = "ICO"
+    let name = "General"
     
     var builder: TabbarBuildable {
         return self
     }
 
-    private let icoBuilder: IcoBuilder
+    private let generalBuilder: GeneralBuilder
 
     private weak var listener: TabbarInnerViewListener?
 
-    init(dependency: IcoDependency) {
-        icoBuilder = IcoBuilder(dependency: dependency)
+    init(dependency: GeneralDependency) {
+        generalBuilder = GeneralBuilder(dependency: dependency)
     }
 
     func build(withListener listener: TabbarInnerViewListener) -> ViewableRouting {
         self.listener = listener
-        return icoBuilder.build(withListener: self)
+        return generalBuilder.build(withListener: self)
     }
 }

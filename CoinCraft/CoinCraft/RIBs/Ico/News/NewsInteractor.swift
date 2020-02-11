@@ -1,35 +1,35 @@
 //
-//  ActiveInteractor.swift
+//  NewsInteractor.swift
 //  CoinCraft
 //
-//  Created by Buxi on 2020/01/30.
+//  Created by Buxi on 2020/02/11.
 //  Copyright © 2020 Buxi. All rights reserved.
 //
 
 import RIBs
 import RxSwift
 
-protocol ActiveRouting: ViewableRouting {
+protocol NewsRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
 }
 
-protocol ActivePresentable: Presentable {
-    var listener: ActivePresentableListener? { get set }
+protocol NewsPresentable: Presentable {
+    var listener: NewsPresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
-protocol ActiveListener: class {
+protocol NewsListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class ActiveInteractor: PresentableInteractor<ActivePresentable>, ActiveInteractable, ActivePresentableListener {
+final class NewsInteractor: PresentableInteractor<NewsPresentable>, NewsInteractable, NewsPresentableListener {
 
-    weak var router: ActiveRouting?
-    weak var listener: ActiveListener?
+    weak var router: NewsRouting?
+    weak var listener: NewsListener?
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    override init(presenter: ActivePresentable) {
+    override init(presenter: NewsPresentable) {
         super.init(presenter: presenter)
         presenter.listener = self
     }

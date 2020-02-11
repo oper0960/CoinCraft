@@ -20,6 +20,7 @@ extension UINavigationController: ViewControllable {
 //        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
 //                                                  NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .semibold)]
         self.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .always
         return self
     }
 }

@@ -26,7 +26,7 @@
                         <segment title="First"/>
                         <segment title="Second"/>
                     </segments>
-                    <color key="selectedSegmentTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="selectedSegmentTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <action selector="segmentControl:" destination="-1" eventType="valueChanged" id="1x0-xF-3oC"/>
                     </connections>

@@ -11,6 +11,7 @@ import UIKit
 protocol CoinRepository {
     func getCoinMarketCapList(complete: @escaping ([CoinViewModel]) -> (Void))
     func getCryptoCompareList(progressBar: @escaping (Double) -> (Void), complete: @escaping (CryptoCompareResponse) -> (Void))
+    func getCompareCoinDetail(id: String, complete: @escaping (CompareCoinDetail) -> (Void))
 }
 
 enum CoinRepoType {
@@ -29,8 +30,13 @@ class CoinRepositoryFactory {
 }
 
 class RemoteCoinRepository: CoinRepository {
+    // MARK: - CoinMarketCap List
     func getCoinMarketCapList(complete: @escaping ([CoinViewModel]) -> (Void)) {
-        NetworkService.request(method: .get, reqURL: Constants.CoinMarketCap.list, parameters: DictionaryType(), headers: HeadersType()) { (coins: [Coin]) in
+        NetworkService.request(method: .get,
+                               reqURL: Constants.CoinMarketCap.list,
+                               parameters: DictionaryType(),
+                               headers: HeadersType())
+        { (coins: [Coin]) in
             var coinViewModels = [CoinViewModel]()
             for coin in coins {
                 coinViewModels.append(CoinViewModel(coin: coin))
@@ -39,6 +45,7 @@ class RemoteCoinRepository: CoinRepository {
         }
     }
     
+    // MARK: - CryptoCompareCoin List
     func getCryptoCompareList(progressBar: @escaping (Double) -> (Void), complete: @escaping (CryptoCompareResponse) -> (Void)) {
         NetworkService.progressRequest(method: .get,
                                        reqURL: Constants.CryptoCompare.list,
@@ -48,6 +55,21 @@ class RemoteCoinRepository: CoinRepository {
                                         progressBar(progress)})
         { (list: CryptoCompareResponse) in
             complete(list)
+        }
+    }
+    
+    // MARK: - CryptoCompareCoin Detail
+    func getCompareCoinDetail(id: String, complete: @escaping (CompareCoinDetail) -> (Void)) {
+        
+        var paramaters = DictionaryType()
+        paramaters.updateValue(id, forKey: "id")
+        
+        NetworkService.request(method: .get,
+                               reqURL: Constants.CryptoCompare.detail,
+                               parameters: paramaters,
+                               headers: HeadersType())
+        { (coin: CryptoCompareDetailResponse) in
+            complete(coin.detail!)
         }
     }
 }
@@ -68,6 +90,22 @@ class LocalCoinRepository: CoinRepository {
     
     func getCoinMarketCapList(complete: ([CoinViewModel]) -> (Void)) {
         complete([CoinViewModel]())
+    }
+    
+    func getCompareCoinDetail(id: String, complete: @escaping (CompareCoinDetail) -> (Void)) {
+        
+        var paramaters = DictionaryType()
+        paramaters.updateValue(id, forKey: "id")
+        
+        NetworkService.request(method: .get,
+                               reqURL: Constants.CryptoCompare.detail,
+                               parameters: paramaters,
+                               headers: HeadersType())
+        { (coin: CryptoCompareDetailResponse) in
+            
+            
+            complete(coin.detail!)
+        }
     }
 }
 

@@ -14,10 +14,12 @@ import Lottie
 
 protocol CoinPresentableListener: class {
     func getCoinMarketCapList()
-    func routeToDetail(coin: CoinViewModel)
+    func getCompareCoinInfo(coin: CoinViewModel)
 }
 
-final class CoinViewController: UIViewController, CoinViewControllable {
+final class CoinViewController: UIViewController {
+    
+    
 
     weak var listener: CoinPresentableListener?
     
@@ -58,7 +60,8 @@ final class CoinViewController: UIViewController, CoinViewControllable {
                 guard let self = self else { return }
                 switch event {
                 case .next(let indexPath):
-                    self.listener?.routeToDetail(coin: self.coins[indexPath.row])
+                    self.indicator.play(superView: self.view)
+                    self.listener?.getCompareCoinInfo(coin: self.coins[indexPath.row])
                 case .error(let error):
                     print(error)
                 case .completed:
@@ -72,6 +75,17 @@ final class CoinViewController: UIViewController, CoinViewControllable {
                 self?.listener?.getCoinMarketCapList()
                 self?.refresh.endRefreshing()
         }.disposed(by: disposeBag)
+    }
+}
+
+extension CoinViewController: CoinViewControllable {
+    func present(viewController: ViewControllable) {
+        indicator.stop()
+        present(viewController.uiviewController, animated: true, completion: nil)
+    }
+    
+    func dismiss(viewController: ViewControllable) {
+        
     }
 }
 
@@ -97,9 +111,5 @@ extension CoinViewController: UITableViewDelegate, UITableViewDataSource {
         let coin = coins[indexPath.row]
         coinCell.bind(coin: coin)
         return coinCell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
 }

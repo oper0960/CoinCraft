@@ -31,6 +31,7 @@ class NetworkService {
                 case .success:
                     if let data = response.data {
                         do {
+                            print(JSON(data))
                             success(try JSONDecoder().decode(T.self, from: data))
                         } catch let error {
                             print(error)
@@ -94,6 +95,8 @@ struct Constants {
     
     struct CryptoCompare {
         private static let BaseUrl = "https://min-api.cryptocompare.com"
+        private static let detailBaseUrl = "https://www.cryptocompare.com"
         static let list = "\(BaseUrl)/data/all/coinlist"
+        static let detail = "\(detailBaseUrl)/api/data/coinsnapshotfullbyid"
     }
 }

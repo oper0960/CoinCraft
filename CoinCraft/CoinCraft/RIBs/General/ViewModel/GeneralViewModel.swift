@@ -17,6 +17,7 @@ protocol NewsViewable {
     var body: String { get }
     var sourceName: String { get }
     var sourceImageUrl: String { get }
+    var tags: String { get }
 }
 
 struct NewsViewModel: NewsViewable {
@@ -58,4 +59,8 @@ struct NewsViewModel: NewsViewable {
     var sourceImageUrl: String {
         return news.sourceInfo?.img ?? ""
     }
+    
+    var tags: String {
+           return news.tags ?? ""
+       }
 }

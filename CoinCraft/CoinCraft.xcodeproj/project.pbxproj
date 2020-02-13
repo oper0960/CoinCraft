@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A1247D61D4534C82FFB7C348 /* Pods_CoinCraft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94077D681E1915432A16CF1F /* Pods_CoinCraft.framework */; };
+		EF6AADDD23F3C07700262644 /* NewsCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADDB23F3C07700262644 /* NewsCardCell.swift */; };
+		EF6AADDE23F3C07700262644 /* NewsCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6AADDC23F3C07700262644 /* NewsCardCell.xib */; };
 		EF880B4523E274B600068CEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B4423E274B600068CEC /* AppDelegate.swift */; };
 		EF880B4E23E274BA00068CEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF880B4D23E274BA00068CEC /* Assets.xcassets */; };
 		EF880B5123E274BA00068CEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF880B4F23E274BA00068CEC /* LaunchScreen.storyboard */; };
@@ -89,6 +91,8 @@
 		4ADE484C571EF9362CBDB08A /* Pods-CoinCraft.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinCraft.debug.xcconfig"; path = "Target Support Files/Pods-CoinCraft/Pods-CoinCraft.debug.xcconfig"; sourceTree = "<group>"; };
 		94077D681E1915432A16CF1F /* Pods_CoinCraft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinCraft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73D05DDD8698613CC3A6377 /* Pods-CoinCraft.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinCraft.release.xcconfig"; path = "Target Support Files/Pods-CoinCraft/Pods-CoinCraft.release.xcconfig"; sourceTree = "<group>"; };
+		EF6AADDB23F3C07700262644 /* NewsCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardCell.swift; sourceTree = "<group>"; };
+		EF6AADDC23F3C07700262644 /* NewsCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCardCell.xib; sourceTree = "<group>"; };
 		EF880B4123E274B600068CEC /* CoinCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF880B4423E274B600068CEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF880B4D23E274BA00068CEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -195,6 +199,15 @@
 				94077D681E1915432A16CF1F /* Pods_CoinCraft.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF6AADDA23F3C00700262644 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF6AADDB23F3C07700262644 /* NewsCardCell.swift */,
+				EF6AADDC23F3C07700262644 /* NewsCardCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EF880B3823E274B600068CEC = {
@@ -477,10 +490,11 @@
 		EF880C5123F2B4F400068CEC /* News */ = {
 			isa = PBXGroup;
 			children = (
+				EF6AADDA23F3C00700262644 /* View */,
 				EF880C5323F2B50800068CEC /* NewsRouter.swift */,
-				EF880C5423F2B50800068CEC /* NewsViewController.swift */,
-				EF880C5523F2B50800068CEC /* NewsBuilder.swift */,
 				EF880C5623F2B50800068CEC /* NewsInteractor.swift */,
+				EF880C5523F2B50800068CEC /* NewsBuilder.swift */,
+				EF880C5423F2B50800068CEC /* NewsViewController.swift */,
 				EF880C5723F2B50800068CEC /* NewsViewController.xib */,
 			);
 			path = News;
@@ -490,9 +504,9 @@
 			isa = PBXGroup;
 			children = (
 				EF880C5D23F2B51700068CEC /* SocialRouter.swift */,
-				EF880C5E23F2B51700068CEC /* SocialViewController.swift */,
-				EF880C5F23F2B51700068CEC /* SocialBuilder.swift */,
 				EF880C6023F2B51700068CEC /* SocialInteractor.swift */,
+				EF880C5F23F2B51700068CEC /* SocialBuilder.swift */,
+				EF880C5E23F2B51700068CEC /* SocialViewController.swift */,
 				EF880C6123F2B51700068CEC /* SocialViewController.xib */,
 			);
 			path = Social;
@@ -566,6 +580,7 @@
 				EF880BEA23E3FDC600068CEC /* MainViewController.xib in Resources */,
 				EF880C4123F243AE00068CEC /* CoinDetailTextViewCell.xib in Resources */,
 				EF880C3923F2438400068CEC /* CoinDetailFirstHeaderCell.xib in Resources */,
+				EF6AADDE23F3C07700262644 /* NewsCardCell.xib in Resources */,
 				EF880B8023E2B59F00068CEC /* CoinViewController.xib in Resources */,
 				EF880C6623F2B51700068CEC /* SocialViewController.xib in Resources */,
 				EF880B9423E2B5BA00068CEC /* AboutViewController.xib in Resources */,
@@ -665,6 +680,7 @@
 				EF880C6223F2B51700068CEC /* SocialRouter.swift in Sources */,
 				EF880C0F23E94DC100068CEC /* Double+.swift in Sources */,
 				EF880C5823F2B50800068CEC /* NewsRouter.swift in Sources */,
+				EF6AADDD23F3C07700262644 /* NewsCardCell.swift in Sources */,
 				EF880C0D23E914D900068CEC /* UIViewController+.swift in Sources */,
 				EF880B6323E2A43F00068CEC /* RootViewController.swift in Sources */,
 				EF880B7F23E2B59F00068CEC /* CoinInteractor.swift in Sources */,

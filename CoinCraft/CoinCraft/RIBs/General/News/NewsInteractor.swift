@@ -15,14 +15,18 @@ protocol NewsRouting: ViewableRouting {
 
 protocol NewsPresentable: Presentable {
     var listener: NewsPresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
+    
+    // MARK: - To ViewController
+    func setNews(news: [NewsViewModel])
 }
 
 protocol NewsListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class NewsInteractor: PresentableInteractor<NewsPresentable>, NewsInteractable, NewsPresentableListener {
+final class NewsInteractor: PresentableInteractor<NewsPresentable>, NewsInteractable {
+    
+    private let repository = GeneralRepositoryFactory.create(type: .remote)
 
     weak var router: NewsRouting?
     weak var listener: NewsListener?
@@ -42,5 +46,13 @@ final class NewsInteractor: PresentableInteractor<NewsPresentable>, NewsInteract
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+}
+
+extension NewsInteractor: NewsPresentableListener {
+    func getNewsList() {
+        repository.getNewsList { newsCollection in
+            self.presenter.setNews(news: newsCollection)
+        }
     }
 }

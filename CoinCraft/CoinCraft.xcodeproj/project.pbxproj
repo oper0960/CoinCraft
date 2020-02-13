@@ -22,6 +22,11 @@
 		EF6AADF923F554B800262644 /* OpenSourceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADF423F554B800262644 /* OpenSourceBuilder.swift */; };
 		EF6AADFA23F554B800262644 /* OpenSourceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADF523F554B800262644 /* OpenSourceInteractor.swift */; };
 		EF6AADFB23F554B800262644 /* OpenSourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6AADF623F554B800262644 /* OpenSourceViewController.xib */; };
+		EF6AADFE23F5595400262644 /* OpenSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADFD23F5595400262644 /* OpenSource.swift */; };
+		EF6AAE0223F5599600262644 /* Apache2.0.txt in Resources */ = {isa = PBXBuildFile; fileRef = EF6AAE0023F5599600262644 /* Apache2.0.txt */; };
+		EF6AAE0323F5599600262644 /* MIT.txt in Resources */ = {isa = PBXBuildFile; fileRef = EF6AAE0123F5599600262644 /* MIT.txt */; };
+		EF6AAE0723F559C400262644 /* OpenSourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AAE0523F559C400262644 /* OpenSourceCell.swift */; };
+		EF6AAE0823F559C400262644 /* OpenSourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6AAE0623F559C400262644 /* OpenSourceCell.xib */; };
 		EF880B4523E274B600068CEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B4423E274B600068CEC /* AppDelegate.swift */; };
 		EF880B4E23E274BA00068CEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF880B4D23E274BA00068CEC /* Assets.xcassets */; };
 		EF880B5123E274BA00068CEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF880B4F23E274BA00068CEC /* LaunchScreen.storyboard */; };
@@ -117,6 +122,11 @@
 		EF6AADF423F554B800262644 /* OpenSourceBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceBuilder.swift; sourceTree = "<group>"; };
 		EF6AADF523F554B800262644 /* OpenSourceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceInteractor.swift; sourceTree = "<group>"; };
 		EF6AADF623F554B800262644 /* OpenSourceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpenSourceViewController.xib; sourceTree = "<group>"; };
+		EF6AADFD23F5595400262644 /* OpenSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSource.swift; sourceTree = "<group>"; };
+		EF6AAE0023F5599600262644 /* Apache2.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Apache2.0.txt; sourceTree = "<group>"; };
+		EF6AAE0123F5599600262644 /* MIT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MIT.txt; sourceTree = "<group>"; };
+		EF6AAE0523F559C400262644 /* OpenSourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceCell.swift; sourceTree = "<group>"; };
+		EF6AAE0623F559C400262644 /* OpenSourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpenSourceCell.xib; sourceTree = "<group>"; };
 		EF880B4123E274B600068CEC /* CoinCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF880B4423E274B600068CEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF880B4D23E274BA00068CEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -246,10 +256,13 @@
 		EF6AADE623F54E0900262644 /* OpenSource */ = {
 			isa = PBXGroup;
 			children = (
+				EF6AADFF23F5598400262644 /* OpenSourceText */,
+				EF6AAE0423F559AB00262644 /* View */,
+				EF6AADFC23F5592000262644 /* ViewModel */,
 				EF6AADF223F554B800262644 /* OpenSourceRouter.swift */,
-				EF6AADF323F554B800262644 /* OpenSourceViewController.swift */,
-				EF6AADF423F554B800262644 /* OpenSourceBuilder.swift */,
 				EF6AADF523F554B800262644 /* OpenSourceInteractor.swift */,
+				EF6AADF423F554B800262644 /* OpenSourceBuilder.swift */,
+				EF6AADF323F554B800262644 /* OpenSourceViewController.swift */,
 				EF6AADF623F554B800262644 /* OpenSourceViewController.xib */,
 			);
 			path = OpenSource;
@@ -259,12 +272,38 @@
 			isa = PBXGroup;
 			children = (
 				EF6AADE823F554A500262644 /* VersionRouter.swift */,
-				EF6AADE923F554A500262644 /* VersionViewController.swift */,
-				EF6AADEA23F554A500262644 /* VersionBuilder.swift */,
 				EF6AADEB23F554A500262644 /* VersionInteractor.swift */,
+				EF6AADEA23F554A500262644 /* VersionBuilder.swift */,
+				EF6AADE923F554A500262644 /* VersionViewController.swift */,
 				EF6AADEC23F554A500262644 /* VersionViewController.xib */,
 			);
 			path = Version;
+			sourceTree = "<group>";
+		};
+		EF6AADFC23F5592000262644 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF6AADFD23F5595400262644 /* OpenSource.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF6AADFF23F5598400262644 /* OpenSourceText */ = {
+			isa = PBXGroup;
+			children = (
+				EF6AAE0023F5599600262644 /* Apache2.0.txt */,
+				EF6AAE0123F5599600262644 /* MIT.txt */,
+			);
+			path = OpenSourceText;
+			sourceTree = "<group>";
+		};
+		EF6AAE0423F559AB00262644 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF6AAE0523F559C400262644 /* OpenSourceCell.swift */,
+				EF6AAE0623F559C400262644 /* OpenSourceCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EF880B3823E274B600068CEC = {
@@ -616,15 +655,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF6AAE0823F559C400262644 /* OpenSourceCell.xib in Resources */,
 				EF880B5123E274BA00068CEC /* LaunchScreen.storyboard in Resources */,
 				EF6AADF123F554A500262644 /* VersionViewController.xib in Resources */,
 				EF880C3023ED4DBA00068CEC /* LaunchLoading.json in Resources */,
 				EF880C0823E9039700068CEC /* NormalLoading.json in Resources */,
 				EF880C5C23F2B50800068CEC /* NewsViewController.xib in Resources */,
 				EF6AADE523F53A3B00262644 /* AboutTableViewCell.xib in Resources */,
+				EF6AAE0323F5599600262644 /* MIT.txt in Resources */,
 				EF880B4E23E274BA00068CEC /* Assets.xcassets in Resources */,
 				EF880BEA23E3FDC600068CEC /* MainViewController.xib in Resources */,
 				EF880C4123F243AE00068CEC /* CoinDetailTextViewCell.xib in Resources */,
+				EF6AAE0223F5599600262644 /* Apache2.0.txt in Resources */,
 				EF880C3923F2438400068CEC /* CoinDetailFirstHeaderCell.xib in Resources */,
 				EF6AADDE23F3C07700262644 /* NewsCardCell.xib in Resources */,
 				EF880B8023E2B59F00068CEC /* CoinViewController.xib in Resources */,
@@ -698,6 +740,7 @@
 				EF880C4323F2542A00068CEC /* String+.swift in Sources */,
 				EF880B6523E2A43F00068CEC /* RootInteractor.swift in Sources */,
 				EF880B9323E2B5BA00068CEC /* AboutInteractor.swift in Sources */,
+				EF6AADFE23F5595400262644 /* OpenSource.swift in Sources */,
 				EF880C3823F2438400068CEC /* CoinDetailFirstHeaderCell.swift in Sources */,
 				EF880C4723F2791B00068CEC /* UIColor+.swift in Sources */,
 				EF880BF023E435A000068CEC /* SegmentInnerView.swift in Sources */,
@@ -728,6 +771,7 @@
 				EF6AADF923F554B800262644 /* OpenSourceBuilder.swift in Sources */,
 				EF880B6423E2A43F00068CEC /* RootBuilder.swift in Sources */,
 				EF880B7E23E2B59F00068CEC /* CoinBuilder.swift in Sources */,
+				EF6AAE0723F559C400262644 /* OpenSourceCell.swift in Sources */,
 				EF880C1823E9652700068CEC /* CoinDetailBuilder.swift in Sources */,
 				EF880C6223F2B51700068CEC /* SocialRouter.swift in Sources */,
 				EF880C0F23E94DC100068CEC /* Double+.swift in Sources */,
@@ -900,7 +944,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.buxi.CoinCraft;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryu.CoinCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -919,7 +963,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.buxi.CoinCraft;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryu.CoinCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

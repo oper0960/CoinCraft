@@ -2,8 +2,8 @@
 //  MainInteractor.swift
 //  CoinCraft
 //
-//  Created by Buxi on 2020/01/31.
-//  Copyright © 2020 Buxi. All rights reserved.
+//  Created by Gilwan Ryu on 2020/01/31.
+//  Copyright © 2020 Gilwan Ryu. All rights reserved.
 //
 
 import RIBs

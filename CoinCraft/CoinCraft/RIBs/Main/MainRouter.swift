@@ -2,8 +2,8 @@
 //  MainRouter.swift
 //  CoinCraft
 //
-//  Created by Buxi on 2020/01/31.
-//  Copyright © 2020 Buxi. All rights reserved.
+//  Created by Gilwan Ryu on 2020/01/31.
+//  Copyright © 2020 Gilwan Ryu. All rights reserved.
 //
 
 import RIBs
@@ -31,7 +31,7 @@ extension MainRouter: MainRouting {
         var views = [UIViewController]()
         for (index, view) in innerViews.enumerated() {
             let viewRouter = view.builder.build(withListener: interactor)
-            viewRouter.viewControllable.uiviewController.tabBarItem = UITabBarItem(title: view.name, image: UIImage(named: view.name.lowercased())!, tag: index)
+            viewRouter.viewControllable.uiviewController.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: view.name.lowercased())!, tag: index)
             views.append(viewRouter.viewControllable.uiviewController)
             attachChild(viewRouter)
         }

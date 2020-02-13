@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - CMCCoin ViewModel
-protocol CoinViewModelViewable {
+protocol CoinViewable {
     var imageURL: String { get }
     var name: String { get }
     var coinName: String { get }
@@ -19,7 +19,7 @@ protocol CoinViewModelViewable {
     var sortOrder: String { get }
 }
 
-struct CoinViewModel: CoinViewModelViewable {
+struct CoinViewModel: CoinViewable {
     private let coin: Coin
     
     init(coin: Coin) {
@@ -58,12 +58,12 @@ struct CoinViewModel: CoinViewModelViewable {
 }
 
 // MARK: - CompareCoin ViewModel
-protocol CompareCoinViewModelViewable {
+protocol CompareCoinViewable {
     var symbol: String { get }
     var id: String { get }
 }
 
-struct CompareCoinViewModel: CompareCoinViewModelViewable {
+struct CompareCoinViewModel: CompareCoinViewable {
     
     private let coin: CompareCoin
     
@@ -81,7 +81,7 @@ struct CompareCoinViewModel: CompareCoinViewModelViewable {
 }
 
 // MARK: - CompareCoinDetail ViewModel
-protocol CompareCoinDetailViewModelViewable {
+protocol CompareCoinDetailViewable {
     var id: String { get }
     var imageUrl: String? { get }
     var symbol: String { get }
@@ -92,7 +92,7 @@ protocol CompareCoinDetailViewModelViewable {
     var startDate: String { get }
 }
 
-struct CompareCoinDetailViewModel: CompareCoinDetailViewModelViewable {
+struct CompareCoinDetailViewModel: CompareCoinDetailViewable {
     private let detail: CompareCoinDetail
     
     init(detail: CompareCoinDetail) {

@@ -103,14 +103,14 @@ struct Constants {
     }
     
     struct General {
-        struct Active {
-            private static let baseUrl = "https://chasing-coins.com"
-            static let list = "\(baseUrl)/api/v1/icos/active"
+        struct News {
+            private static let baseUrl = "https://min-api.cryptocompare.com"
+            static let list = "\(baseUrl)/data/v2/news/?lang=EN"
         }
         
-        struct Upcoming {
-            private static let baseUrl = "https://chasing-coins.com"
-            static let list = "\(baseUrl)/api/v1/icos/upcoming"
+        struct Social {
+            private static let baseUrl = "https://min-api.cryptocompare.com"
+            static let list = "\(baseUrl)"
         }
     }
     

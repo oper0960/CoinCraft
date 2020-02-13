@@ -9,8 +9,8 @@
 import UIKit
 
 protocol GeneralRepository {
-    func getActiveList()
-    func getUpComingList()
+    func getNewsList(complete: @escaping ([NewsViewModel]) -> (Void))
+    func getSocialList()
 }
 
 enum GeneralRepoType {
@@ -29,22 +29,32 @@ class GeneralRepositoryFactory {
 }
 
 class RemoteGeneralRepository: GeneralRepository {
-    func getActiveList() {
-        
+    func getNewsList(complete: @escaping ([NewsViewModel]) -> (Void)) {
+        NetworkService.request(method: .get,
+                               reqURL: Constants.General.News.list,
+                               parameters: DictionaryType(),
+                               headers: HeadersType())
+        { (newsCollection: NewsResponse) in
+            var newsViewModels = [NewsViewModel]()
+            for news in newsCollection.newsCollection {
+                newsViewModels.append(NewsViewModel(news: news))
+            }
+            complete(newsViewModels)
+        }
     }
     
-    func getUpComingList() {
+    func getSocialList() {
         
     }
 }
 
 // MARK: - Only Local Network (Not Usable)
 class LocalGeneralRepository: GeneralRepository {
-    func getActiveList() {
+    func getNewsList(complete: @escaping ([NewsViewModel]) -> (Void)) {
         
     }
     
-    func getUpComingList() {
+    func getSocialList() {
         
     }
 }

@@ -13,6 +13,7 @@ import UIKit
 import Lottie
 
 protocol CoinPresentableListener: class {
+    // MARK: - To Interactor
     func getCoinMarketCapList()
     func getCompareCoinInfo(coin: CoinViewModel)
 }
@@ -51,6 +52,7 @@ final class CoinViewController: UIViewController {
     }
 }
 
+// MARK: - Setup
 extension CoinViewController {
     private func setTableView() {
         coinTableView.register(UINib(nibName: "CoinTableViewCell", bundle: nil), forCellReuseIdentifier: "coinCell")
@@ -92,6 +94,7 @@ extension CoinViewController {
     }
 }
 
+// MARK: - CoinViewControllable
 extension CoinViewController: CoinViewControllable {
     func present(viewController: ViewControllable) {
         indicator.stop()
@@ -103,6 +106,7 @@ extension CoinViewController: CoinViewControllable {
     }
 }
 
+// MARK: - CoinPresentable
 extension CoinViewController: CoinPresentable {
     func setCoinList(coins: [CoinViewModel]) {
         self.coins = coins
@@ -110,6 +114,7 @@ extension CoinViewController: CoinPresentable {
     }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension CoinViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

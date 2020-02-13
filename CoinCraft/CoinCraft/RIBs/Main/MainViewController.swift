@@ -14,7 +14,7 @@ protocol MainPresentableListener: class {
     func convertTitle(selectView: UIViewController)
 }
 
-class MainViewController: UIViewController, MainViewControllable {
+class MainViewController: UIViewController {
     
     weak var listener: MainPresentableListener?
     private var tabbarInnerViews = [UIViewController]()
@@ -43,6 +43,10 @@ extension MainViewController: MainPresentable {
     func changeNavigationTitle(title: String) {
         setTitle(title)
     }
+}
+
+extension MainViewController: MainViewControllable {
+    
 }
 
 // MARK: - UITabbarControllerDelegate

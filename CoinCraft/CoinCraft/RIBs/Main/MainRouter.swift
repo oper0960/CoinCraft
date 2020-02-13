@@ -31,7 +31,7 @@ extension MainRouter: MainRouting {
         var views = [UIViewController]()
         for (index, view) in innerViews.enumerated() {
             let viewRouter = view.builder.build(withListener: interactor)
-            viewRouter.viewControllable.uiviewController.tabBarItem = UITabBarItem(title: view.name, image: nil, tag: index)
+            viewRouter.viewControllable.uiviewController.tabBarItem = UITabBarItem(title: view.name, image: UIImage(named: view.name.lowercased())!, tag: index)
             views.append(viewRouter.viewControllable.uiviewController)
             attachChild(viewRouter)
         }

@@ -8,15 +8,15 @@
 
 import RIBs
 
-public protocol TabbarInnerViewListener: class {
+protocol TabbarInnerViewListener: class {
     
 }
 
-public protocol TabbarBuildable: Buildable {
+protocol TabbarBuildable: Buildable {
     func build(withListener listener: TabbarInnerViewListener) -> ViewableRouting
 }
 
-public protocol TabbarInnerView {
+protocol TabbarInnerView {
     var name: String { get }
     var builder: TabbarBuildable { get }
 }

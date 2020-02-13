@@ -2,8 +2,8 @@
 //  GeneralViewModel.swift
 //  CoinCraft
 //
-//  Created by Buxi on 2020/02/11.
-//  Copyright © 2020 Buxi. All rights reserved.
+//  Created by Gilwan Ryu on 2020/02/11.
+//  Copyright © 2020 Gilwan Ryu. All rights reserved.
 //
 
 import UIKit
@@ -61,6 +61,6 @@ struct NewsViewModel: NewsViewable {
     }
     
     var tags: String {
-           return news.tags ?? ""
+           return news.tag ?? ""
        }
 }

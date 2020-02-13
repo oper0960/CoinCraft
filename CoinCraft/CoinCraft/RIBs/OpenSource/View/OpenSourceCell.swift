@@ -1,17 +1,15 @@
 //
-//  CoinDetailTextViewCell.swift
+//  OpenSourceCell.swift
 //  CoinCraft
 //
-//  Created by Gilwan Ryu on 2020/02/11.
+//  Created by Gilwan Ryu on 2020/02/13.
 //  Copyright © 2020 Gilwan Ryu. All rights reserved.
 //
 
 import UIKit
 
-class CoinDetailTextViewCell: UITableViewCell {
-    
-    @IBOutlet weak var descTextView: UITextView!
-    
+class OpenSourceCell: UITableViewCell {
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,9 +17,8 @@ class CoinDetailTextViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
     
-    func bind(info: String) {
-        descTextView.attributedText = info.htmlToAttributedString
-    }
 }

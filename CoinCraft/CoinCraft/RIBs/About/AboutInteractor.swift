@@ -8,14 +8,14 @@
 
 import RIBs
 import RxSwift
+import RxCocoa
 
 protocol AboutRouting: ViewableRouting {
     func pushMenu(menu: SettingMenu)
 }
 
 protocol AboutPresentable: Presentable {
-    var listener: AboutPresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
+    func onSelected() -> PublishRelay<SettingMenu>
 }
 
 protocol AboutListener: class {
@@ -29,12 +29,11 @@ final class AboutInteractor: PresentableInteractor<AboutPresentable> {
 
     override init(presenter: AboutPresentable) {
         super.init(presenter: presenter)
-        presenter.listener = self
     }
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        // TODO: Implement business logic here.
+        setRx()
     }
 
     override func willResignActive() {
@@ -43,14 +42,15 @@ final class AboutInteractor: PresentableInteractor<AboutPresentable> {
     }
 }
 
+extension AboutInteractor {
+    func setRx() {
+        presenter.onSelected().subscribe(onNext: { menu in
+            self.router?.pushMenu(menu: menu)
+        }).disposeOnDeactivate(interactor: self)
+    }
+}
+
 // MARK: - AboutInteractable
 extension AboutInteractor: AboutInteractable {
     
-}
-
-// MARK: - AboutPresentableListener
-extension AboutInteractor: AboutPresentableListener {
-    func pushMenu(menu: SettingMenu) {
-        router?.pushMenu(menu: menu)
-    }
 }

@@ -7,6 +7,7 @@
 //
 
 import RxSwift
+import RxCocoa
 
 protocol OpenSourceStream {
     var openSource: Observable<OpenSource> { get }
@@ -27,9 +28,9 @@ class openSourceStreamImpl: OpenSourceStream {
     }
 
     func updateOpenSource(openSource: OpenSource) {
-        variable.value = openSource
+        variable.accept(openSource)
     }
 
     // MARK: - Private
-    private let variable = Variable<OpenSource>(OpenSource("", license: .mit(year: "", name: "")))
+    private let variable = BehaviorRelay<OpenSource>(value: OpenSource("", license: .mit(year: "", name: "")))
 }

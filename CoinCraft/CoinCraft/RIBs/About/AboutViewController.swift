@@ -8,12 +8,9 @@
 
 import RIBs
 import RxSwift
+import RxCocoa
 import UIKit
 import MessageUI
-
-protocol AboutPresentableListener: class {
-    func pushMenu(menu: SettingMenu)
-}
 
 enum SettingMenu {
     case opensource, version, feedback
@@ -21,11 +18,8 @@ enum SettingMenu {
 
 final class AboutViewController: UIViewController {
 
-    weak var listener: AboutPresentableListener?
-    
+    private var selectedRelay = PublishRelay<SettingMenu>()
     private var navigation: UINavigationController
-    
-    @IBOutlet weak var aboutTableView: UITableView!
     
     init(navigation: UINavigationController) {
         self.navigation = navigation
@@ -35,6 +29,8 @@ final class AboutViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    @IBOutlet weak var aboutTableView: UITableView!
     
     private var menuArray: [SettingMenu] = {
         var array = [SettingMenu]()
@@ -64,17 +60,9 @@ extension AboutViewController {
     private func setRx() {
         aboutTableView.rx
             .itemSelected
-            .subscribe { [weak self] event in
-                guard let self = self else { return }
-                switch event {
-                case .next(let indexPath):
-                    self.listener?.pushMenu(menu: self.menuArray[indexPath.row])
-                case .error(let error):
-                    print(error)
-                case .completed:
-                    break
-                }
-        }.disposed(by: disposeBag)
+            .subscribe(onNext: { indexPath in
+                self.selectedRelay.accept(self.menuArray[indexPath.row])
+            }).disposed(by: disposeBag)
     }
     
     private func configuredMailComposeViewController() -> MFMailComposeViewController {
@@ -87,7 +75,9 @@ extension AboutViewController {
 
 // MARK: - AboutPresentable
 extension AboutViewController: AboutPresentable {
-    
+    func onSelected() -> PublishRelay<SettingMenu> {
+        return selectedRelay
+    }
 }
 
 // MARK: - AboutViewControllable

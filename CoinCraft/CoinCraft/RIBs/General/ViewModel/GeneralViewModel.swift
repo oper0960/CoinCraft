@@ -61,6 +61,6 @@ struct NewsViewModel: NewsViewable {
     }
     
     var tags: String {
-           return news.tag ?? ""
-       }
+        return news.tags ?? ""
+    }
 }

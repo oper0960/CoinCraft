@@ -7,40 +7,56 @@
 //
 
 import RIBs
+import RxCocoa
 import RxSwift
 
 protocol OpenSourceRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func routeLicense()
 }
 
 protocol OpenSourcePresentable: Presentable {
-    var listener: OpenSourcePresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
+    // MARK: - To ViewController
+    func onSelected() -> PublishRelay<OpenSource>
 }
 
 protocol OpenSourceListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class OpenSourceInteractor: PresentableInteractor<OpenSourcePresentable>, OpenSourceInteractable, OpenSourcePresentableListener {
+final class OpenSourceInteractor: PresentableInteractor<OpenSourcePresentable> {
 
     weak var router: OpenSourceRouting?
     weak var listener: OpenSourceListener?
 
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
-    override init(presenter: OpenSourcePresentable) {
+    init(presenter: OpenSourcePresentable,
+         openSourceStream: OpenSourceStream) {
+        self.openSourceStream = openSourceStream
         super.init(presenter: presenter)
-        presenter.listener = self
     }
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        // TODO: Implement business logic here.
+        setRx()
     }
 
     override func willResignActive() {
         super.willResignActive()
-        // TODO: Pause any business logic.
     }
+    
+    private let openSourceStream: OpenSourceStream
+}
+
+extension OpenSourceInteractor {
+    func setRx() {
+        presenter.onSelected()
+            .subscribe(onNext: { openSource in
+                self.openSourceStream.updateOpenSource(openSource: openSource)
+                self.router?.routeLicense()
+            }).disposeOnDeactivate(interactor: self)
+    }
+}
+
+// MARK: - OpenSourceInteractable
+extension OpenSourceInteractor: OpenSourceInteractable {
+    
 }

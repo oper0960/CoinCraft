@@ -8,9 +8,11 @@
 
 import RIBs
 
-class AppComponent: Component<EmptyDependency>, RootDependency, MainDependency {
+class AppComponent: Component<EmptyDependency>, RootDependency {
+    var navigation: UINavigationController
     
     init() {
+        self.navigation = UINavigationController().defaultNavigation()
         super.init(dependency: EmptyComponent())
     }
 }

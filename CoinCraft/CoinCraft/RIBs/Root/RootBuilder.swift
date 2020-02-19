@@ -9,22 +9,18 @@
 import RIBs
 
 protocol RootDependency: Dependency {
-    
+    var navigation: UINavigationController { get }
 }
 
 final class RootComponent: Component<RootDependency> {
-
-    let rootViewController: RootViewController
-
-    init(dependency: RootDependency,
-         rootViewController: RootViewController) {
-        self.rootViewController = rootViewController
-        super.init(dependency: dependency)
-    }
+    
 }
 
+// MARK: - To MainRIB Dependency
 extension RootComponent: MainDependency {
-    
+    var navigation: UINavigationController {
+        return dependency.navigation
+    }
 }
 
 // MARK: - Builder
@@ -39,14 +35,13 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
     }
 
     func build() -> LaunchRouting {
+        let component = RootComponent(dependency: dependency)
         let viewController = RootViewController()
-        let component = RootComponent(dependency: dependency,
-                                      rootViewController: viewController)
         let interactor = RootInteractor(presenter: viewController)
-        
         let mainBuilder = MainBuilder(dependency: component)
         return RootRouter(interactor: interactor,
                           viewController: viewController,
-                          mainBuilder: mainBuilder)
+                          mainBuilder: mainBuilder,
+                          navigation: component.navigation)
     }
 }

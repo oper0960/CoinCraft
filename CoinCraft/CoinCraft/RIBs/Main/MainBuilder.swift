@@ -9,15 +9,32 @@
 import RIBs
 
 protocol MainDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
-    // created by this RIB.
+    var navigation: UINavigationController { get }
 }
 
-final class MainComponent: Component<MainDependency>, CoinDependency, GeneralDependency, AboutDependency {
+final class MainComponent: Component<MainDependency> {
+    
     fileprivate var tabbarInnerViews: [TabbarInnerView] {
         return shared {
             return [CoinAdapter(dependency: self), GeneralAdapter(dependency: self), AboutAdapter(dependency: self)]
         }
+    }
+}
+
+// MARK: - To Coin RIB Dependency
+extension MainComponent: CoinDependency {
+    
+}
+
+// MARK: - To General RIB Dependency
+extension MainComponent: GeneralDependency {
+    
+}
+
+// MARK: - To About RIB Dependency
+extension MainComponent: AboutDependency {
+    var navigation: UINavigationController {
+        return dependency.navigation
     }
 }
 

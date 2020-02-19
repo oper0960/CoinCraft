@@ -8,8 +8,8 @@
 
 import RIBs
 
-class AboutAdapter: TabbarInnerView, TabbarBuildable, AboutListener {
-
+class AboutAdapter: TabbarInnerView, TabbarBuildable {
+    
     let name = "About"
     
     var builder: TabbarBuildable {
@@ -28,4 +28,8 @@ class AboutAdapter: TabbarInnerView, TabbarBuildable, AboutListener {
         self.listener = listener
         return aboutBuilder.build(withListener: self)
     }
+}
+
+extension AboutAdapter: AboutListener {
+    
 }

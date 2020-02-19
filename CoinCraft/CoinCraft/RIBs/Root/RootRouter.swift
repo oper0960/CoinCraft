@@ -24,13 +24,17 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable> {
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: RootInteractable,
          viewController: RootViewControllable,
-         mainBuilder: MainBuildable) {
+         mainBuilder: MainBuildable,
+         navigation: UINavigationController) {
         
+        self.navigation = navigation
         self.mainBuilder = mainBuilder
         
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
+    
+    private var navigation: UINavigationController
     
     private var mainBuilder: MainBuildable
     private var mainRouter: ViewableRouting?
@@ -43,7 +47,8 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable> {
         let main = mainBuilder.build(withListener: interactor)
         self.mainRouter = main
         attachChild(main)
-        viewController.present(viewController: UINavigationController(root: main.viewControllable).defaultNavigation())
+        navigation.setViewControllers([main.viewControllable.uiviewController], animated: false)
+        viewController.present(viewController: navigation)
     }
 }
 

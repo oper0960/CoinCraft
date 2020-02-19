@@ -8,20 +8,50 @@
 
 import RIBs
 
-protocol AboutInteractable: Interactable {
+protocol AboutInteractable: Interactable, OpenSourceListener {
     var router: AboutRouting? { get set }
     var listener: AboutListener? { get set }
 }
 
 protocol AboutViewControllable: ViewControllable {
-    // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+    func push(viewController: ViewControllable)
+    func presentFeedback()
 }
 
-final class AboutRouter: ViewableRouter<AboutInteractable, AboutViewControllable>, AboutRouting {
-
+final class AboutRouter: ViewableRouter<AboutInteractable, AboutViewControllable> {
+    
     // TODO: Constructor inject child builder protocols to allow building children.
-    override init(interactor: AboutInteractable, viewController: AboutViewControllable) {
+    init(interactor: AboutInteractable,
+         viewController: AboutViewControllable,
+         openSourceBuilder: OpenSourceBuildable) {
+        
+        self.openSourceBuilder = openSourceBuilder
+        
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
+    }
+    
+    private let openSourceBuilder: OpenSourceBuildable
+    private var currentRouter: ViewableRouting?
+}
+
+extension AboutRouter: AboutRouting {
+    func pushMenu(menu: SettingMenu) {
+        
+        if !children.isEmpty {
+            children.removeAll()
+        }
+        
+        switch menu {
+        case .opensource:
+            let openSource = openSourceBuilder.build(withListener: interactor)
+            currentRouter = openSource
+            attachChild(openSource)
+            viewController.push(viewController: openSource.viewControllable)
+        case .version:
+            break
+        case .feedback:
+            viewController.presentFeedback()
+        }
     }
 }

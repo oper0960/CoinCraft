@@ -10,7 +10,7 @@ import RIBs
 import RxSwift
 
 protocol AboutRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func pushMenu(menu: SettingMenu)
 }
 
 protocol AboutPresentable: Presentable {
@@ -19,16 +19,14 @@ protocol AboutPresentable: Presentable {
 }
 
 protocol AboutListener: class {
-    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    
 }
 
-final class AboutInteractor: PresentableInteractor<AboutPresentable>, AboutInteractable, AboutPresentableListener {
+final class AboutInteractor: PresentableInteractor<AboutPresentable> {
 
     weak var router: AboutRouting?
     weak var listener: AboutListener?
 
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
     override init(presenter: AboutPresentable) {
         super.init(presenter: presenter)
         presenter.listener = self
@@ -42,5 +40,17 @@ final class AboutInteractor: PresentableInteractor<AboutPresentable>, AboutInter
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+}
+
+// MARK: - AboutInteractable
+extension AboutInteractor: AboutInteractable {
+    
+}
+
+// MARK: - AboutPresentableListener
+extension AboutInteractor: AboutPresentableListener {
+    func pushMenu(menu: SettingMenu) {
+        router?.pushMenu(menu: menu)
     }
 }

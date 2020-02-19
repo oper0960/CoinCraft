@@ -9,13 +9,19 @@
 import RIBs
 
 protocol AboutDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
-    // created by this RIB.
+    var navigation: UINavigationController { get }
 }
 
 final class AboutComponent: Component<AboutDependency> {
+    var navigation: UINavigationController {
+        return dependency.navigation
+    }
+}
 
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+extension AboutComponent: OpenSourceDependency {
+    var openSourceStream: OpenSourceStream {
+        return shared { openSourceStreamImpl() }
+    }
 }
 
 // MARK: - Builder
@@ -31,10 +37,11 @@ final class AboutBuilder: Builder<AboutDependency>, AboutBuildable {
     }
 
     func build(withListener listener: AboutListener) -> AboutRouting {
-        let _ = AboutComponent(dependency: dependency)
-        let viewController = AboutViewController()
+        let component = AboutComponent(dependency: dependency)
+        let viewController = AboutViewController(navigation: component.navigation)
         let interactor = AboutInteractor(presenter: viewController)
+        let openSourceBuiler = OpenSourceBuilder(dependency: component)
         interactor.listener = listener
-        return AboutRouter(interactor: interactor, viewController: viewController)
+        return AboutRouter(interactor: interactor, viewController: viewController, openSourceBuilder: openSourceBuiler)
     }
 }

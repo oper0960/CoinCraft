@@ -24,8 +24,8 @@ protocol MainListener: class {
     
 }
 
-final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteractable {
-
+final class MainInteractor: PresentableInteractor<MainPresentable> {
+    
     weak var router: MainRouting?
     weak var listener: MainListener?
     
@@ -47,6 +47,10 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
     override func willResignActive() {
         super.willResignActive()
     }
+}
+
+extension MainInteractor: MainInteractable {
+
 }
 
 extension MainInteractor: MainPresentableListener {

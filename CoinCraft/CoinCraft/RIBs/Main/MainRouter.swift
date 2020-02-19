@@ -8,13 +8,15 @@
 
 import RIBs
 
-protocol MainInteractable: Interactable, TabbarInnerViewListener {
+protocol MainInteractable: Interactable, TabbarInnerViewListener, OpenSourceListener {
     var router: MainRouting? { get set }
     var listener: MainListener? { get set }
 }
 
 protocol MainViewControllable: ViewControllable {
     func setTabbar(viewControllers: [UIViewController])
+    
+    func present(viewController: ViewControllable)
 }
 
 final class MainRouter: ViewableRouter<MainInteractable, MainViewControllable> {
@@ -31,7 +33,7 @@ extension MainRouter: MainRouting {
         var views = [UIViewController]()
         for (index, view) in innerViews.enumerated() {
             let viewRouter = view.builder.build(withListener: interactor)
-            viewRouter.viewControllable.uiviewController.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: view.name.lowercased())!, tag: index)
+            viewRouter.viewControllable.uiviewController.tabBarItem = UITabBarItem(title: view.name, image: UIImage(named: view.name.lowercased())!, tag: index)
             views.append(viewRouter.viewControllable.uiviewController)
             attachChild(viewRouter)
         }

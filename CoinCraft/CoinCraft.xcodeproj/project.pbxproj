@@ -27,6 +27,12 @@
 		EF6AAE0323F5599600262644 /* MIT.txt in Resources */ = {isa = PBXBuildFile; fileRef = EF6AAE0123F5599600262644 /* MIT.txt */; };
 		EF6AAE0723F559C400262644 /* OpenSourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AAE0523F559C400262644 /* OpenSourceCell.swift */; };
 		EF6AAE0823F559C400262644 /* OpenSourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6AAE0623F559C400262644 /* OpenSourceCell.xib */; };
+		EF6AAE0F23F66B8000262644 /* LicenseTextRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AAE0A23F66B8000262644 /* LicenseTextRouter.swift */; };
+		EF6AAE1023F66B8000262644 /* LicenseTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AAE0B23F66B8000262644 /* LicenseTextViewController.swift */; };
+		EF6AAE1123F66B8000262644 /* LicenseTextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AAE0C23F66B8000262644 /* LicenseTextBuilder.swift */; };
+		EF6AAE1223F66B8000262644 /* LicenseTextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AAE0D23F66B8000262644 /* LicenseTextInteractor.swift */; };
+		EF6AAE1323F66B8000262644 /* LicenseTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6AAE0E23F66B8000262644 /* LicenseTextViewController.xib */; };
+		EF6AAE6923FB8B2C00262644 /* OpenSourceStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AAE6823FB8B2C00262644 /* OpenSourceStream.swift */; };
 		EF880B4523E274B600068CEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B4423E274B600068CEC /* AppDelegate.swift */; };
 		EF880B4E23E274BA00068CEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF880B4D23E274BA00068CEC /* Assets.xcassets */; };
 		EF880B5123E274BA00068CEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF880B4F23E274BA00068CEC /* LaunchScreen.storyboard */; };
@@ -127,6 +133,12 @@
 		EF6AAE0123F5599600262644 /* MIT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MIT.txt; sourceTree = "<group>"; };
 		EF6AAE0523F559C400262644 /* OpenSourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceCell.swift; sourceTree = "<group>"; };
 		EF6AAE0623F559C400262644 /* OpenSourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpenSourceCell.xib; sourceTree = "<group>"; };
+		EF6AAE0A23F66B8000262644 /* LicenseTextRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseTextRouter.swift; sourceTree = "<group>"; };
+		EF6AAE0B23F66B8000262644 /* LicenseTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseTextViewController.swift; sourceTree = "<group>"; };
+		EF6AAE0C23F66B8000262644 /* LicenseTextBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseTextBuilder.swift; sourceTree = "<group>"; };
+		EF6AAE0D23F66B8000262644 /* LicenseTextInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseTextInteractor.swift; sourceTree = "<group>"; };
+		EF6AAE0E23F66B8000262644 /* LicenseTextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LicenseTextViewController.xib; sourceTree = "<group>"; };
+		EF6AAE6823FB8B2C00262644 /* OpenSourceStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceStream.swift; sourceTree = "<group>"; };
 		EF880B4123E274B600068CEC /* CoinCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF880B4423E274B600068CEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF880B4D23E274BA00068CEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -284,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				EF6AADFD23F5595400262644 /* OpenSource.swift */,
+				EF6AAE6823FB8B2C00262644 /* OpenSourceStream.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -304,6 +317,29 @@
 				EF6AAE0623F559C400262644 /* OpenSourceCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EF6AAE0923F66AFD00262644 /* LicenseText */ = {
+			isa = PBXGroup;
+			children = (
+				EF6AAE0A23F66B8000262644 /* LicenseTextRouter.swift */,
+				EF6AAE0D23F66B8000262644 /* LicenseTextInteractor.swift */,
+				EF6AAE0C23F66B8000262644 /* LicenseTextBuilder.swift */,
+				EF6AAE0B23F66B8000262644 /* LicenseTextViewController.swift */,
+				EF6AAE0E23F66B8000262644 /* LicenseTextViewController.xib */,
+			);
+			path = LicenseText;
+			sourceTree = "<group>";
+		};
+		EF6AAE1423F67D6700262644 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				EF880BAB23E2C9E600068CEC /* TabbarInnerView.swift */,
+				EF880BAD23E2CA7700068CEC /* CoinAdapter.swift */,
+				EF880BAF23E2CA8100068CEC /* GeneralAdapter.swift */,
+				EF880BB123E2CA8D00068CEC /* AboutAdapter.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		EF880B3823E274B600068CEC = {
@@ -368,6 +404,7 @@
 				EF880B6823E2ABAE00068CEC /* About */,
 				EF6AADE723F54E1A00262644 /* Version */,
 				EF6AADE623F54E0900262644 /* OpenSource */,
+				EF6AAE0923F66AFD00262644 /* LicenseText */,
 			);
 			path = RIBs;
 			sourceTree = "<group>";
@@ -431,15 +468,12 @@
 		EF880B6923E2ABC100068CEC /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				EF6AAE1423F67D6700262644 /* Tabbar */,
 				EF880BE123E3FDC600068CEC /* MainRouter.swift */,
 				EF880BE423E3FDC600068CEC /* MainInteractor.swift */,
 				EF880BE323E3FDC600068CEC /* MainBuilder.swift */,
 				EF880BE223E3FDC600068CEC /* MainViewController.swift */,
 				EF880BE523E3FDC600068CEC /* MainViewController.xib */,
-				EF880BAB23E2C9E600068CEC /* TabbarInnerView.swift */,
-				EF880BAD23E2CA7700068CEC /* CoinAdapter.swift */,
-				EF880BAF23E2CA8100068CEC /* GeneralAdapter.swift */,
-				EF880BB123E2CA8D00068CEC /* AboutAdapter.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -661,6 +695,7 @@
 				EF880C3023ED4DBA00068CEC /* LaunchLoading.json in Resources */,
 				EF880C0823E9039700068CEC /* NormalLoading.json in Resources */,
 				EF880C5C23F2B50800068CEC /* NewsViewController.xib in Resources */,
+				EF6AAE1323F66B8000262644 /* LicenseTextViewController.xib in Resources */,
 				EF6AADE523F53A3B00262644 /* AboutTableViewCell.xib in Resources */,
 				EF6AAE0323F5599600262644 /* MIT.txt in Resources */,
 				EF880B4E23E274BA00068CEC /* Assets.xcassets in Resources */,
@@ -742,11 +777,13 @@
 				EF880B9323E2B5BA00068CEC /* AboutInteractor.swift in Sources */,
 				EF6AADFE23F5595400262644 /* OpenSource.swift in Sources */,
 				EF880C3823F2438400068CEC /* CoinDetailFirstHeaderCell.swift in Sources */,
+				EF6AAE1223F66B8000262644 /* LicenseTextInteractor.swift in Sources */,
 				EF880C4723F2791B00068CEC /* UIColor+.swift in Sources */,
 				EF880BF023E435A000068CEC /* SegmentInnerView.swift in Sources */,
 				EF880C0123E7F5F600068CEC /* CoinRepository.swift in Sources */,
 				EF880BFA23E7EFD700068CEC /* CoinTableViewCell.swift in Sources */,
 				EF880C4E23F2A28300068CEC /* GeneralModel.swift in Sources */,
+				EF6AAE1123F66B8000262644 /* LicenseTextBuilder.swift in Sources */,
 				EF880BFF23E7F33B00068CEC /* NetworkService.swift in Sources */,
 				EF880B9123E2B5BA00068CEC /* AboutViewController.swift in Sources */,
 				EF6AADE423F53A3B00262644 /* AboutTableViewCell.swift in Sources */,
@@ -756,10 +793,12 @@
 				EF880C5023F2A29400068CEC /* GeneralViewModel.swift in Sources */,
 				EF880B8923E2B5AD00068CEC /* GeneralInteractor.swift in Sources */,
 				EF880BE723E3FDC600068CEC /* MainViewController.swift in Sources */,
+				EF6AAE1023F66B8000262644 /* LicenseTextViewController.swift in Sources */,
 				EF880B8723E2B5AD00068CEC /* GeneralViewController.swift in Sources */,
 				EF880BB023E2CA8100068CEC /* GeneralAdapter.swift in Sources */,
 				EF6AADEE23F554A500262644 /* VersionViewController.swift in Sources */,
 				EF6AADF023F554A500262644 /* VersionInteractor.swift in Sources */,
+				EF6AAE6923FB8B2C00262644 /* OpenSourceStream.swift in Sources */,
 				EF880B6223E2A43F00068CEC /* RootRouter.swift in Sources */,
 				EF880BE623E3FDC600068CEC /* MainRouter.swift in Sources */,
 				EF880BF423E435C000068CEC /* SocialAdapter.swift in Sources */,
@@ -787,6 +826,7 @@
 				EF880C5A23F2B50800068CEC /* NewsBuilder.swift in Sources */,
 				EF880C1623E9652700068CEC /* CoinDetailRouter.swift in Sources */,
 				EF880C0B23E9045A00068CEC /* IndicatorView.swift in Sources */,
+				EF6AAE0F23F66B8000262644 /* LicenseTextRouter.swift in Sources */,
 				EF880B7C23E2B59F00068CEC /* CoinRouter.swift in Sources */,
 				EF880C3C23F2439800068CEC /* CoinDetailOtherHeaderCell.swift in Sources */,
 				EF880C0523E7F82C00068CEC /* CoinViewModel.swift in Sources */,

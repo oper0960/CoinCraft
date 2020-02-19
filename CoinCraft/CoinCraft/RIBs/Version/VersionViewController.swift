@@ -19,4 +19,8 @@ protocol VersionPresentableListener: class {
 final class VersionViewController: UIViewController, VersionPresentable, VersionViewControllable {
 
     weak var listener: VersionPresentableListener?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }

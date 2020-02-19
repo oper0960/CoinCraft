@@ -9,7 +9,9 @@
 import UIKit
 
 class AboutTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +23,15 @@ class AboutTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func bind(menu: SettingMenu) {
+        
+        switch menu {
+        case .opensource:
+            titleLabel.text = "OpenSource License"
+        case.feedback:
+            titleLabel.text = "Feedback"
+        case.version:
+            titleLabel.text = "Version"
+        }
+    }
 }

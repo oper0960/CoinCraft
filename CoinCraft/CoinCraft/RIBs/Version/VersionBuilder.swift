@@ -31,7 +31,7 @@ final class VersionBuilder: Builder<VersionDependency>, VersionBuildable {
     }
 
     func build(withListener listener: VersionListener) -> VersionRouting {
-        let component = VersionComponent(dependency: dependency)
+        let _ = VersionComponent(dependency: dependency)
         let viewController = VersionViewController()
         let interactor = VersionInteractor(presenter: viewController)
         interactor.listener = listener

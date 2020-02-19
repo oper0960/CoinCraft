@@ -16,6 +16,10 @@ struct OpenSource {
         self.license = license
         self.opensourceName = opensourceName
     }
+    
+    public static func equals(lhs: OpenSource, rhs: OpenSource) -> Bool {
+        return lhs.opensourceName == rhs.opensourceName
+    }
 }
 
 enum License {
@@ -48,7 +52,6 @@ enum License {
     }
     
     private var getText: String? {
-        
         var name: String {
             switch self {
             case .mit(_, _):

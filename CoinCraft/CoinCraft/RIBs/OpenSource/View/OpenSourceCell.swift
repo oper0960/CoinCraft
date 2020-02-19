@@ -10,6 +10,9 @@ import UIKit
 
 class OpenSourceCell: UITableViewCell {
 
+    @IBOutlet weak var openSourceNameLabel: UILabel!
+    @IBOutlet weak var licenseLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +24,8 @@ class OpenSourceCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func bind(openSource: OpenSource) {
+        openSourceNameLabel.text = openSource.opensourceName
+        licenseLabel.text = openSource.license.licenseTitle
+    }
 }

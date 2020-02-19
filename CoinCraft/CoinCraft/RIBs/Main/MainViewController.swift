@@ -46,7 +46,9 @@ extension MainViewController: MainPresentable {
 }
 
 extension MainViewController: MainViewControllable {
-    
+    func present(viewController: ViewControllable) {
+        self.navigationController?.pushViewController(viewController.uiviewController, animated: true)
+    }
 }
 
 // MARK: - UITabbarControllerDelegate

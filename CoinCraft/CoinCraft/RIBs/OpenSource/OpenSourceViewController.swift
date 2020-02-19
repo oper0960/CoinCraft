@@ -20,7 +20,7 @@ final class OpenSourceViewController: UIViewController {
     
     private var navigation: UINavigationController
     private let openSourceList: [OpenSource]
-    private var selecteRelay = PublishRelay<OpenSource>()
+    private var selectedRelay = PublishRelay<OpenSource>()
     
     init(navigation: UINavigationController,
          openSourceList: [OpenSource]) {
@@ -57,7 +57,7 @@ extension OpenSourceViewController {
         openSourceTableView.rx
             .itemSelected
             .subscribe(onNext: { indexPath in
-                self.selecteRelay.accept(self.openSourceList[indexPath.row])
+                self.selectedRelay.accept(self.openSourceList[indexPath.row])
             }).disposed(by: disposeBag)
     }
 }
@@ -65,7 +65,7 @@ extension OpenSourceViewController {
 // MARK: - OpenSourcePresentable
 extension OpenSourceViewController: OpenSourcePresentable {
     func onSelected() -> PublishRelay<OpenSource> {
-        return selecteRelay
+        return selectedRelay
     }
 }
 

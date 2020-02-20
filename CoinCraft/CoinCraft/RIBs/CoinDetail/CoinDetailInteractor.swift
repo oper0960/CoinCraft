@@ -37,12 +37,10 @@ final class CoinDetailInteractor: PresentableInteractor<CoinDetailPresentable>, 
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        // TODO: Implement business logic here.
     }
 
     override func willResignActive() {
         super.willResignActive()
-        // TODO: Pause any business logic.
     }
     
     private let detailInfo: CompareCoinDetailViewModel

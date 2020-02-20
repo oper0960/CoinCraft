@@ -10,27 +10,35 @@ import RxSwift
 import RxCocoa
 
 protocol OpenSourceStream {
-    var openSource: Observable<OpenSource> { get }
+    var openSource: BehaviorRelay<OpenSource> { get }
     
     func updateOpenSource(openSource: OpenSource)
 }
 
 class openSourceStreamImpl: OpenSourceStream {
+    var openSource: BehaviorRelay<OpenSource> = BehaviorRelay<OpenSource>(value: OpenSource("", license: .mit(year: "", name: "")))
     
-    init() {}
-    
-    var openSource: Observable<OpenSource> {
-        return variable
-            .asObservable()
-            .distinctUntilChanged  { (lhs: OpenSource, rhs: OpenSource) -> Bool in
-                return OpenSource.equals(lhs: lhs, rhs: rhs)
-        }
-    }
-
     func updateOpenSource(openSource: OpenSource) {
-        variable.accept(openSource)
+        self.openSource.accept(openSource)
     }
-
-    // MARK: - Private
-    private let variable = BehaviorRelay<OpenSource>(value: OpenSource("", license: .mit(year: "", name: "")))
+    
+    
+//    init() {}
+//
+//    var openSource: Observable<OpenSource> {
+//        return variable
+//            .asObservable()
+//            .distinctUntilChanged  { (lhs: OpenSource, rhs: OpenSource) -> Bool in
+//                return OpenSource.equals(lhs: lhs, rhs: rhs)
+//        }
+//    }
+//
+//    func updateOpenSource(openSource: OpenSource) {
+//        variable.accept(openSource)
+//    }
+//
+//    // MARK: - Private
+//    private let variable = BehaviorRelay<OpenSource>(value: OpenSource("", license: .mit(year: "", name: "")))
+    
+    
 }

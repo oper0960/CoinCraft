@@ -31,14 +31,9 @@ final class CoinViewController: UIViewController {
         }
     }
     
-    let refresh = UIRefreshControl()
-    let disposeBag = DisposeBag()
-    
-    var timer = Timer()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
+    private let refresh = UIRefreshControl()
+    private var disposeBag = DisposeBag()
+    private var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +44,19 @@ final class CoinViewController: UIViewController {
         
         listener?.getCoinMarketCapList()
         startTimer()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !timer.isValid {
+            startTimer()
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer.invalidate()
     }
 }
 

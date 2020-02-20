@@ -15,7 +15,6 @@ protocol LicenseTextRouting: ViewableRouting {
 }
 
 protocol LicenseTextPresentable: Presentable {
-    func getLicense() -> PublishRelay<Void>
     func setLicense(license: OpenSource)
 }
 
@@ -38,7 +37,7 @@ final class LicenseTextInteractor: PresentableInteractor<LicenseTextPresentable>
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        setRx()
+        setLicense()
     }
 
     override func willResignActive() {
@@ -49,12 +48,8 @@ final class LicenseTextInteractor: PresentableInteractor<LicenseTextPresentable>
 }
 
 extension LicenseTextInteractor {
-    func setRx() {
-        presenter.getLicense().subscribe(onNext: { _ in
-            self.openSourceStream.openSource.subscribe(onNext: { openSource in
-                self.presenter.setLicense(license: openSource)
-            }).disposeOnDeactivate(interactor: self)
-        }).disposeOnDeactivate(interactor: self)
+    func setLicense() {
+        presenter.setLicense(license: self.openSourceStream.openSource.value)
     }
 }
 

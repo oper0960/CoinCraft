@@ -14,7 +14,7 @@ protocol AboutInteractable: Interactable, OpenSourceListener {
 }
 
 protocol AboutViewControllable: ViewControllable {
-    func push(viewController: ViewControllable)
+    func push(viewController: ViewControllable, completion: @escaping (() -> ()))
     func presentFeedback()
 }
 
@@ -39,15 +39,18 @@ extension AboutRouter: AboutRouting {
     func pushMenu(menu: SettingMenu) {
         
         if !children.isEmpty {
-            children.removeAll()
+            for child in children {
+                detachChild(child)
+            }
         }
         
         switch menu {
         case .opensource:
             let openSource = openSourceBuilder.build(withListener: interactor)
             currentRouter = openSource
-            attachChild(openSource)
-            viewController.push(viewController: openSource.viewControllable)
+            viewController.push(viewController: openSource.viewControllable) {
+                self.attachChild(openSource)
+            }
         case .version:
             break
         case .feedback:

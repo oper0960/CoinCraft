@@ -38,12 +38,14 @@ extension CoinRouter: CoinRouting {
     func routeToDetail(info: CompareCoinDetailViewModel) {
         
         if !children.isEmpty {
-            children.removeAll()
+            for child in children {
+                detachChild(child)
+            }
         }
         
         let detail = detailBuilder.build(withListener: interactor, detailInfo: info)
         self.detailRouter = detail
-        attachChild(detail)
         viewController.present(viewController: detail.viewControllable)
+        attachChild(detail)
     }
 }

@@ -38,7 +38,6 @@ final class AboutInteractor: PresentableInteractor<AboutPresentable> {
 
     override func willResignActive() {
         super.willResignActive()
-        // TODO: Pause any business logic.
     }
 }
 

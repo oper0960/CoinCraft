@@ -35,6 +35,8 @@ final class RootViewController: UIViewController {
         indicator.play(superView: self.view)
         listener?.getCryptoCompareList()
     }
+    
+    
 }
 
 // MARK: - RootPresentable

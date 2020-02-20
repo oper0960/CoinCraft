@@ -40,7 +40,7 @@ final class AboutViewController: UIViewController {
         return array
     }()
     
-    let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,8 +82,9 @@ extension AboutViewController: AboutPresentable {
 
 // MARK: - AboutViewControllable
 extension AboutViewController: AboutViewControllable {
-    func push(viewController: ViewControllable) {
-        self.navigation.pushViewController(viewController.uiviewController, animated: true)
+    func push(viewController: ViewControllable, completion: @escaping (() -> ()) ) {
+        
+        self.navigation.pushViewController(viewController.uiviewController, animated: true, completion: completion)
     }
     
     func presentFeedback() {

@@ -44,18 +44,9 @@ extension GeneralViewController {
     private func setRx() {
         segmentControl.rx
             .selectedSegmentIndex
-            .subscribe { [weak self] event in
-                guard let self = self else { return }
-                switch event {
-                case .next(let index):
-                    print(index)
-                    self.listener?.convertIndexToVC(index: GeneralType(rawValue: index) ?? .none)
-                case .error(let error):
-                    print(error)
-                case .completed:
-                    break
-                }
-        }.disposed(by: disposeBag)
+            .subscribe (onNext: { index in
+                self.listener?.convertIndexToVC(index: GeneralType(rawValue: index) ?? .none)
+            }).disposed(by: disposeBag)
     }
 }
 

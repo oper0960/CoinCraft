@@ -33,18 +33,18 @@ final class GeneralRouter: ViewableRouter<GeneralInteractable, GeneralViewContro
 
 extension GeneralRouter: GeneralRouting {
     func swichingSegmentInnerViews(innerViews: [SegmentInnerView], index: GeneralType) {
-        
-        if let swichingRouter = swichingRouter {
-            detachChild(swichingRouter)
+
+        if !children.isEmpty {
+            for child in children {
+                detachChild(child)
+            }
         }
         
         let builder = innerViews[index.rawValue].builder
         let router = builder.build(withListener: interactor)
         router.viewControllable.uiviewController.view.tag = index.rawValue
-        
         swichingRouter = router
-        
-        attachChild(swichingRouter!)
         viewController.swichingViewController(viewController: router.viewControllable)
+        attachChild(swichingRouter!)
     }
 }

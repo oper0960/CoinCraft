@@ -23,23 +23,16 @@ final class LicenseTextViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setRx()
     }
 }
 
 // MARK: - Setup
 extension LicenseTextViewController {
-    func setRx() {
-        self.openSourceRelay.accept(())
-    }
+    
 }
 
 // MARK: - LicenseTextPresentable
 extension LicenseTextViewController: LicenseTextPresentable {
-    func getLicense() -> PublishRelay<Void> {
-        return openSourceRelay
-    }
-    
     func setLicense(license: OpenSource) {
         title = license.opensourceName
         licenseTextView.text = license.license.licenseText

@@ -35,7 +35,7 @@ final class OpenSourceViewController: UIViewController {
     
     @IBOutlet weak var openSourceTableView: UITableView!
     
-    let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,8 +72,8 @@ extension OpenSourceViewController: OpenSourcePresentable {
 
 // MARK: - OpenSourceViewControllable
 extension OpenSourceViewController: OpenSourceViewControllable {
-    func push(viewController: ViewControllable) {
-        self.navigation.pushViewController(viewController.uiviewController, animated: true)
+    func push(viewController: ViewControllable, completion: @escaping (() -> ())) {
+        self.navigation.pushViewController(viewController.uiviewController, animated: true, completion: completion)
     }
 }
 

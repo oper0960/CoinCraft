@@ -50,7 +50,7 @@ final class MainInteractor: PresentableInteractor<MainPresentable> {
 }
 
 extension MainInteractor: MainInteractable {
-
+    
 }
 
 extension MainInteractor: MainPresentableListener {

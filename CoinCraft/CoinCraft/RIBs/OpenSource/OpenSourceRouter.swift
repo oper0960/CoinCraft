@@ -16,12 +16,11 @@ protocol OpenSourceInteractable: Interactable, LicenseTextListener {
 }
 
 protocol OpenSourceViewControllable: ViewControllable {
-    func push(viewController: ViewControllable)
+    func push(viewController: ViewControllable, completion: @escaping (() -> ()))
 }
 
 final class OpenSourceRouter: ViewableRouter<OpenSourceInteractable, OpenSourceViewControllable> {
 
-    // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: OpenSourceInteractable,
                   viewController: OpenSourceViewControllable,
                   licenseTextBuilder: LicenseTextBuildable) {
@@ -38,14 +37,17 @@ final class OpenSourceRouter: ViewableRouter<OpenSourceInteractable, OpenSourceV
 
 extension OpenSourceRouter: OpenSourceRouting {
     func routeLicense() {
+        
         if !children.isEmpty {
-            children.removeAll()
+            for child in children {
+                detachChild(child)
+            }
         }
         
         let licenseText = licenseTextBuilder.build(withListener: interactor)
         currentRouter = licenseText
-        attachChild(licenseText)
-        
-        viewController.push(viewController: licenseText.viewControllable)
+        viewController.push(viewController: licenseText.viewControllable) {
+            self.attachChild(licenseText)
+        }
     }
 }

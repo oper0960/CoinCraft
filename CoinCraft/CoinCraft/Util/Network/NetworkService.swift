@@ -31,7 +31,6 @@ class NetworkService {
                 case .success:
                     if let data = response.data {
                         do {
-//                            print(JSON(data))
                             success(try JSONDecoder().decode(T.self, from: data))
                         } catch let error {
                             print(error)

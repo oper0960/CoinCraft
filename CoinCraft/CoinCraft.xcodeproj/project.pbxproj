@@ -33,6 +33,7 @@
 		EF6AAE1223F66B8000262644 /* LicenseTextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AAE0D23F66B8000262644 /* LicenseTextInteractor.swift */; };
 		EF6AAE1323F66B8000262644 /* LicenseTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6AAE0E23F66B8000262644 /* LicenseTextViewController.xib */; };
 		EF6AAE6923FB8B2C00262644 /* OpenSourceStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AAE6823FB8B2C00262644 /* OpenSourceStream.swift */; };
+		EF6AAE7623FFC83400262644 /* CoinCraft_RIBs.png in Resources */ = {isa = PBXBuildFile; fileRef = EF6AAE7523FFC83300262644 /* CoinCraft_RIBs.png */; };
 		EF880B4523E274B600068CEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880B4423E274B600068CEC /* AppDelegate.swift */; };
 		EF880B4E23E274BA00068CEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF880B4D23E274BA00068CEC /* Assets.xcassets */; };
 		EF880B5123E274BA00068CEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF880B4F23E274BA00068CEC /* LaunchScreen.storyboard */; };
@@ -139,6 +140,7 @@
 		EF6AAE0D23F66B8000262644 /* LicenseTextInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseTextInteractor.swift; sourceTree = "<group>"; };
 		EF6AAE0E23F66B8000262644 /* LicenseTextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LicenseTextViewController.xib; sourceTree = "<group>"; };
 		EF6AAE6823FB8B2C00262644 /* OpenSourceStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceStream.swift; sourceTree = "<group>"; };
+		EF6AAE7523FFC83300262644 /* CoinCraft_RIBs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CoinCraft_RIBs.png; sourceTree = "<group>"; };
 		EF880B4123E274B600068CEC /* CoinCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF880B4423E274B600068CEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF880B4D23E274BA00068CEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -342,6 +344,14 @@
 			path = Tabbar;
 			sourceTree = "<group>";
 		};
+		EF6AAE7423FFC81200262644 /* ScreenShot */ = {
+			isa = PBXGroup;
+			children = (
+				EF6AAE7523FFC83300262644 /* CoinCraft_RIBs.png */,
+			);
+			path = ScreenShot;
+			sourceTree = "<group>";
+		};
 		EF880B3823E274B600068CEC = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +384,7 @@
 		EF880B5823E27A2200068CEC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EF6AAE7423FFC81200262644 /* ScreenShot */,
 				EF880C0623E9037C00068CEC /* Lottie */,
 				EF880B4D23E274BA00068CEC /* Assets.xcassets */,
 				EF880B4F23E274BA00068CEC /* LaunchScreen.storyboard */,
@@ -702,6 +713,7 @@
 				EF880BEA23E3FDC600068CEC /* MainViewController.xib in Resources */,
 				EF880C4123F243AE00068CEC /* CoinDetailTextViewCell.xib in Resources */,
 				EF6AAE0223F5599600262644 /* Apache2.0.txt in Resources */,
+				EF6AAE7623FFC83400262644 /* CoinCraft_RIBs.png in Resources */,
 				EF880C3923F2438400068CEC /* CoinDetailFirstHeaderCell.xib in Resources */,
 				EF6AADDE23F3C07700262644 /* NewsCardCell.xib in Resources */,
 				EF880B8023E2B59F00068CEC /* CoinViewController.xib in Resources */,

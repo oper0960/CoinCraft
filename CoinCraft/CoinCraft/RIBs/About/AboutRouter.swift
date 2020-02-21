@@ -43,7 +43,6 @@ extension AboutRouter: AboutRouting {
                 detachChild(child)
             }
         }
-        
         switch menu {
         case .opensource:
             let openSource = openSourceBuilder.build(withListener: interactor)

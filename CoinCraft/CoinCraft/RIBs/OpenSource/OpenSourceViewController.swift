@@ -56,7 +56,8 @@ extension OpenSourceViewController {
     private func setRx() {
         openSourceTableView.rx
             .itemSelected
-            .subscribe(onNext: { indexPath in
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
                 self.selectedRelay.accept(self.openSourceList[indexPath.row])
             }).disposed(by: disposeBag)
     }

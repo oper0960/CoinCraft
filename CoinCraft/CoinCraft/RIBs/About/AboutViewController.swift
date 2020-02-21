@@ -60,7 +60,8 @@ extension AboutViewController {
     private func setRx() {
         aboutTableView.rx
             .itemSelected
-            .subscribe(onNext: { indexPath in
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
                 self.selectedRelay.accept(self.menuArray[indexPath.row])
             }).disposed(by: disposeBag)
     }
@@ -83,7 +84,6 @@ extension AboutViewController: AboutPresentable {
 // MARK: - AboutViewControllable
 extension AboutViewController: AboutViewControllable {
     func push(viewController: ViewControllable, completion: @escaping (() -> ()) ) {
-        
         self.navigation.pushViewController(viewController.uiviewController, animated: true, completion: completion)
     }
     

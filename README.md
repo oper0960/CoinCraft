@@ -1,4 +1,4 @@
 # CoinCraft
 
 RIBs Swift
-![ex screenshot](./CoinCraft/Resource/)
+![ex screenshot](./CoinCraft/CoinCraft/Resource/ScreenShot)

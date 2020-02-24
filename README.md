@@ -9,7 +9,7 @@
 [RxSwift](https://github.com/ReactiveX/RxSwift)   
 [Lottie-ios](https://github.com/airbnb/lottie-ios)   
 [Alamofire](https://github.com/Alamofire/Alamofire)   
-[SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+[SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)   
 [Kingfisher](https://github.com/onevcat/Kingfisher)   
 [SnapKit](https://github.com/SnapKit/SnapKit)
 

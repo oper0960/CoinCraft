@@ -13,6 +13,8 @@
 [Lottie-ios](https://github.com/airbnb/lottie-ios)   
 [Alamofire](https://github.com/Alamofire/Alamofire)   
 [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+[Kingfisher](https://github.com/onevcat/Kingfisher)   
+[SnapKit](https://github.com/SnapKit/SnapKit)
 
 
 # Architecture

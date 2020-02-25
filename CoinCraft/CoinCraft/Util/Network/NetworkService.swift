@@ -8,91 +8,44 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 import RxAlamofire
 import RxCocoa
 import RxSwift
+import SwiftyJSON
 
 typealias DictionaryType = [String: String]
 typealias HeadersType = [String: String]
 
 enum NetworkServiceError: Error {
-    case statusError
+    case statusError(code: Int)
+    case decodeError
 }
 
 class NetworkService {
     
-    static private var disposeBag = DisposeBag()
-    
+    // MARK: - RxAlamofire
     static func request<T: Decodable>(method: HTTPMethod, reqURL: String, parameters: DictionaryType, headers: HeadersType) -> Observable<T> {
-        return Observable<T>.create { observer in
-            
-            guard let url = URL(string: reqURL) else {
-                return Disposables.create()
+        return RxAlamofire.requestData(method, URL(string: reqURL)!,
+                                       parameters: parameters,
+                                       encoding: method == .get ? URLEncoding(destination: .methodDependent) : JSONEncoding.default,
+                                       headers: headers)
+            .filter { response, _ in return statusCodeValidation(response) }
+            .map { _ , data in
+                do  {
+                    return try JSONDecoder().decode(T.self, from: data)
+                } catch {
+                    throw NetworkServiceError.decodeError
+                }
             }
-            
-            RxAlamofire.requestData(method, url,
-                                    parameters: parameters,
-                                    encoding: method == .get ? URLEncoding(destination: .methodDependent) : JSONEncoding.default,
-                                    headers: headers)
-                .debug()
-                .subscribe(onNext: { (response: HTTPURLResponse, data: Data) in
-                    
-                    do {
-                        let decodableJson = try JSONDecoder().decode(T.self, from: data)
-                        observer.onNext(decodableJson)
-                        observer.onCompleted()
-                    } catch let error {
-                        observer.onError(error)
-                        observer.onCompleted()
-                    }
-                }, onError: { error in
-                    observer.onError(error)
-                }, onCompleted: {
-                    observer.onCompleted()
-                }).disposed(by: disposeBag)
-            return Disposables.create()
-        }
     }
     
-//    static func request<T: Decodable>(method: HTTPMethod, reqURL: String, parameters: DictionaryType, headers: HeadersType) -> Observable<T> {
-//        return Observable<T>.create { observer in
-//            Alamofire.request(reqURL, method: method, parameters: parameters,
-//                              encoding: method == .get ? URLEncoding(destination: .methodDependent) : JSONEncoding.default,
-//                              headers: headers)
-//                .validate()
-//                .responseData{ response in
-//                    switch response.result{
-//                    case .success:
-//                        guard let data = response.data else {
-//                            return observer.onCompleted()
-//                        }
-//
-//                        do {
-//                            let decodableJson = try JSONDecoder().decode(T.self, from: data)
-//                            observer.onNext(decodableJson)
-//                            observer.onCompleted()
-//                        } catch let error {
-//                            observer.onError(error)
-//                            observer.onCompleted()
-//                        }
-//                    case .failure:
-//                        observer.onError(response.error!)
-//                        observer.onCompleted()
-//                        print("error : \(response.error!.localizedDescription)")
-//                    }
-//            }
-//            return Disposables.create()
-//        }
-//    }
+    static func statusCodeValidation(_ response: HTTPURLResponse) -> Bool {
+        guard response.statusCode != 200 else { return response.statusCode == 200 }
+        
+        return response.statusCode != 200
+    }
     
-    
-    
-    
-    
-    
-    
-    
+    // MARK: - Alamofire
     static func request<T: Decodable>(method: HTTPMethod, reqURL: String, parameters: DictionaryType, headers: HeadersType, failed: ((String) -> (Void))? = nil, success: @escaping (T) -> (Void)) {
         
         #if DEBUG

@@ -34,16 +34,19 @@ class RemoteGeneralRepository: GeneralRepository {
     
     private var disposeBag = DisposeBag()
     
-    
     func getNewsList(complete: @escaping ([NewsViewModel]) -> (Void)) {
         
-        NetworkService.request(method: .get, reqURL: Constants.General.News.list, parameters: DictionaryType(), headers: HeadersType()).subscribe(onNext: { (newsCollection: NewsResponse) in
-            var newsViewModels = [NewsViewModel]()
-            for news in newsCollection.newsCollection {
-                newsViewModels.append(NewsViewModel(news: news))
-            }
-            complete(newsViewModels)
-        }).disposed(by: disposeBag)
+        NetworkService.request(method: .get,
+                               reqURL: Constants.General.News.list,
+                               parameters: DictionaryType(),
+                               headers: HeadersType())
+            .subscribe(onNext: { (newsCollection: NewsResponse) in
+                var newsViewModels = [NewsViewModel]()
+                for news in newsCollection.newsCollection {
+                    newsViewModels.append(NewsViewModel(news: news))
+                }
+                complete(newsViewModels)
+            }).disposed(by: disposeBag)
     }
     
     func getSocialList() {

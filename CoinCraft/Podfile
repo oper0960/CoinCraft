@@ -10,7 +10,7 @@ target 'CoinCraft' do
   pod 'RxSwift', '~> 5.0.0'
   pod 'SnapKit'
   pod 'RxAlamofire'
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 5.0'
   pod 'lottie-ios'
   pod 'Kingfisher'
   pod 'SwiftyJSON'

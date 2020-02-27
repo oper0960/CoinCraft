@@ -8,6 +8,7 @@
 
 import RIBs
 import RxSwift
+import Domain
 
 protocol NewsRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
@@ -17,12 +18,12 @@ protocol NewsPresentable: Presentable {
     var listener: NewsPresentableListener? { get set }
     
     // MARK: - To ViewController
-    func setNews(news: [NewsViewModel])
+    func setNews(news: [PaperViewModel])
     func stopIndicator()
 }
 
 protocol NewsListener: class {
-    func presentRequestNews(news: NewsViewModel)
+    func presentRequestNews(news: PaperViewModel)
 }
 
 final class NewsInteractor: PresentableInteractor<NewsPresentable>, NewsInteractable {
@@ -32,7 +33,7 @@ final class NewsInteractor: PresentableInteractor<NewsPresentable>, NewsInteract
     weak var router: NewsRouting?
     weak var listener: NewsListener?
     
-    private var newsCollection = [NewsViewModel]()
+    private var news = [PaperViewModel]()
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
@@ -54,14 +55,14 @@ final class NewsInteractor: PresentableInteractor<NewsPresentable>, NewsInteract
 
 extension NewsInteractor: NewsPresentableListener {
     func getNewsList() {
-        repository.getNewsList { newsCollection in
-            self.newsCollection = newsCollection
-            self.presenter.setNews(news: newsCollection)
+        repository.getNewsList { (news: [PaperViewModel]) in
+            self.news = news
+            self.presenter.setNews(news: news)
         }
     }
     
     func getSelectedNews(index: Int) {
-        listener?.presentRequestNews(news: self.newsCollection[index])
+        listener?.presentRequestNews(news: self.news[index])
         presenter.stopIndicator()
     }
 }

@@ -6,8 +6,6 @@
 //  Copyright © 2020 Gilwan Ryu. All rights reserved.
 //
 
-import UIKit
-
 // MARK: - Coin
 struct Coin: Codable {
     let percent_change_24h: String?

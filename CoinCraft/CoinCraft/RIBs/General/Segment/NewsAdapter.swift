@@ -7,6 +7,7 @@
 //
 
 import RIBs
+import Domain
 
 class NewsAdapter: SegmentInnerView, SegmentBuildable {
     
@@ -32,7 +33,7 @@ class NewsAdapter: SegmentInnerView, SegmentBuildable {
 
 extension NewsAdapter: NewsListener {
     // MARK: - From NewsInteractor
-    func presentRequestNews(news: NewsViewModel) {
+    func presentRequestNews(news: PaperViewModel) {
         listener?.presentRequestForGeneral(news: news)
     }
 }

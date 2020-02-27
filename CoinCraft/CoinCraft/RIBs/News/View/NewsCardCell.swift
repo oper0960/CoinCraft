@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Domain
 
 class NewsCardCell: UITableViewCell {
     
@@ -28,7 +29,7 @@ class NewsCardCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func bind(news: NewsViewModel) {
+    func bind(news: PaperViewModel) {
         
         if let imageUrl = URL(string: news.sourceImageUrl) {
             thumbnailImageView.kf.setImage(with: ImageResource(downloadURL: imageUrl, cacheKey: news.imageUrl))

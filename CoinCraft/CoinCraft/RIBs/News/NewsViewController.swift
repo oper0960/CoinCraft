@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import UIKit
 import SafariServices
+import Domain
 
 protocol NewsPresentableListener: class {
     // MARK: - To Interactor
@@ -25,7 +26,7 @@ final class NewsViewController: UIViewController {
     @IBOutlet weak var newsTableView: UITableView!
     
     private let indicator = IndicatorView(type: .loading)
-    private var news = [NewsViewModel]() {
+    private var news = [PaperViewModel]() {
         didSet {
             newsTableView.reloadData()
         }
@@ -71,7 +72,7 @@ extension NewsViewController {
 
 // MARK: - NewsPresentable
 extension NewsViewController: NewsPresentable {
-    func setNews(news: [NewsViewModel]) {
+    func setNews(news: [PaperViewModel]) {
         self.news = news
         indicator.stop()
     }

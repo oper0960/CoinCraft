@@ -8,6 +8,7 @@
 
 import RIBs
 import RxSwift
+import Domain
 
 protocol GeneralRouting: ViewableRouting {
     func swichingSegmentInnerViews(innerViews: [SegmentInnerView], index: GeneralType)
@@ -17,7 +18,7 @@ protocol GeneralPresentable: Presentable {
     var listener: GeneralPresentableListener? { get set }
     
     func setSegment(innerViews: [SegmentInnerView])
-    func presentSafariViewConrtoller(news: NewsViewModel)
+    func presentSafariViewConrtoller(news: PaperViewModel)
 }
 
 protocol GeneralListener: class {
@@ -52,7 +53,7 @@ final class GeneralInteractor: PresentableInteractor<GeneralPresentable> {
 
 // MARK: - GeneralInteractable
 extension GeneralInteractor: GeneralInteractable {
-    func presentRequestForGeneral(news: NewsViewModel) {
+    func presentRequestForGeneral(news: PaperViewModel) {
         presenter.presentSafariViewConrtoller(news: news)
     }
 }

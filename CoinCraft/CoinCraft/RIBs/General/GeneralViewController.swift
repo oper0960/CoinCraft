@@ -11,6 +11,7 @@ import RxSwift
 import UIKit
 import SnapKit
 import SafariServices
+import Domain
 
 enum GeneralType: Int {
     case news, social, none
@@ -60,7 +61,7 @@ extension GeneralViewController: GeneralPresentable {
         segmentControl.selectedSegmentIndex = 0
     }
     
-    func presentSafariViewConrtoller(news: NewsViewModel) {
+    func presentSafariViewConrtoller(news: PaperViewModel) {
         guard let url = URL(string: news.url) else { return }
         let safariViewController = SFSafariViewController(url: url)
         present(safariViewController, animated: true, completion: nil)

@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import UIKit
 import Lottie
+import Domain
 
 protocol CoinPresentableListener: class {
     // MARK: - To Interactor

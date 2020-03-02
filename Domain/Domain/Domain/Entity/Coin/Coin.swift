@@ -1,13 +1,15 @@
 //
-//  CoinModel.swift
-//  CoinCraft
+//  Coin.swift
+//  Domain
 //
-//  Created by Gilwan Ryu on 2020/02/03.
-//  Copyright © 2020 Gilwan Ryu. All rights reserved.
+//  Created by Gilwan Ryu on 2020/03/02.
+//  Copyright © 2020 GilwanRyu. All rights reserved.
 //
 
+import Foundation
+
 // MARK: - Coin
-struct Coin: Codable {
+public struct Coin: Codable {
     let percent_change_24h: String?
     let percent_change_7d: String?
     let volume_usd_24h: String?
@@ -43,14 +45,14 @@ struct Coin: Codable {
     }
 }
 
-struct CryptoCompareResponse: Decodable {
+public struct CryptoCompareResponse: Decodable {
     let coins: [CompareCoin]
     
     enum CodingKeys: String, CodingKey {
         case data = "Data"
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         let data = try values.decode(Dictionary<String,CompareCoin>.self, forKey: .data)
         coins = Array(data.values)
@@ -58,7 +60,7 @@ struct CryptoCompareResponse: Decodable {
 }
 
 // MARK: - CompareCoin
-struct CompareCoin: Codable {
+public struct CompareCoin: Codable {
     let id: String?
     let url: String?
     let imageUrl: String?
@@ -118,7 +120,35 @@ struct CompareCoin: Codable {
     }
 }
 
-struct Taxonomy: Codable {
+// MARK: - CompareCoinDetail
+public struct CryptoCompareDetailResponse: Codable {
+    let detail: CompareCoinDetail?
+
+    enum CodingKeys: String, CodingKey {
+        case detail = "Data"
+    }
+}
+
+public struct CompareCoinDetail: Codable {
+    let seo: Seo?
+    let general: General?
+    let taxonomy: Taxonomy?
+    let ratings: Rating?
+    let ico: Ico?
+    let subs, streamerDataRaw: [String]?
+
+    enum CodingKeys: String, CodingKey {
+        case seo = "SEO"
+        case general = "General"
+        case taxonomy = "Taxonomy"
+        case ratings = "Ratings"
+        case ico = "ICO"
+        case subs = "Subs"
+        case streamerDataRaw = "StreamerDataRaw"
+    }
+}
+
+public struct Taxonomy: Codable {
     let access: String?
     let fca: String?
     let finma: String?
@@ -140,7 +170,7 @@ struct Taxonomy: Codable {
     }
 }
 
-struct Rating: Codable {
+public struct Rating: Codable {
     let weiss: Weiss
     
     enum CodingKeys: String, CodingKey {
@@ -148,7 +178,7 @@ struct Rating: Codable {
     }
 }
 
-struct Weiss: Codable {
+public struct Weiss: Codable {
     let rating: String?
     let technologyAdoptionRating: String?
     let marketPerformanceRating: String?
@@ -160,40 +190,7 @@ struct Weiss: Codable {
     }
 }
 
-// MARK: - CompareCoinDetail
-struct CryptoCompareDetailResponse: Codable {
-    let response, message: String?
-    let detail: CompareCoinDetail?
-    let type: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case response = "Response"
-        case message = "Message"
-        case detail = "Data"
-        case type = "Type"
-    }
-}
-
-struct CompareCoinDetail: Codable {
-    let seo: Seo?
-    let general: General?
-    let taxonomy: Taxonomy?
-    let ratings: Rating?
-    let ico: Ico?
-    let subs, streamerDataRaw: [String]?
-
-    enum CodingKeys: String, CodingKey {
-        case seo = "SEO"
-        case general = "General"
-        case taxonomy = "Taxonomy"
-        case ratings = "Ratings"
-        case ico = "ICO"
-        case subs = "Subs"
-        case streamerDataRaw = "StreamerDataRaw"
-    }
-}
-
-struct General: Codable {
+public struct General: Codable {
     let id, documentType, h1Text, dangerTop: String?
     let warningTop, infoTop, symbol, url: String?
     let baseAngularURL, name, imageURL, generalDescription: String?
@@ -242,7 +239,7 @@ struct General: Codable {
     }
 }
 
-struct Ico: Codable {
+public struct Ico: Codable {
     let status, whitePaper: String?
 
     enum CodingKeys: String, CodingKey {
@@ -251,7 +248,7 @@ struct Ico: Codable {
     }
 }
 
-struct Seo: Codable {
+public struct Seo: Codable {
     let pageTitle, pageDescription: String?
     let baseURL, baseImageURL: String?
     let ogImageURL, ogImageWidth, ogImageHeight: String?
@@ -268,3 +265,147 @@ struct Seo: Codable {
 }
 
 
+// MARK: - CMCCoin ViewModel
+public protocol CoinViewable {
+    var imageURL: String { get }
+    var name: String { get }
+    var coinName: String { get }
+    var percentage: Double { get }
+    var price: String { get }
+    var volume: String { get }
+    var sortOrder: String { get }
+}
+
+public struct CoinViewModel: CoinViewable {
+    private let coin: Coin
+    
+    public init(coin: Coin) {
+        self.coin = coin
+    }
+    
+    public var imageURL: String {
+        return Constant.Coin.CoinMarketCap.imageBaseUrl + (self.coin.symbol ?? "")
+    }
+    
+    public var name: String {
+        return coin.symbol ?? ""
+    }
+    
+    public var coinName: String {
+        return coin.name ?? ""
+    }
+    
+    public var percentage: Double {
+        return Double(coin.percent_change_24h ?? "0") ?? 0
+    }
+    
+    public var price: String {
+        let doublePrice = Double(coin.price_usd ?? "0")
+        return "$\(doublePrice?.addComma ?? "0")"
+    }
+    
+    public var volume: String {
+        let doubleVolume = Double(coin.volume_usd_24h ?? "0")
+        return "(24Hour) $\(doubleVolume?.addComma ?? "0")"
+    }
+    
+    public var sortOrder: String {
+        return coin.rank ?? "0"
+    }
+}
+
+// MARK: - CompareCoin ViewModel
+public protocol CompareCoinViewable {
+    var symbol: String { get }
+    var id: String { get }
+}
+
+public struct CompareCoinViewModel: CompareCoinViewable {
+    
+    private let coin: CompareCoin
+    
+    public init(coin: CompareCoin) {
+        self.coin = coin
+    }
+    
+    public var symbol: String {
+        return coin.symbol ?? ""
+    }
+    
+    public var id: String {
+        return coin.id ?? ""
+    }
+}
+
+// MARK: - CompareCoinDetail ViewModel
+public protocol CompareCoinDetailViewable {
+    var id: String { get }
+    var imageUrl: String? { get }
+    var symbol: String { get }
+    var name: String { get }
+    var description: String? { get }
+    var features: String? { get }
+    var totalCoinSupply: String { get }
+    var startDate: String { get }
+}
+
+public struct CompareCoinDetailViewModel: CompareCoinDetailViewable {
+    private let detail: CompareCoinDetail
+    
+    public init(detail: CompareCoinDetail) {
+        self.detail = detail
+    }
+    
+    public var id: String {
+        return detail.general?.id ?? ""
+    }
+    
+    public var symbol: String {
+        return detail.general?.symbol ?? ""
+    }
+    
+    public var name: String {
+        return detail.general?.name ?? ""
+    }
+    
+    public var totalCoinSupply: String {
+        if let coinSupply = detail.general?.totalCoinSupply, !coinSupply.isEmpty {
+            let supply: Double = Double(coinSupply.trimmingCharacters(in: .whitespacesAndNewlines))!
+            return supply.addComma
+        } else {
+            return "0"
+        }
+    }
+    
+    public var startDate: String {
+        return detail.general?.startDate ?? ""
+    }
+    
+    public var description: String? {
+        return detail.general?.generalDescription
+    }
+    
+    public var features: String? {
+        return detail.general?.features
+    }
+    
+    public var imageUrl: String? {
+        guard let base = detail.seo?.baseImageURL, let image = detail.seo?.ogImageURL else {
+            return nil
+        }
+        return base + image
+    }
+}
+
+public extension Double {
+    var addComma: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.groupingSeparator = ","
+        numberFormatter.groupingSize = 3
+        numberFormatter.usesGroupingSeparator = true
+        numberFormatter.decimalSeparator = "."
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 3
+        return numberFormatter.string(from: self as NSNumber)!
+    }
+}

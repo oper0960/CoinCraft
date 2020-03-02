@@ -8,6 +8,7 @@
 
 import RIBs
 import RxSwift
+import RxCocoa
 import Domain
 
 protocol NewsRouting: ViewableRouting {
@@ -28,37 +29,39 @@ protocol NewsListener: class {
 
 final class NewsInteractor: PresentableInteractor<NewsPresentable>, NewsInteractable {
     
-    private let repository = GeneralRepositoryFactory.create(type: .remote)
-
     weak var router: NewsRouting?
     weak var listener: NewsListener?
     
+    private let newsUseCase: NewsUseCase
     private var news = [PaperViewModel]()
+    private let disposeBag = DisposeBag()
 
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
     override init(presenter: NewsPresentable) {
+        
+        self.newsUseCase = NewsUseCaseImpl(newsRepository: NewsRepositoryImpl(dataStore: NewsDataStoreImpl()))
+        
         super.init(presenter: presenter)
         presenter.listener = self
     }
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        // TODO: Implement business logic here.
     }
 
     override func willResignActive() {
         super.willResignActive()
-        // TODO: Pause any business logic.
     }
 }
 
 extension NewsInteractor: NewsPresentableListener {
     func getNewsList() {
-        repository.getNewsList { (news: [PaperViewModel]) in
+        newsUseCase.getNewsList().subscribe(onNext: { [weak self] news in
+            guard let self = self else { return }
             self.news = news
             self.presenter.setNews(news: news)
-        }
+        }, onError: { error in
+            print(error.localizedDescription)
+        }).disposed(by: disposeBag)
     }
     
     func getSelectedNews(index: Int) {

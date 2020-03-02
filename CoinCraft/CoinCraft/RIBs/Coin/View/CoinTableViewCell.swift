@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Domain
 
 class CoinTableViewCell: UITableViewCell {
     

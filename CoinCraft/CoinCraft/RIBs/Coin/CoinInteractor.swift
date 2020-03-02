@@ -8,6 +8,7 @@
 
 import RIBs
 import RxSwift
+import Domain
 
 protocol CoinRouting: ViewableRouting {
     func routeToDetail(info: CompareCoinDetailViewModel)
@@ -29,45 +30,50 @@ final class CoinInteractor: PresentableInteractor<CoinPresentable>, CoinInteract
     weak var router: CoinRouting?
     weak var listener: CoinListener?
     
-    private let repository = CoinRepositoryFactory.create(type: .remote)
+    private let coinUseCase: CoinUseCase
+    private let disposeBag = DisposeBag()
 
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
     override init(presenter: CoinPresentable) {
+        
+        self.coinUseCase = CoinUseCaseImpl(coinRepository: CoinRepositoryImpl(dataStore: CoinDataStoreImpl()))
+        
         super.init(presenter: presenter)
         presenter.listener = self
     }
 
     override func didBecomeActive() {
-        super.didBecomeActive()  
-        // TODO: Implement business logic here.
+        super.didBecomeActive()
     }
 
     override func willResignActive() {
         super.willResignActive()
-        // TODO: Pause any business logic.
     }
 }
 
 extension CoinInteractor: CoinPresentableListener {
     func getCompareCoinInfo(coin: CoinViewModel) {
         
-        let compareCoin = Global.current.cryptoCoins.map {
-            return CompareCoinViewModel(coin: $0)
-        }.filter { compareCoin in
+        let compareCoin = Global.current.cryptoCoins.filter { compareCoin in
             return compareCoin.symbol == coin.name
         }
         
         guard let coinInfo = compareCoin.first else { return }
         
-        repository.getCompareCoinDetail(id: coinInfo.id) { detail in
-            self.router?.routeToDetail(info: CompareCoinDetailViewModel(detail: detail))
-        }
+        coinUseCase.getCryptoCompareDetail(id: coinInfo.id).subscribe(onNext: { [weak self] detail in
+            guard let self = self else { return }
+            self.router?.routeToDetail(info: detail)
+            }, onError: { error in
+                print(error.localizedDescription)
+        }).disposed(by: self.disposeBag)
     }
     
     func getCoinMarketCapList() {
-        repository.getCoinMarketCapList { coins in
+        
+        coinUseCase.getCoinMarketCapList().subscribe(onNext: { [weak self] coins in
+            guard let self = self else { return }
             self.presenter.setCoinList(coins: coins)
-        }
+            }, onError: { error in
+                print(error.localizedDescription)
+        }).disposed(by: self.disposeBag)
     }
 }

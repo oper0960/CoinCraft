@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Domain
 
 class Global {
     static let current = Global()
@@ -15,9 +16,9 @@ class Global {
     
     private let serialQueue = DispatchQueue(label: "serial")
     
-    private var _cryptoCoins: [CompareCoin] = []
+    private var _cryptoCoins: [CompareCoinViewModel] = []
     
-    var cryptoCoins: [CompareCoin] {
+    var cryptoCoins: [CompareCoinViewModel] {
         get {
             return _cryptoCoins
         }

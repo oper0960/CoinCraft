@@ -9,6 +9,7 @@
 import RIBs
 import RxSwift
 import UIKit
+import Domain
 
 protocol CoinDetailPresentableListener: class {
     func getViewModel()

@@ -10,7 +10,14 @@
 		66614F7915FD19127E5E70F6 /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1771F5C4CE4A87DE2354EB8 /* Pods_Domain.framework */; };
 		EF5CCD2B24064DEF00E9B4E3 /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = EF5CCD2924064DEF00E9B4E3 /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EF5CCD372406534D00E9B4E3 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCD362406534D00E9B4E3 /* News.swift */; };
-		EF5CCD392406545600E9B4E3 /* GeneralUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCD382406545600E9B4E3 /* GeneralUseCases.swift */; };
+		EF5CCD392406545600E9B4E3 /* NewsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCD382406545600E9B4E3 /* NewsUseCase.swift */; };
+		EF5CCD9D240770C900E9B4E3 /* NewsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCD9C240770C900E9B4E3 /* NewsRepository.swift */; };
+		EF5CCDA12407710600E9B4E3 /* NewsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDA02407710600E9B4E3 /* NewsDataStore.swift */; };
+		EF5CCDA42407A0ED00E9B4E3 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDA32407A0ED00E9B4E3 /* Network.swift */; };
+		EF5CCDA7240CC67400E9B4E3 /* CoinDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDA6240CC67400E9B4E3 /* CoinDataStore.swift */; };
+		EF5CCDAA240CC68D00E9B4E3 /* CoinUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDA9240CC68D00E9B4E3 /* CoinUseCase.swift */; };
+		EF5CCDAD240CD2A700E9B4E3 /* CoinRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDAC240CD2A700E9B4E3 /* CoinRepository.swift */; };
+		EF5CCDAF240CD32200E9B4E3 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDAE240CD32200E9B4E3 /* Coin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +27,14 @@
 		EF5CCD2924064DEF00E9B4E3 /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		EF5CCD2A24064DEF00E9B4E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF5CCD362406534D00E9B4E3 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
-		EF5CCD382406545600E9B4E3 /* GeneralUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUseCases.swift; sourceTree = "<group>"; };
+		EF5CCD382406545600E9B4E3 /* NewsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUseCase.swift; sourceTree = "<group>"; };
+		EF5CCD9C240770C900E9B4E3 /* NewsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRepository.swift; sourceTree = "<group>"; };
+		EF5CCDA02407710600E9B4E3 /* NewsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDataStore.swift; sourceTree = "<group>"; };
+		EF5CCDA32407A0ED00E9B4E3 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		EF5CCDA6240CC67400E9B4E3 /* CoinDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataStore.swift; sourceTree = "<group>"; };
+		EF5CCDA9240CC68D00E9B4E3 /* CoinUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinUseCase.swift; sourceTree = "<group>"; };
+		EF5CCDAC240CD2A700E9B4E3 /* CoinRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRepository.swift; sourceTree = "<group>"; };
+		EF5CCDAE240CD32200E9B4E3 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		F1771F5C4CE4A87DE2354EB8 /* Pods_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -50,7 +64,6 @@
 				00554D1A7948BA0B7C2FCD97 /* Pods-Domain.debug.xcconfig */,
 				060D96764FDAA44D75FB408B /* Pods-Domain.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -76,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				EF5CCD3124064E2700E9B4E3 /* Entity */,
+				EF5CCD9E240770F600E9B4E3 /* DataStore */,
+				EF5CCD982407706A00E9B4E3 /* Repository */,
 				EF5CCD3A2406548A00E9B4E3 /* UseCases */,
 				EF5CCD2924064DEF00E9B4E3 /* Domain.h */,
 				EF5CCD2A24064DEF00E9B4E3 /* Info.plist */,
@@ -95,6 +110,7 @@
 		EF5CCD332406533200E9B4E3 /* Coin */ = {
 			isa = PBXGroup;
 			children = (
+				EF5CCDAE240CD32200E9B4E3 /* Coin.swift */,
 			);
 			path = Coin;
 			sourceTree = "<group>";
@@ -118,9 +134,85 @@
 		EF5CCD3A2406548A00E9B4E3 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				EF5CCD382406545600E9B4E3 /* GeneralUseCases.swift */,
+				EF5CCDA8240CC68200E9B4E3 /* Coin */,
+				EF5CCD9B240770AF00E9B4E3 /* General */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		EF5CCD982407706A00E9B4E3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CCDAB240CD29900E9B4E3 /* Coin */,
+				EF5CCD992407707500E9B4E3 /* General */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		EF5CCD992407707500E9B4E3 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CCD9C240770C900E9B4E3 /* NewsRepository.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		EF5CCD9B240770AF00E9B4E3 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CCD382406545600E9B4E3 /* NewsUseCase.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		EF5CCD9E240770F600E9B4E3 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CCDA22407A0DB00E9B4E3 /* Common */,
+				EF5CCDA5240CC65800E9B4E3 /* Coin */,
+				EF5CCD9F240770FB00E9B4E3 /* General */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		EF5CCD9F240770FB00E9B4E3 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CCDA02407710600E9B4E3 /* NewsDataStore.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		EF5CCDA22407A0DB00E9B4E3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CCDA32407A0ED00E9B4E3 /* Network.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EF5CCDA5240CC65800E9B4E3 /* Coin */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CCDA6240CC67400E9B4E3 /* CoinDataStore.swift */,
+			);
+			path = Coin;
+			sourceTree = "<group>";
+		};
+		EF5CCDA8240CC68200E9B4E3 /* Coin */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CCDA9240CC68D00E9B4E3 /* CoinUseCase.swift */,
+			);
+			path = Coin;
+			sourceTree = "<group>";
+		};
+		EF5CCDAB240CD29900E9B4E3 /* Coin */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CCDAC240CD2A700E9B4E3 /* CoinRepository.swift */,
+			);
+			path = Coin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +321,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF5CCD392406545600E9B4E3 /* GeneralUseCases.swift in Sources */,
+				EF5CCDAF240CD32200E9B4E3 /* Coin.swift in Sources */,
+				EF5CCDAD240CD2A700E9B4E3 /* CoinRepository.swift in Sources */,
+				EF5CCDA7240CC67400E9B4E3 /* CoinDataStore.swift in Sources */,
+				EF5CCDA42407A0ED00E9B4E3 /* Network.swift in Sources */,
+				EF5CCD9D240770C900E9B4E3 /* NewsRepository.swift in Sources */,
+				EF5CCD392406545600E9B4E3 /* NewsUseCase.swift in Sources */,
 				EF5CCD372406534D00E9B4E3 /* News.swift in Sources */,
+				EF5CCDA12407710600E9B4E3 /* NewsDataStore.swift in Sources */,
+				EF5CCDAA240CC68D00E9B4E3 /* CoinUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

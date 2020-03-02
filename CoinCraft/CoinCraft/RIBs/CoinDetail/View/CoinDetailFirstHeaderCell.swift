@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 import RxSwift
 import RxCocoa
+import Domain
 
 protocol DetailHeaderDelegate: class {
     func setBackground(color: UIColor)

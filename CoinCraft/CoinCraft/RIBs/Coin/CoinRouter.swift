@@ -7,6 +7,7 @@
 //
 
 import RIBs
+import Domain
 
 protocol CoinInteractable: Interactable, CoinDetailListener {
     var router: CoinRouting? { get set }

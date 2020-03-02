@@ -7,6 +7,7 @@
 //
 
 import RIBs
+import Domain
 
 protocol CoinDetailDependency: Dependency {
     

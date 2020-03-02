@@ -8,6 +8,7 @@
 
 import RIBs
 import RxSwift
+import Domain
 
 protocol RootRouting: ViewableRouting {
     // MARK: - To Router
@@ -18,7 +19,6 @@ protocol RootPresentable: Presentable {
     var listener: RootPresentableListener? { get set }
     
     // MARK: - To ViewController
-    func setProgressBar(percent: Double)
     func stopLoadingView()
 }
 
@@ -31,11 +31,13 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     weak var router: RootRouting?
     weak var listener: RootListener?
     
-    private let repository = CoinRepositoryFactory.create(type: .remote)
+    private let coinUseCase: CoinUseCase
+    private let disposeBag = DisposeBag()
 
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
     override init(presenter: RootPresentable) {
+        
+        self.coinUseCase = CoinUseCaseImpl(coinRepository: CoinRepositoryImpl(dataStore: CoinDataStoreImpl()))
+        
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -52,13 +54,12 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
 
 extension RootInteractor: RootPresentableListener {
     func getCryptoCompareList() {
-        repository.getCryptoCompareList(progressBar: { progress in
-            if progress == 1.0 {
-                self.presenter.stopLoadingView()
-            }
-        }) { coins in
-            Global.current.cryptoCoins = coins.coins
+        coinUseCase.getCryptoCompareList().subscribe(onNext: { [weak self] coins in
+            guard let self = self else { return }
+            Global.current.cryptoCoins = coins
             self.router?.routeToMain()
-        }
+            }, onError: { error in
+                print(error.localizedDescription)
+        }).disposed(by: self.disposeBag)
     }
 }

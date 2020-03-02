@@ -1,5 +1,5 @@
 //
-//  Coin.swift
+//  CryptoCompare.swift
 //  Domain
 //
 //  Created by Gilwan Ryu on 2020/03/02.
@@ -8,40 +8,86 @@
 
 import Foundation
 
-// MARK: - Coin
-public struct Coin: Codable {
-    let percent_change_24h: String?
-    let percent_change_7d: String?
-    let volume_usd_24h: String?
-    let last_updated: String?
-    let name: String?
-    let total_supply: String?
-    let market_cap_usd: String?
-    let price_usd: String?
-    let price_btc: String?
-    let percent_change_1h: String?
-    let max_supply: String?
-    let symbol: String?
-    let id: String?
-    let available_supply: String?
-    let rank: String?
+// MARK: - CompareCoin ViewModel
+public protocol CompareCoinViewable {
+    var symbol: String { get }
+    var id: String { get }
+}
+
+public struct CompareCoinViewModel: CompareCoinViewable {
     
-    enum CodingKeys: String, CodingKey {
-        case percent_change_24h = "percent_change_24h"
-        case percent_change_7d = "percent_change_7d"
-        case volume_usd_24h = "24h_volume_usd"
-        case last_updated = "last_updated"
-        case name = "name"
-        case total_supply = "total_supply"
-        case market_cap_usd = "market_cap_usd"
-        case price_usd = "price_usd"
-        case price_btc = "price_btc"
-        case percent_change_1h = "percent_change_1h"
-        case max_supply = "max_supply"
-        case symbol = "symbol"
-        case id = "id"
-        case available_supply = "available_supply"
-        case rank = "rank"
+    private let coin: CompareCoin
+    
+    public init(coin: CompareCoin) {
+        self.coin = coin
+    }
+    
+    public var symbol: String {
+        return coin.symbol ?? ""
+    }
+    
+    public var id: String {
+        return coin.id ?? ""
+    }
+}
+
+// MARK: - CompareCoinDetail ViewModel
+public protocol CompareCoinDetailViewable {
+    var id: String { get }
+    var imageUrl: String? { get }
+    var symbol: String { get }
+    var name: String { get }
+    var description: String? { get }
+    var features: String? { get }
+    var totalCoinSupply: String { get }
+    var startDate: String { get }
+}
+
+public struct CompareCoinDetailViewModel: CompareCoinDetailViewable {
+    private let detail: CompareCoinDetail
+    
+    public init(detail: CompareCoinDetail) {
+        self.detail = detail
+    }
+    
+    public var id: String {
+        return detail.general?.id ?? ""
+    }
+    
+    public var symbol: String {
+        return detail.general?.symbol ?? ""
+    }
+    
+    public var name: String {
+        return detail.general?.name ?? ""
+    }
+    
+    public var totalCoinSupply: String {
+        if let coinSupply = detail.general?.totalCoinSupply, !coinSupply.isEmpty {
+            let supply: Double = Double(coinSupply.trimmingCharacters(in: .whitespacesAndNewlines))!
+            return supply.addComma
+        } else {
+            return "0"
+        }
+    }
+    
+    public var startDate: String {
+        return detail.general?.startDate ?? ""
+    }
+    
+    public var description: String? {
+        return detail.general?.generalDescription
+    }
+    
+    public var features: String? {
+        return detail.general?.features
+    }
+    
+    public var imageUrl: String? {
+        guard let base = detail.seo?.baseImageURL, let image = detail.seo?.ogImageURL else {
+            return nil
+        }
+        return base + image
     }
 }
 
@@ -265,147 +311,3 @@ public struct Seo: Codable {
 }
 
 
-// MARK: - CMCCoin ViewModel
-public protocol CoinViewable {
-    var imageURL: String { get }
-    var name: String { get }
-    var coinName: String { get }
-    var percentage: Double { get }
-    var price: String { get }
-    var volume: String { get }
-    var sortOrder: String { get }
-}
-
-public struct CoinViewModel: CoinViewable {
-    private let coin: Coin
-    
-    public init(coin: Coin) {
-        self.coin = coin
-    }
-    
-    public var imageURL: String {
-        return Constant.Coin.CoinMarketCap.imageBaseUrl + (self.coin.symbol ?? "")
-    }
-    
-    public var name: String {
-        return coin.symbol ?? ""
-    }
-    
-    public var coinName: String {
-        return coin.name ?? ""
-    }
-    
-    public var percentage: Double {
-        return Double(coin.percent_change_24h ?? "0") ?? 0
-    }
-    
-    public var price: String {
-        let doublePrice = Double(coin.price_usd ?? "0")
-        return "$\(doublePrice?.addComma ?? "0")"
-    }
-    
-    public var volume: String {
-        let doubleVolume = Double(coin.volume_usd_24h ?? "0")
-        return "(24Hour) $\(doubleVolume?.addComma ?? "0")"
-    }
-    
-    public var sortOrder: String {
-        return coin.rank ?? "0"
-    }
-}
-
-// MARK: - CompareCoin ViewModel
-public protocol CompareCoinViewable {
-    var symbol: String { get }
-    var id: String { get }
-}
-
-public struct CompareCoinViewModel: CompareCoinViewable {
-    
-    private let coin: CompareCoin
-    
-    public init(coin: CompareCoin) {
-        self.coin = coin
-    }
-    
-    public var symbol: String {
-        return coin.symbol ?? ""
-    }
-    
-    public var id: String {
-        return coin.id ?? ""
-    }
-}
-
-// MARK: - CompareCoinDetail ViewModel
-public protocol CompareCoinDetailViewable {
-    var id: String { get }
-    var imageUrl: String? { get }
-    var symbol: String { get }
-    var name: String { get }
-    var description: String? { get }
-    var features: String? { get }
-    var totalCoinSupply: String { get }
-    var startDate: String { get }
-}
-
-public struct CompareCoinDetailViewModel: CompareCoinDetailViewable {
-    private let detail: CompareCoinDetail
-    
-    public init(detail: CompareCoinDetail) {
-        self.detail = detail
-    }
-    
-    public var id: String {
-        return detail.general?.id ?? ""
-    }
-    
-    public var symbol: String {
-        return detail.general?.symbol ?? ""
-    }
-    
-    public var name: String {
-        return detail.general?.name ?? ""
-    }
-    
-    public var totalCoinSupply: String {
-        if let coinSupply = detail.general?.totalCoinSupply, !coinSupply.isEmpty {
-            let supply: Double = Double(coinSupply.trimmingCharacters(in: .whitespacesAndNewlines))!
-            return supply.addComma
-        } else {
-            return "0"
-        }
-    }
-    
-    public var startDate: String {
-        return detail.general?.startDate ?? ""
-    }
-    
-    public var description: String? {
-        return detail.general?.generalDescription
-    }
-    
-    public var features: String? {
-        return detail.general?.features
-    }
-    
-    public var imageUrl: String? {
-        guard let base = detail.seo?.baseImageURL, let image = detail.seo?.ogImageURL else {
-            return nil
-        }
-        return base + image
-    }
-}
-
-public extension Double {
-    var addComma: String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.groupingSeparator = ","
-        numberFormatter.groupingSize = 3
-        numberFormatter.usesGroupingSeparator = true
-        numberFormatter.decimalSeparator = "."
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.maximumFractionDigits = 3
-        return numberFormatter.string(from: self as NSNumber)!
-    }
-}

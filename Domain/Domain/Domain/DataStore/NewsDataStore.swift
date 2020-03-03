@@ -12,7 +12,7 @@ import RxSwift
 // MARK: - 상황에 따라 가공할 데이터를 요청
 
 public protocol NewsDataStore {
-    func getNewsList() -> Observable<[PaperViewModel]>
+    func getNewsList() -> Observable<[NewsViewable]>
 }
 
 

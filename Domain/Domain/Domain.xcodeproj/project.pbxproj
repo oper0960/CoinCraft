@@ -14,12 +14,17 @@
 		EF5CCD9D240770C900E9B4E3 /* NewsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCD9C240770C900E9B4E3 /* NewsRepository.swift */; };
 		EF5CCDA12407710600E9B4E3 /* NewsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDA02407710600E9B4E3 /* NewsDataStore.swift */; };
 		EF5CCDA7240CC67400E9B4E3 /* CoinDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDA6240CC67400E9B4E3 /* CoinDataStore.swift */; };
-		EF5CCDAA240CC68D00E9B4E3 /* CoinUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDA9240CC68D00E9B4E3 /* CoinUseCase.swift */; };
 		EF5CCDAD240CD2A700E9B4E3 /* CoinRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDAC240CD2A700E9B4E3 /* CoinRepository.swift */; };
 		EF5CCDAF240CD32200E9B4E3 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDAE240CD32200E9B4E3 /* DoubleExtension.swift */; };
 		EF5CCDB1240CDFA300E9B4E3 /* CryptoCompare.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDB0240CDFA300E9B4E3 /* CryptoCompare.swift */; };
 		EF5CCDB3240CDFB400E9B4E3 /* CoinMarketCap.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDB2240CDFB400E9B4E3 /* CoinMarketCap.swift */; };
 		EF5CCDCC240E1B6D00E9B4E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDCB240E1B6D00E9B4E3 /* Constants.swift */; };
+		EF5CCDCF240E25B500E9B4E3 /* MiningUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDCE240E25B500E9B4E3 /* MiningUseCase.swift */; };
+		EF5CCDD1240E25C100E9B4E3 /* MiningRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDD0240E25C100E9B4E3 /* MiningRepository.swift */; };
+		EF5CCDD3240E25CC00E9B4E3 /* MiningDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDD2240E25CC00E9B4E3 /* MiningDataStore.swift */; };
+		EF5CCDD5240E2A4800E9B4E3 /* CoinMarketCapListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDD4240E2A4800E9B4E3 /* CoinMarketCapListUseCase.swift */; };
+		EF5CCDD7240E2A5700E9B4E3 /* CryptoCompareListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDD6240E2A5700E9B4E3 /* CryptoCompareListUseCase.swift */; };
+		EF5CCDD9240E2AE300E9B4E3 /* CryptoCompareDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDD8240E2AE300E9B4E3 /* CryptoCompareDetailUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,12 +38,17 @@
 		EF5CCD9C240770C900E9B4E3 /* NewsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRepository.swift; sourceTree = "<group>"; };
 		EF5CCDA02407710600E9B4E3 /* NewsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDataStore.swift; sourceTree = "<group>"; };
 		EF5CCDA6240CC67400E9B4E3 /* CoinDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataStore.swift; sourceTree = "<group>"; };
-		EF5CCDA9240CC68D00E9B4E3 /* CoinUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinUseCase.swift; sourceTree = "<group>"; };
 		EF5CCDAC240CD2A700E9B4E3 /* CoinRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRepository.swift; sourceTree = "<group>"; };
 		EF5CCDAE240CD32200E9B4E3 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		EF5CCDB0240CDFA300E9B4E3 /* CryptoCompare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCompare.swift; sourceTree = "<group>"; };
 		EF5CCDB2240CDFB400E9B4E3 /* CoinMarketCap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCap.swift; sourceTree = "<group>"; };
 		EF5CCDCB240E1B6D00E9B4E3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EF5CCDCE240E25B500E9B4E3 /* MiningUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningUseCase.swift; sourceTree = "<group>"; };
+		EF5CCDD0240E25C100E9B4E3 /* MiningRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningRepository.swift; sourceTree = "<group>"; };
+		EF5CCDD2240E25CC00E9B4E3 /* MiningDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningDataStore.swift; sourceTree = "<group>"; };
+		EF5CCDD4240E2A4800E9B4E3 /* CoinMarketCapListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCapListUseCase.swift; sourceTree = "<group>"; };
+		EF5CCDD6240E2A5700E9B4E3 /* CryptoCompareListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCompareListUseCase.swift; sourceTree = "<group>"; };
+		EF5CCDD8240E2AE300E9B4E3 /* CryptoCompareDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCompareDetailUseCase.swift; sourceTree = "<group>"; };
 		F1771F5C4CE4A87DE2354EB8 /* Pods_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				EF5CCD332406533200E9B4E3 /* Coin */,
-				EF5CCD342406533800E9B4E3 /* General */,
+				EF5CCD342406533800E9B4E3 /* News */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -121,19 +131,22 @@
 			path = Coin;
 			sourceTree = "<group>";
 		};
-		EF5CCD342406533800E9B4E3 /* General */ = {
+		EF5CCD342406533800E9B4E3 /* News */ = {
 			isa = PBXGroup;
 			children = (
 				EF5CCD362406534D00E9B4E3 /* News.swift */,
 			);
-			path = General;
+			path = News;
 			sourceTree = "<group>";
 		};
 		EF5CCD3A2406548A00E9B4E3 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				EF5CCDA9240CC68D00E9B4E3 /* CoinUseCase.swift */,
+				EF5CCDD4240E2A4800E9B4E3 /* CoinMarketCapListUseCase.swift */,
+				EF5CCDD6240E2A5700E9B4E3 /* CryptoCompareListUseCase.swift */,
+				EF5CCDD8240E2AE300E9B4E3 /* CryptoCompareDetailUseCase.swift */,
 				EF5CCD382406545600E9B4E3 /* NewsUseCase.swift */,
+				EF5CCDCE240E25B500E9B4E3 /* MiningUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -143,6 +156,7 @@
 			children = (
 				EF5CCDAC240CD2A700E9B4E3 /* CoinRepository.swift */,
 				EF5CCD9C240770C900E9B4E3 /* NewsRepository.swift */,
+				EF5CCDD0240E25C100E9B4E3 /* MiningRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -152,6 +166,7 @@
 			children = (
 				EF5CCDA6240CC67400E9B4E3 /* CoinDataStore.swift */,
 				EF5CCDA02407710600E9B4E3 /* NewsDataStore.swift */,
+				EF5CCDD2240E25CC00E9B4E3 /* MiningDataStore.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -288,16 +303,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF5CCDAF240CD32200E9B4E3 /* DoubleExtension.swift in Sources */,
+				EF5CCDD1240E25C100E9B4E3 /* MiningRepository.swift in Sources */,
 				EF5CCDCC240E1B6D00E9B4E3 /* Constants.swift in Sources */,
 				EF5CCDAD240CD2A700E9B4E3 /* CoinRepository.swift in Sources */,
+				EF5CCDD5240E2A4800E9B4E3 /* CoinMarketCapListUseCase.swift in Sources */,
 				EF5CCDB1240CDFA300E9B4E3 /* CryptoCompare.swift in Sources */,
+				EF5CCDD7240E2A5700E9B4E3 /* CryptoCompareListUseCase.swift in Sources */,
 				EF5CCDA7240CC67400E9B4E3 /* CoinDataStore.swift in Sources */,
 				EF5CCD9D240770C900E9B4E3 /* NewsRepository.swift in Sources */,
+				EF5CCDD9240E2AE300E9B4E3 /* CryptoCompareDetailUseCase.swift in Sources */,
 				EF5CCD392406545600E9B4E3 /* NewsUseCase.swift in Sources */,
 				EF5CCD372406534D00E9B4E3 /* News.swift in Sources */,
+				EF5CCDD3240E25CC00E9B4E3 /* MiningDataStore.swift in Sources */,
 				EF5CCDA12407710600E9B4E3 /* NewsDataStore.swift in Sources */,
+				EF5CCDCF240E25B500E9B4E3 /* MiningUseCase.swift in Sources */,
 				EF5CCDB3240CDFB400E9B4E3 /* CoinMarketCap.swift in Sources */,
-				EF5CCDAA240CC68D00E9B4E3 /* CoinUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

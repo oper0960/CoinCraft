@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - CMCCoin ViewModel
-public protocol CoinViewable {
+public protocol CoinMarketCapViewable {
     var imageURL: String { get }
     var name: String { get }
     var coinName: String { get }
@@ -19,7 +19,7 @@ public protocol CoinViewable {
     var sortOrder: String { get }
 }
 
-public struct CoinViewModel: CoinViewable {
+public struct CoinMarketCapViewModel: CoinMarketCapViewable {
     private let coin: Coin
     
     public init(coin: Coin) {

@@ -36,9 +36,9 @@ final class NewsInteractor: PresentableInteractor<NewsPresentable>, NewsInteract
     private var news = [PaperViewModel]()
     private let disposeBag = DisposeBag()
 
-    override init(presenter: NewsPresentable) {
+    init(presenter: NewsPresentable, newsUseCase: NewsUseCase) {
         
-        self.newsUseCase = NewsUseCaseImpl(newsRepository: NewsRepositoryImpl(dataStore: NewsDataStoreImpl()))
+        self.newsUseCase = newsUseCase
         
         super.init(presenter: presenter)
         presenter.listener = self

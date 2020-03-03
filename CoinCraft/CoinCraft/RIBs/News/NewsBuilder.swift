@@ -7,6 +7,7 @@
 //
 
 import RIBs
+import Domain
 
 protocol NewsDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
@@ -14,8 +15,9 @@ protocol NewsDependency: Dependency {
 }
 
 final class NewsComponent: Component<NewsDependency> {
-
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    fileprivate let newsUseCase: NewsUseCase = {
+       return NewsUseCaseImpl(newsRepository: NewsRepositoryImpl(dataStore: NewsDataStoreImpl()))
+    }()
 }
 
 // MARK: - Builder
@@ -31,9 +33,9 @@ final class NewsBuilder: Builder<NewsDependency>, NewsBuildable {
     }
 
     func build(withListener listener: NewsListener) -> NewsRouting {
-        let _ = NewsComponent(dependency: dependency)
+        let component = NewsComponent(dependency: dependency)
         let viewController = NewsViewController()
-        let interactor = NewsInteractor(presenter: viewController)
+        let interactor = NewsInteractor(presenter: viewController, newsUseCase: component.newsUseCase)
         interactor.listener = listener
         return NewsRouter(interactor: interactor, viewController: viewController)
     }

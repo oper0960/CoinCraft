@@ -7,13 +7,16 @@
 //
 
 import RIBs
+import Domain
 
 protocol CoinDependency: Dependency {
     
 }
 
 final class CoinComponent: Component<CoinDependency> {
-    
+    fileprivate let coinUseCase: CoinUseCase = {
+        return CoinUseCaseImpl(coinRepository: CoinRepositoryImpl(dataStore: CoinDataStoreImpl()))
+    }()
 }
 
 extension CoinComponent: CoinDetailDependency {
@@ -34,7 +37,7 @@ final class CoinBuilder: Builder<CoinDependency>, CoinBuildable {
     func build(withListener listener: CoinListener) -> CoinRouting {
         let component = CoinComponent(dependency: dependency)
         let viewController = CoinViewController()
-        let interactor = CoinInteractor(presenter: viewController)
+        let interactor = CoinInteractor(presenter: viewController, coinUseCase: component.coinUseCase)
         interactor.listener = listener
         let detailBuilder = CoinDetailBuilder(dependency: component)
         return CoinRouter(interactor: interactor, viewController: viewController, coinDetailBuilder: detailBuilder)

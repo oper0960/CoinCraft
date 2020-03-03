@@ -1,5 +1,5 @@
 //
-//  Common.swift
+//  DoubleExtension.swift
 //  Domain
 //
 //  Created by Gilwan Ryu on 2020/03/02.

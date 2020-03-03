@@ -117,35 +117,4 @@ class NetworkService {
     }
 }
 
-struct Constants {
-    struct Coin {
-        struct CoinMarketCap {
-            private static let BaseUrl = "https://api.coinmarketcap.com"
-            static let imageBaseUrl = "https://chasing-coins.com/api/v1/std/logo/"
-            static let list = "\(BaseUrl)/v1/ticker/?limit=0"
-        }
-        
-        struct CryptoCompare {
-            private static let BaseUrl = "https://min-api.cryptocompare.com"
-            private static let detailBaseUrl = "https://www.cryptocompare.com"
-            static let list = "\(BaseUrl)/data/all/coinlist"
-            static let detail = "\(detailBaseUrl)/api/data/coinsnapshotfullbyid"
-        }
-    }
-    
-    struct General {
-        struct News {
-            private static let baseUrl = "https://min-api.cryptocompare.com"
-            static let list = "\(baseUrl)/data/v2/news/?lang=EN"
-        }
-        
-        struct Social {
-            private static let baseUrl = "https://min-api.cryptocompare.com"
-            static let list = "\(baseUrl)"
-        }
-    }
-    
-    struct About {
-        
-    }
-}
+

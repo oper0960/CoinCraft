@@ -35,16 +35,10 @@ final class RootViewController: UIViewController {
         indicator.play(superView: self.view)
         listener?.getCryptoCompareList()
     }
-    
-    
 }
 
 // MARK: - RootPresentable
 extension RootViewController: RootPresentable {
-    func setProgressBar(percent: Double) {
-        print(percent)
-    }
-    
     func stopLoadingView() {
         indicator.stop()
     }

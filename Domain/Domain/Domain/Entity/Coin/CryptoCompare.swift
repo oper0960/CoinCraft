@@ -44,7 +44,7 @@ public protocol CompareCoinDetailViewable {
 }
 
 public struct CompareCoinDetailViewModel: CompareCoinDetailViewable {
-    private let detail: CompareCoinDetail
+    public let detail: CompareCoinDetail
     
     public init(detail: CompareCoinDetail) {
         self.detail = detail
@@ -92,9 +92,9 @@ public struct CompareCoinDetailViewModel: CompareCoinDetailViewable {
 }
 
 public struct CryptoCompareResponse: Decodable {
-    let coins: [CompareCoin]
+    public let coins: [CompareCoin]
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case data = "Data"
     }
     
@@ -135,7 +135,7 @@ public struct CompareCoin: Codable {
     let blockReward: Double?
     let blockTime: Int?
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case id = "Id"
         case url = "Url"
         case imageUrl = "ImageUrl"
@@ -168,7 +168,7 @@ public struct CompareCoin: Codable {
 
 // MARK: - CompareCoinDetail
 public struct CryptoCompareDetailResponse: Codable {
-    let detail: CompareCoinDetail?
+    public let detail: CompareCoinDetail?
 
     enum CodingKeys: String, CodingKey {
         case detail = "Data"

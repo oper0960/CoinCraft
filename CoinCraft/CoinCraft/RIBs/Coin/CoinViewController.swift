@@ -44,20 +44,14 @@ final class CoinViewController: UIViewController {
         setRx()
         
         listener?.getCoinMarketCapList()
-        startTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if !timer.isValid {
-            startTimer()
-        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        timer.invalidate()
     }
 }
 
@@ -73,29 +67,23 @@ extension CoinViewController {
     private func setRx() {
         coinTableView.rx
             .itemSelected
-            .subscribe { [weak self] event in
+            .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                switch event {
-                case .next(let indexPath):
-                    self.indicator.play(superView: self.view)
-                    self.listener?.getCompareCoinInfo(coin: self.coins[indexPath.row])
-                case .error(let error):
+                self.indicator.play(superView: self.view)
+                self.listener?.getCompareCoinInfo(coin: self.coins[indexPath.row])
+                }, onError: { error in
                     print(error)
-                case .completed:
-                    break
-                }
-        }.disposed(by: disposeBag)
+            }, onDisposed: {
+                self.indicator.stop()
+            }).disposed(by: disposeBag)
         
         refresh.rx
             .controlEvent(.valueChanged)
             .subscribe { [weak self] _ in
-                self?.listener?.getCoinMarketCapList()
-                self?.refresh.endRefreshing()
+                guard let self = self else { return }
+                self.listener?.getCoinMarketCapList()
+                self.refresh.endRefreshing()
         }.disposed(by: disposeBag)
-    }
-    
-    private func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(getList), userInfo: nil, repeats: true)
     }
     
     @objc private func getList() {
@@ -107,15 +95,16 @@ extension CoinViewController {
 extension CoinViewController: CoinPresentable {
     func setCoinList(coins: [CoinViewModel]) {
         self.coins = coins
+    }
+    
+    func stopIndicator() {
         indicator.stop()
     }
 }
 
-
 // MARK: - CoinViewControllable
 extension CoinViewController: CoinViewControllable {
     func present(viewController: ViewControllable) {
-        indicator.stop()
         present(viewController.uiviewController, animated: true, completion: nil)
     }
     

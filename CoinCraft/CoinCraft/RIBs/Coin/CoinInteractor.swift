@@ -19,6 +19,7 @@ protocol CoinPresentable: Presentable {
     
     // MARK: - To ViewController
     func setCoinList(coins: [CoinViewModel])
+    func stopIndicator()
 }
 
 protocol CoinListener: class {
@@ -33,9 +34,9 @@ final class CoinInteractor: PresentableInteractor<CoinPresentable>, CoinInteract
     private let coinUseCase: CoinUseCase
     private let disposeBag = DisposeBag()
 
-    override init(presenter: CoinPresentable) {
+    init(presenter: CoinPresentable, coinUseCase: CoinUseCase) {
         
-        self.coinUseCase = CoinUseCaseImpl(coinRepository: CoinRepositoryImpl(dataStore: CoinDataStoreImpl()))
+        self.coinUseCase = coinUseCase
         
         super.init(presenter: presenter)
         presenter.listener = self
@@ -64,6 +65,8 @@ extension CoinInteractor: CoinPresentableListener {
             self.router?.routeToDetail(info: detail)
             }, onError: { error in
                 print(error.localizedDescription)
+        }, onDisposed: {
+            self.presenter.stopIndicator()
         }).disposed(by: self.disposeBag)
     }
     
@@ -74,6 +77,8 @@ extension CoinInteractor: CoinPresentableListener {
             self.presenter.setCoinList(coins: coins)
             }, onError: { error in
                 print(error.localizedDescription)
+        }, onDisposed: {
+            self.presenter.stopIndicator()
         }).disposed(by: self.disposeBag)
     }
 }

@@ -15,15 +15,4 @@ public protocol NewsRepository {
     func getNewsList() -> Observable<[PaperViewModel]>
 }
 
-public struct NewsRepositoryImpl: NewsRepository {
-    
-    private let dataStore: NewsDataStore
-    
-    public init(dataStore: NewsDataStore) {
-        self.dataStore = dataStore
-    }
-    
-    public func getNewsList() -> Observable<[PaperViewModel]> {
-        return dataStore.getNewsList()
-    }
-}
+

@@ -60,6 +60,8 @@ extension RootInteractor: RootPresentableListener {
             self.router?.routeToMain()
             }, onError: { error in
                 print(error.localizedDescription)
+        }, onDisposed: {
+            self.presenter.stopLoadingView()
         }).disposed(by: self.disposeBag)
     }
 }

@@ -37,6 +37,7 @@ public struct Constants {
         
         public struct Mining {
             private static let baseUrl = "https://min-api.cryptocompare.com"
+            public static let imageBaseUrl = "https://www.cryptocompare.com"
             public static let list = "\(baseUrl)/data/mining/pools/general?api_key=\(Constants.Key.cryptoCompareKey)"
         }
     }

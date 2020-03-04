@@ -20,4 +20,46 @@ struct MiningViewModel: MiningViewable {
     var id: String {
         return datum.id ?? ""
     }
+    
+    var name: String {
+        return datum.name ?? ""
+    }
+    
+    var coinUrl: String {
+        return datum.affiliateURL ?? ""
+    }
+    
+    var url: String {
+        guard let url = datum.url else { return "" }
+        return "\(Constants.General.Mining.imageBaseUrl)\(url)"
+    }
+    
+    var averageFee: String {
+        return datum.averageFee ?? "none"
+    }
+    
+    var logoUrl: String {
+        guard let logoUrl = datum.logoURL else { return "" }
+        return "\(Constants.General.Mining.imageBaseUrl)\(logoUrl)"
+    }
+    
+    var serverLocations: [String] {
+        return datum.serverLocations ?? []
+    }
+    
+    var twitter: String? {
+        return datum.twitter
+    }
+    
+    var poolFeatures: [String] {
+        return datum.poolFeatures ?? []
+    }
+    
+    var coins: [String] {
+        return datum.coins ?? []
+    }
+    
+    var paymentType: [String] {
+        return datum.paymentType ?? []
+    }
 }

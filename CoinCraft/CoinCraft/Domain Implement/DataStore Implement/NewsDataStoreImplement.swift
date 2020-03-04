@@ -3,7 +3,7 @@
 //  CoinCraft
 //
 //  Created by Gilwan Ryu on 2020/03/03.
-//  Copyright © 2020 Buxi. All rights reserved.
+//  Copyright © 2020 Gilwan Ryu. All rights reserved.
 //
 
 import Foundation
@@ -24,12 +24,12 @@ public struct NewsDataStoreImplement: NewsDataStore {
             .map { _ , data in
                 let decodableJson = try JSONDecoder().decode(NewsCodable.self, from: data)
 
-                var paperViewModels = [NewsViewModel]()
-                for paper in decodableJson.papers {
-                    paperViewModels.append(NewsViewModel(paper: paper))
+                var newsViewModels = [NewsViewModel]()
+                for news in decodableJson.news {
+                    newsViewModels.append(NewsViewModel(news: news))
                 }
 
-                return paperViewModels
+                return newsViewModels
         }
     }
 }

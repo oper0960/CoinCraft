@@ -37,7 +37,7 @@ final class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         indicator.play(superView: self.view)
-        setTableView()
+        setup()
         setRx()
         
         listener?.getNewsList()
@@ -46,7 +46,7 @@ final class NewsViewController: UIViewController {
 
 // MARK: - Setup
 extension NewsViewController {
-    private func setTableView() {
+    private func setup() {
         newsTableView.register(UINib(nibName: "NewsCardCell", bundle: nil), forCellReuseIdentifier: "newsCell")
         newsTableView.delegate = self
         newsTableView.dataSource = self
@@ -55,18 +55,11 @@ extension NewsViewController {
     private func setRx() {
         newsTableView.rx
             .itemSelected
-            .subscribe { [weak self] event in
+            .subscribe (onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                switch event {
-                case .next(let indexPath):
-                    self.indicator.play(superView: self.view)
-                    self.listener?.getSelectedNews(index: indexPath.row)
-                case .error(let error):
-                    print(error)
-                case .completed:
-                    break
-                }
-        }.disposed(by: disposeBag)
+                self.indicator.play(superView: self.view)
+                self.listener?.getSelectedNews(index: indexPath.row)
+            }).disposed(by: disposeBag)
     }
 }
 

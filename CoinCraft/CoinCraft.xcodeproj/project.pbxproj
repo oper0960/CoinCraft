@@ -20,6 +20,22 @@
 		EF5CCDE0240E301D00E9B4E3 /* CryptoCompareDetailUseCaseImplement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDDF240E301D00E9B4E3 /* CryptoCompareDetailUseCaseImplement.swift */; };
 		EF5CCDE5240E540700E9B4E3 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDE4240E540700E9B4E3 /* NewsViewModel.swift */; };
 		EF5CCDE7240E582000E9B4E3 /* NewsCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDE6240E582000E9B4E3 /* NewsCodable.swift */; };
+		EF5CCDEF240F38F400E9B4E3 /* CryptoCompareCoinCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDEE240F38F400E9B4E3 /* CryptoCompareCoinCodable.swift */; };
+		EF5CCDF1240F391D00E9B4E3 /* CryptoCompareDetailCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDF0240F391D00E9B4E3 /* CryptoCompareDetailCodable.swift */; };
+		EF5CCDF3240F392800E9B4E3 /* CoinMarketCapCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDF2240F392800E9B4E3 /* CoinMarketCapCodable.swift */; };
+		EF5CCDF6240F39D400E9B4E3 /* CoinMarketCapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDF5240F39D400E9B4E3 /* CoinMarketCapViewModel.swift */; };
+		EF5CCDF8240F3C9400E9B4E3 /* CryptoCompareCoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDF7240F3C9400E9B4E3 /* CryptoCompareCoinViewModel.swift */; };
+		EF5CCDFA240F3CA100E9B4E3 /* CryptoCompareCoinDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCDF9240F3CA000E9B4E3 /* CryptoCompareCoinDetailViewModel.swift */; };
+		EF5CCE06240F49E600E9B4E3 /* MiningRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCE01240F49E600E9B4E3 /* MiningRouter.swift */; };
+		EF5CCE07240F49E600E9B4E3 /* MiningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCE02240F49E600E9B4E3 /* MiningViewController.swift */; };
+		EF5CCE08240F49E600E9B4E3 /* MiningBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCE03240F49E600E9B4E3 /* MiningBuilder.swift */; };
+		EF5CCE09240F49E600E9B4E3 /* MiningInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCE04240F49E600E9B4E3 /* MiningInteractor.swift */; };
+		EF5CCE0A240F49E600E9B4E3 /* MiningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF5CCE05240F49E600E9B4E3 /* MiningViewController.xib */; };
+		EF5CCE0C240F6C2900E9B4E3 /* MiningCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCE0B240F6C2900E9B4E3 /* MiningCodable.swift */; };
+		EF5CCE0E240F78BE00E9B4E3 /* MiningUseCaseImplement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCE0D240F78BE00E9B4E3 /* MiningUseCaseImplement.swift */; };
+		EF5CCE10240F78CC00E9B4E3 /* MiningRepositoryImplement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCE0F240F78CC00E9B4E3 /* MiningRepositoryImplement.swift */; };
+		EF5CCE12240F78D900E9B4E3 /* MiningDataStoreImplement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCE11240F78D900E9B4E3 /* MiningDataStoreImplement.swift */; };
+		EF5CCE15240F7DF300E9B4E3 /* MiningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5CCE14240F7DF300E9B4E3 /* MiningViewModel.swift */; };
 		EF6AADDD23F3C07700262644 /* NewsCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADDB23F3C07700262644 /* NewsCardCell.swift */; };
 		EF6AADDE23F3C07700262644 /* NewsCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6AADDC23F3C07700262644 /* NewsCardCell.xib */; };
 		EF6AADE423F53A3B00262644 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADE223F53A3B00262644 /* AboutTableViewCell.swift */; };
@@ -81,7 +97,7 @@
 		EF880BEA23E3FDC600068CEC /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880BE523E3FDC600068CEC /* MainViewController.xib */; };
 		EF880BF023E435A000068CEC /* SegmentInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BEF23E435A000068CEC /* SegmentInnerView.swift */; };
 		EF880BF223E435B400068CEC /* NewsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BF123E435B400068CEC /* NewsAdapter.swift */; };
-		EF880BF423E435C000068CEC /* SocialAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BF323E435C000068CEC /* SocialAdapter.swift */; };
+		EF880BF423E435C000068CEC /* MiningAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BF323E435C000068CEC /* MiningAdapter.swift */; };
 		EF880BFA23E7EFD700068CEC /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BF823E7EFD700068CEC /* CoinTableViewCell.swift */; };
 		EF880BFB23E7EFD700068CEC /* CoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880BF923E7EFD700068CEC /* CoinTableViewCell.xib */; };
 		EF880BFF23E7F33B00068CEC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880BFE23E7F33B00068CEC /* NetworkService.swift */; };
@@ -110,11 +126,6 @@
 		EF880C5A23F2B50800068CEC /* NewsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C5523F2B50800068CEC /* NewsBuilder.swift */; };
 		EF880C5B23F2B50800068CEC /* NewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C5623F2B50800068CEC /* NewsInteractor.swift */; };
 		EF880C5C23F2B50800068CEC /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880C5723F2B50800068CEC /* NewsViewController.xib */; };
-		EF880C6223F2B51700068CEC /* SocialRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C5D23F2B51700068CEC /* SocialRouter.swift */; };
-		EF880C6323F2B51700068CEC /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C5E23F2B51700068CEC /* SocialViewController.swift */; };
-		EF880C6423F2B51700068CEC /* SocialBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C5F23F2B51700068CEC /* SocialBuilder.swift */; };
-		EF880C6523F2B51700068CEC /* SocialInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF880C6023F2B51700068CEC /* SocialInteractor.swift */; };
-		EF880C6623F2B51700068CEC /* SocialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF880C6123F2B51700068CEC /* SocialViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -146,6 +157,22 @@
 		EF5CCDDF240E301D00E9B4E3 /* CryptoCompareDetailUseCaseImplement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCompareDetailUseCaseImplement.swift; sourceTree = "<group>"; };
 		EF5CCDE4240E540700E9B4E3 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		EF5CCDE6240E582000E9B4E3 /* NewsCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCodable.swift; sourceTree = "<group>"; };
+		EF5CCDEE240F38F400E9B4E3 /* CryptoCompareCoinCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCompareCoinCodable.swift; sourceTree = "<group>"; };
+		EF5CCDF0240F391D00E9B4E3 /* CryptoCompareDetailCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCompareDetailCodable.swift; sourceTree = "<group>"; };
+		EF5CCDF2240F392800E9B4E3 /* CoinMarketCapCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCapCodable.swift; sourceTree = "<group>"; };
+		EF5CCDF5240F39D400E9B4E3 /* CoinMarketCapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCapViewModel.swift; sourceTree = "<group>"; };
+		EF5CCDF7240F3C9400E9B4E3 /* CryptoCompareCoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCompareCoinViewModel.swift; sourceTree = "<group>"; };
+		EF5CCDF9240F3CA000E9B4E3 /* CryptoCompareCoinDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCompareCoinDetailViewModel.swift; sourceTree = "<group>"; };
+		EF5CCE01240F49E600E9B4E3 /* MiningRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningRouter.swift; sourceTree = "<group>"; };
+		EF5CCE02240F49E600E9B4E3 /* MiningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningViewController.swift; sourceTree = "<group>"; };
+		EF5CCE03240F49E600E9B4E3 /* MiningBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningBuilder.swift; sourceTree = "<group>"; };
+		EF5CCE04240F49E600E9B4E3 /* MiningInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningInteractor.swift; sourceTree = "<group>"; };
+		EF5CCE05240F49E600E9B4E3 /* MiningViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiningViewController.xib; sourceTree = "<group>"; };
+		EF5CCE0B240F6C2900E9B4E3 /* MiningCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningCodable.swift; sourceTree = "<group>"; };
+		EF5CCE0D240F78BE00E9B4E3 /* MiningUseCaseImplement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningUseCaseImplement.swift; sourceTree = "<group>"; };
+		EF5CCE0F240F78CC00E9B4E3 /* MiningRepositoryImplement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningRepositoryImplement.swift; sourceTree = "<group>"; };
+		EF5CCE11240F78D900E9B4E3 /* MiningDataStoreImplement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningDataStoreImplement.swift; sourceTree = "<group>"; };
+		EF5CCE14240F7DF300E9B4E3 /* MiningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningViewModel.swift; sourceTree = "<group>"; };
 		EF6AADDB23F3C07700262644 /* NewsCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardCell.swift; sourceTree = "<group>"; };
 		EF6AADDC23F3C07700262644 /* NewsCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCardCell.xib; sourceTree = "<group>"; };
 		EF6AADE223F53A3B00262644 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
@@ -209,7 +236,7 @@
 		EF880BE523E3FDC600068CEC /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		EF880BEF23E435A000068CEC /* SegmentInnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentInnerView.swift; sourceTree = "<group>"; };
 		EF880BF123E435B400068CEC /* NewsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAdapter.swift; sourceTree = "<group>"; };
-		EF880BF323E435C000068CEC /* SocialAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAdapter.swift; sourceTree = "<group>"; };
+		EF880BF323E435C000068CEC /* MiningAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningAdapter.swift; sourceTree = "<group>"; };
 		EF880BF823E7EFD700068CEC /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		EF880BF923E7EFD700068CEC /* CoinTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinTableViewCell.xib; sourceTree = "<group>"; };
 		EF880BFE23E7F33B00068CEC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -238,11 +265,6 @@
 		EF880C5523F2B50800068CEC /* NewsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBuilder.swift; sourceTree = "<group>"; };
 		EF880C5623F2B50800068CEC /* NewsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsInteractor.swift; sourceTree = "<group>"; };
 		EF880C5723F2B50800068CEC /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
-		EF880C5D23F2B51700068CEC /* SocialRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialRouter.swift; sourceTree = "<group>"; };
-		EF880C5E23F2B51700068CEC /* SocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
-		EF880C5F23F2B51700068CEC /* SocialBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialBuilder.swift; sourceTree = "<group>"; };
-		EF880C6023F2B51700068CEC /* SocialInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialInteractor.swift; sourceTree = "<group>"; };
-		EF880C6123F2B51700068CEC /* SocialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,7 +303,7 @@
 			children = (
 				EF880BEF23E435A000068CEC /* SegmentInnerView.swift */,
 				EF880BF123E435B400068CEC /* NewsAdapter.swift */,
-				EF880BF323E435C000068CEC /* SocialAdapter.swift */,
+				EF880BF323E435C000068CEC /* MiningAdapter.swift */,
 			);
 			path = Segment;
 			sourceTree = "<group>";
@@ -291,6 +313,7 @@
 			children = (
 				EF5CCDB8240DFFBE00E9B4E3 /* CoinDataStoreImplement.swift */,
 				EF5CCDC5240E1B0500E9B4E3 /* NewsDataStoreImplement.swift */,
+				EF5CCE11240F78D900E9B4E3 /* MiningDataStoreImplement.swift */,
 			);
 			path = "DataStore Implement";
 			sourceTree = "<group>";
@@ -300,6 +323,7 @@
 			children = (
 				EF5CCDBD240E08B300E9B4E3 /* CoinRepositoryImplement.swift */,
 				EF5CCDC7240E1B1600E9B4E3 /* NewsRepositoryImplement.swift */,
+				EF5CCE0F240F78CC00E9B4E3 /* MiningRepositoryImplement.swift */,
 			);
 			path = "Repository Implement";
 			sourceTree = "<group>";
@@ -311,6 +335,7 @@
 				EF5CCDDD240E300600E9B4E3 /* CryptoCompareListUseCaseImplement.swift */,
 				EF5CCDDF240E301D00E9B4E3 /* CryptoCompareDetailUseCaseImplement.swift */,
 				EF5CCDC9240E1B2100E9B4E3 /* NewsUseCaseImplement.swift */,
+				EF5CCE0D240F78BE00E9B4E3 /* MiningUseCaseImplement.swift */,
 			);
 			path = "UseCase Implement";
 			sourceTree = "<group>";
@@ -362,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				EF5CCDE6240E582000E9B4E3 /* NewsCodable.swift */,
+				EF5CCE0B240F6C2900E9B4E3 /* MiningCodable.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -369,8 +395,42 @@
 		EF5CCDED240E693600E9B4E3 /* Coin */ = {
 			isa = PBXGroup;
 			children = (
+				EF5CCDF2240F392800E9B4E3 /* CoinMarketCapCodable.swift */,
+				EF5CCDEE240F38F400E9B4E3 /* CryptoCompareCoinCodable.swift */,
+				EF5CCDF0240F391D00E9B4E3 /* CryptoCompareDetailCodable.swift */,
 			);
 			path = Coin;
+			sourceTree = "<group>";
+		};
+		EF5CCDF4240F39B600E9B4E3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CCDF5240F39D400E9B4E3 /* CoinMarketCapViewModel.swift */,
+				EF5CCDF7240F3C9400E9B4E3 /* CryptoCompareCoinViewModel.swift */,
+				EF5CCDF9240F3CA000E9B4E3 /* CryptoCompareCoinDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF5CCDFF240F49B300E9B4E3 /* Mining */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CCE13240F7DE700E9B4E3 /* ViewModel */,
+				EF5CCE01240F49E600E9B4E3 /* MiningRouter.swift */,
+				EF5CCE04240F49E600E9B4E3 /* MiningInteractor.swift */,
+				EF5CCE03240F49E600E9B4E3 /* MiningBuilder.swift */,
+				EF5CCE02240F49E600E9B4E3 /* MiningViewController.swift */,
+				EF5CCE05240F49E600E9B4E3 /* MiningViewController.xib */,
+			);
+			path = Mining;
+			sourceTree = "<group>";
+		};
+		EF5CCE13240F7DE700E9B4E3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CCE14240F7DF300E9B4E3 /* MiningViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EF6AADDA23F3C00700262644 /* View */ = {
@@ -537,7 +597,7 @@
 				EF880C1023E9651400068CEC /* CoinDetail */,
 				EF880B6723E2ABA400068CEC /* General */,
 				EF880C5123F2B4F400068CEC /* News */,
-				EF880C5223F2B4F900068CEC /* Social */,
+				EF5CCDFF240F49B300E9B4E3 /* Mining */,
 				EF880B6823E2ABAE00068CEC /* About */,
 				EF6AADE723F54E1A00262644 /* Version */,
 				EF6AADE623F54E0900262644 /* OpenSource */,
@@ -560,6 +620,7 @@
 		EF880B6623E2AB9700068CEC /* Coin */ = {
 			isa = PBXGroup;
 			children = (
+				EF5CCDF4240F39B600E9B4E3 /* ViewModel */,
 				EF880BF723E7EFC500068CEC /* View */,
 				EF880B7723E2B59F00068CEC /* CoinRouter.swift */,
 				EF880B7A23E2B59F00068CEC /* CoinInteractor.swift */,
@@ -715,18 +776,6 @@
 			path = News;
 			sourceTree = "<group>";
 		};
-		EF880C5223F2B4F900068CEC /* Social */ = {
-			isa = PBXGroup;
-			children = (
-				EF880C5D23F2B51700068CEC /* SocialRouter.swift */,
-				EF880C6023F2B51700068CEC /* SocialInteractor.swift */,
-				EF880C5F23F2B51700068CEC /* SocialBuilder.swift */,
-				EF880C5E23F2B51700068CEC /* SocialViewController.swift */,
-				EF880C6123F2B51700068CEC /* SocialViewController.xib */,
-			);
-			path = Social;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -790,6 +839,7 @@
 			files = (
 				EF6AAE0823F559C400262644 /* OpenSourceCell.xib in Resources */,
 				EF880B5123E274BA00068CEC /* LaunchScreen.storyboard in Resources */,
+				EF5CCE0A240F49E600E9B4E3 /* MiningViewController.xib in Resources */,
 				EF6AADF123F554A500262644 /* VersionViewController.xib in Resources */,
 				EF880C3023ED4DBA00068CEC /* LaunchLoading.json in Resources */,
 				EF880C0823E9039700068CEC /* NormalLoading.json in Resources */,
@@ -805,7 +855,6 @@
 				EF880C3923F2438400068CEC /* CoinDetailFirstHeaderCell.xib in Resources */,
 				EF6AADDE23F3C07700262644 /* NewsCardCell.xib in Resources */,
 				EF880B8023E2B59F00068CEC /* CoinViewController.xib in Resources */,
-				EF880C6623F2B51700068CEC /* SocialViewController.xib in Resources */,
 				EF880B9423E2B5BA00068CEC /* AboutViewController.xib in Resources */,
 				EF880B8A23E2B5AD00068CEC /* GeneralViewController.xib in Resources */,
 				EF880C1A23E9652700068CEC /* CoinDetailViewController.xib in Resources */,
@@ -873,10 +922,12 @@
 				EF880BF223E435B400068CEC /* NewsAdapter.swift in Sources */,
 				EF5CCDE5240E540700E9B4E3 /* NewsViewModel.swift in Sources */,
 				EF880C1723E9652700068CEC /* CoinDetailViewController.swift in Sources */,
+				EF5CCE10240F78CC00E9B4E3 /* MiningRepositoryImplement.swift in Sources */,
 				EF880C4323F2542A00068CEC /* String+.swift in Sources */,
 				EF880B6523E2A43F00068CEC /* RootInteractor.swift in Sources */,
 				EF880B9323E2B5BA00068CEC /* AboutInteractor.swift in Sources */,
 				EF6AADFE23F5595400262644 /* OpenSource.swift in Sources */,
+				EF5CCE15240F7DF300E9B4E3 /* MiningViewModel.swift in Sources */,
 				EF880C3823F2438400068CEC /* CoinDetailFirstHeaderCell.swift in Sources */,
 				EF6AAE1223F66B8000262644 /* LicenseTextInteractor.swift in Sources */,
 				EF880C4723F2791B00068CEC /* UIColor+.swift in Sources */,
@@ -887,7 +938,6 @@
 				EF5CCDE0240E301D00E9B4E3 /* CryptoCompareDetailUseCaseImplement.swift in Sources */,
 				EF880B9123E2B5BA00068CEC /* AboutViewController.swift in Sources */,
 				EF6AADE423F53A3B00262644 /* AboutTableViewCell.swift in Sources */,
-				EF880C6323F2B51700068CEC /* SocialViewController.swift in Sources */,
 				EF880B4523E274B600068CEC /* AppDelegate.swift in Sources */,
 				EF6AADEF23F554A500262644 /* VersionBuilder.swift in Sources */,
 				EF880B8923E2B5AD00068CEC /* GeneralInteractor.swift in Sources */,
@@ -896,27 +946,32 @@
 				EF880B8723E2B5AD00068CEC /* GeneralViewController.swift in Sources */,
 				EF880BB023E2CA8100068CEC /* GeneralAdapter.swift in Sources */,
 				EF6AADEE23F554A500262644 /* VersionViewController.swift in Sources */,
+				EF5CCDF6240F39D400E9B4E3 /* CoinMarketCapViewModel.swift in Sources */,
 				EF6AADF023F554A500262644 /* VersionInteractor.swift in Sources */,
 				EF6AAE6923FB8B2C00262644 /* OpenSourceStream.swift in Sources */,
+				EF5CCDF1240F391D00E9B4E3 /* CryptoCompareDetailCodable.swift in Sources */,
 				EF880B6223E2A43F00068CEC /* RootRouter.swift in Sources */,
+				EF5CCE06240F49E600E9B4E3 /* MiningRouter.swift in Sources */,
 				EF880BE623E3FDC600068CEC /* MainRouter.swift in Sources */,
 				EF5CCDC6240E1B0500E9B4E3 /* NewsDataStoreImplement.swift in Sources */,
-				EF880BF423E435C000068CEC /* SocialAdapter.swift in Sources */,
+				EF880BF423E435C000068CEC /* MiningAdapter.swift in Sources */,
 				EF880BB223E2CA8D00068CEC /* AboutAdapter.swift in Sources */,
 				EF5CCDBE240E08B300E9B4E3 /* CoinRepositoryImplement.swift in Sources */,
 				EF880B8623E2B5AD00068CEC /* GeneralRouter.swift in Sources */,
+				EF5CCE08240F49E600E9B4E3 /* MiningBuilder.swift in Sources */,
 				EF5CCDC8240E1B1600E9B4E3 /* NewsRepositoryImplement.swift in Sources */,
 				EF880BAC23E2C9E600068CEC /* TabbarInnerView.swift in Sources */,
 				EF880B7D23E2B59F00068CEC /* CoinViewController.swift in Sources */,
 				EF880C5B23F2B50800068CEC /* NewsInteractor.swift in Sources */,
 				EF6AADF923F554B800262644 /* OpenSourceBuilder.swift in Sources */,
 				EF880B6423E2A43F00068CEC /* RootBuilder.swift in Sources */,
+				EF5CCDEF240F38F400E9B4E3 /* CryptoCompareCoinCodable.swift in Sources */,
 				EF880B7E23E2B59F00068CEC /* CoinBuilder.swift in Sources */,
 				EF6AAE0723F559C400262644 /* OpenSourceCell.swift in Sources */,
 				EF880C1823E9652700068CEC /* CoinDetailBuilder.swift in Sources */,
 				EF5CCDDE240E300600E9B4E3 /* CryptoCompareListUseCaseImplement.swift in Sources */,
-				EF880C6223F2B51700068CEC /* SocialRouter.swift in Sources */,
 				EF880C0F23E94DC100068CEC /* Double+.swift in Sources */,
+				EF5CCE07240F49E600E9B4E3 /* MiningViewController.swift in Sources */,
 				EF6AADF723F554B800262644 /* OpenSourceRouter.swift in Sources */,
 				EF880C5823F2B50800068CEC /* NewsRouter.swift in Sources */,
 				EF6AADDD23F3C07700262644 /* NewsCardCell.swift in Sources */,
@@ -926,25 +981,30 @@
 				EF5CCDB9240DFFBE00E9B4E3 /* CoinDataStoreImplement.swift in Sources */,
 				EF880B6323E2A43F00068CEC /* RootViewController.swift in Sources */,
 				EF880B7F23E2B59F00068CEC /* CoinInteractor.swift in Sources */,
-				EF880C6423F2B51700068CEC /* SocialBuilder.swift in Sources */,
 				EF880C5A23F2B50800068CEC /* NewsBuilder.swift in Sources */,
+				EF5CCE09240F49E600E9B4E3 /* MiningInteractor.swift in Sources */,
+				EF5CCDFA240F3CA100E9B4E3 /* CryptoCompareCoinDetailViewModel.swift in Sources */,
 				EF880C1623E9652700068CEC /* CoinDetailRouter.swift in Sources */,
+				EF5CCDF8240F3C9400E9B4E3 /* CryptoCompareCoinViewModel.swift in Sources */,
 				EF880C0B23E9045A00068CEC /* IndicatorView.swift in Sources */,
 				EF6AAE0F23F66B8000262644 /* LicenseTextRouter.swift in Sources */,
 				EF880B7C23E2B59F00068CEC /* CoinRouter.swift in Sources */,
+				EF5CCE0C240F6C2900E9B4E3 /* MiningCodable.swift in Sources */,
 				EF5CCDDC240E2FEE00E9B4E3 /* CoinMarketCapListUseCaseImplement.swift in Sources */,
 				EF880C3C23F2439800068CEC /* CoinDetailOtherHeaderCell.swift in Sources */,
-				EF880C6523F2B51700068CEC /* SocialInteractor.swift in Sources */,
 				EF880BE823E3FDC600068CEC /* MainBuilder.swift in Sources */,
 				EF880B9023E2B5BA00068CEC /* AboutRouter.swift in Sources */,
 				EF880B5B23E2A41B00068CEC /* AppComponent.swift in Sources */,
 				EF6AADED23F554A500262644 /* VersionRouter.swift in Sources */,
 				EF6AADF823F554B800262644 /* OpenSourceViewController.swift in Sources */,
 				EF880BE923E3FDC600068CEC /* MainInteractor.swift in Sources */,
+				EF5CCE12240F78D900E9B4E3 /* MiningDataStoreImplement.swift in Sources */,
 				EF5CCDCA240E1B2100E9B4E3 /* NewsUseCaseImplement.swift in Sources */,
+				EF5CCDF3240F392800E9B4E3 /* CoinMarketCapCodable.swift in Sources */,
 				EF880B8823E2B5AD00068CEC /* GeneralBuilder.swift in Sources */,
 				EF880C3323ED526A00068CEC /* Global.swift in Sources */,
 				EF880C5923F2B50800068CEC /* NewsViewController.swift in Sources */,
+				EF5CCE0E240F78BE00E9B4E3 /* MiningUseCaseImplement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1092,7 +1152,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryu.CoinCraft;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gilwanryu.CoinCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1115,7 +1175,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryu.CoinCraft;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gilwanryu.CoinCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

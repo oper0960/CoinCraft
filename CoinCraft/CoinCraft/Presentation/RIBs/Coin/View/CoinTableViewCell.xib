@@ -28,6 +28,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="rru-AA-0YK">
+                        <rect key="frame" x="26" y="39.5" width="20" height="20"/>
+                    </activityIndicatorView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bo5-bl-Yup">
                         <rect key="frame" x="66" y="29" width="43.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -61,6 +64,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="5i3-jF-23o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="4Rn-4D-k63"/>
+                    <constraint firstItem="rru-AA-0YK" firstAttribute="centerY" secondItem="5i3-jF-23o" secondAttribute="centerY" id="BRI-2B-IPh"/>
                     <constraint firstItem="XEF-T2-vwA" firstAttribute="top" secondItem="zQA-R6-1qT" secondAttribute="bottom" constant="5" id="DaK-6Y-4sn"/>
                     <constraint firstItem="BbK-Xv-EQc" firstAttribute="top" secondItem="5i3-jF-23o" secondAttribute="centerY" id="Fof-c1-SR5"/>
                     <constraint firstItem="LVa-S1-ugu" firstAttribute="top" secondItem="XEF-T2-vwA" secondAttribute="bottom" constant="5" id="T6G-Ot-gVK"/>
@@ -72,6 +76,7 @@
                     <constraint firstItem="BbK-Xv-EQc" firstAttribute="leading" secondItem="5i3-jF-23o" secondAttribute="trailing" constant="10" id="kve-1o-GtA"/>
                     <constraint firstItem="XEF-T2-vwA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="l5m-bL-ErP"/>
                     <constraint firstItem="5i3-jF-23o" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mIA-as-YLT"/>
+                    <constraint firstItem="rru-AA-0YK" firstAttribute="centerX" secondItem="5i3-jF-23o" secondAttribute="centerX" id="xDL-pp-qwf"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,6 +86,7 @@
                 <outlet property="coinAbbreviationLabel" destination="bo5-bl-Yup" id="fqK-WP-ruh"/>
                 <outlet property="coinLogoImageView" destination="5i3-jF-23o" id="41s-BW-O8i"/>
                 <outlet property="coinRealNameLabel" destination="BbK-Xv-EQc" id="G5v-gS-9nD"/>
+                <outlet property="indicator" destination="rru-AA-0YK" id="guz-hE-VwW"/>
                 <outlet property="pricePerPieceLabel" destination="XEF-T2-vwA" id="pPC-v0-qhs"/>
                 <outlet property="totalVolumeLabel" destination="LVa-S1-ugu" id="zMM-ym-acI"/>
             </connections>

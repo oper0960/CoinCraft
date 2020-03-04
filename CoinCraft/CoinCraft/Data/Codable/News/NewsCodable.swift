@@ -3,21 +3,21 @@
 //  CoinCraft
 //
 //  Created by Gilwan Ryu on 2020/03/03.
-//  Copyright © 2020 Buxi. All rights reserved.
+//  Copyright © 2020 Gilwan Ryu. All rights reserved.
 //
 
 import Foundation
 
 // MARK: - News Codable Model
 struct NewsCodable: Codable {
-    let papers: [Paper]
+    let news: [News]
     
     private enum CodingKeys: String, CodingKey {
-        case papers = "Data"
+        case news = "Data"
     }
 }
 
-struct Paper: Codable {
+struct News: Codable {
     let id: String?
     let guid: String?
     let publishedOn: Int?

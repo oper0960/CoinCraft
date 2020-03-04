@@ -3,7 +3,7 @@
 //  CoinCraft
 //
 //  Created by Gilwan Ryu on 2020/03/03.
-//  Copyright © 2020 Buxi. All rights reserved.
+//  Copyright © 2020 Gilwan Ryu. All rights reserved.
 //
 
 import Foundation
@@ -18,7 +18,7 @@ struct CryptoCompareListUseCaseImplement: CryptoCompareListUseCase {
         self.coinRepository = coinRepository
     }
     
-    func getCryptoCompareList() -> Observable<[CompareCoinViewModel]> {
+    func getCryptoCompareList() -> Observable<[CoinMasterViewable]> {
         return coinRepository.getCryptoCompareList()
     }
 }

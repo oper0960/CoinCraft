@@ -61,9 +61,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="5IQ-8b-84R">
+                                <rect key="frame" x="161.5" y="128.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5IQ-8b-84R" firstAttribute="centerY" secondItem="WLd-gh-ghp" secondAttribute="centerY" id="0LU-yS-bMV"/>
                             <constraint firstAttribute="trailing" secondItem="GaJ-ip-30H" secondAttribute="trailing" constant="16" id="DrO-4b-rQ0"/>
                             <constraint firstItem="PZI-LS-ti4" firstAttribute="top" secondItem="WLd-gh-ghp" secondAttribute="bottom" constant="10" id="Jee-0V-HQC"/>
                             <constraint firstItem="GaJ-ip-30H" firstAttribute="leading" secondItem="r8N-Gd-jPp" secondAttribute="leading" constant="16" id="Skd-nn-W56"/>
@@ -72,12 +76,15 @@
                             <constraint firstAttribute="trailing" secondItem="PZI-LS-ti4" secondAttribute="trailing" constant="16" id="WfG-z6-Eaj"/>
                             <constraint firstItem="SKx-Tf-1RX" firstAttribute="top" secondItem="GaJ-ip-30H" secondAttribute="bottom" constant="10" id="bj3-8x-2xc"/>
                             <constraint firstItem="SKx-Tf-1RX" firstAttribute="leading" secondItem="r8N-Gd-jPp" secondAttribute="leading" id="cfB-JQ-0YH"/>
+                            <constraint firstItem="5IQ-8b-84R" firstAttribute="height" secondItem="WLd-gh-ghp" secondAttribute="height" multiplier="0.0722022" id="cqy-3m-byP"/>
                             <constraint firstAttribute="trailing" secondItem="SKx-Tf-1RX" secondAttribute="trailing" id="fYo-k7-uQb"/>
                             <constraint firstItem="WLd-gh-ghp" firstAttribute="top" secondItem="r8N-Gd-jPp" secondAttribute="top" id="fwy-5G-KFe"/>
                             <constraint firstAttribute="trailing" secondItem="WLd-gh-ghp" secondAttribute="trailing" id="jhB-Bv-wM6"/>
+                            <constraint firstItem="5IQ-8b-84R" firstAttribute="centerX" secondItem="WLd-gh-ghp" secondAttribute="centerX" id="kmt-C9-6ia"/>
                             <constraint firstItem="PZI-LS-ti4" firstAttribute="leading" secondItem="r8N-Gd-jPp" secondAttribute="leading" constant="16" id="mXr-mY-vTI"/>
                             <constraint firstItem="GaJ-ip-30H" firstAttribute="top" secondItem="PZI-LS-ti4" secondAttribute="bottom" constant="10" id="map-pP-Rjd"/>
                             <constraint firstAttribute="bottom" secondItem="SKx-Tf-1RX" secondAttribute="bottom" id="t19-IS-WpU"/>
+                            <constraint firstItem="5IQ-8b-84R" firstAttribute="width" secondItem="WLd-gh-ghp" secondAttribute="width" multiplier="0.058309" id="utd-PE-E7s"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -105,6 +112,7 @@
                 <outlet property="backView" destination="r8N-Gd-jPp" id="Qe9-sI-JHN"/>
                 <outlet property="bodyLabel" destination="GaJ-ip-30H" id="YnD-dy-EVY"/>
                 <outlet property="companyNameLabel" destination="PZI-LS-ti4" id="WFW-Ua-IKA"/>
+                <outlet property="indicator" destination="5IQ-8b-84R" id="WRr-MS-jya"/>
                 <outlet property="tagsLabel" destination="679-Ge-7h9" id="yBL-Hm-Co8"/>
                 <outlet property="thumbnailImageView" destination="WLd-gh-ghp" id="jyO-s0-yRu"/>
             </connections>

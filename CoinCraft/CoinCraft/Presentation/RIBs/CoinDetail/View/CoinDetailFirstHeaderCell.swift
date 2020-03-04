@@ -23,6 +23,7 @@ class CoinDetailFirstHeaderCell: UITableViewCell {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var coinSymbolLabel: UILabel!
     @IBOutlet weak var coinNameLabel: UILabel!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,9 +34,19 @@ class CoinDetailFirstHeaderCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func bind(info: CompareCoinDetailViewModel) {
+    func bind(info: CoinDetailViewable) {
+        
+        self.indicator.startAnimating()
+        
         if let url = info.imageUrl, let image = URL(string: url) {
-            logoImageView.kf.setImage(with: ImageResource(downloadURL: image, cacheKey: url), placeholder: nil, options: nil, progressBlock: nil) { result in
+            logoImageView.kf.setImage(with: ImageResource(downloadURL: image, cacheKey: url),
+                                      placeholder: nil,
+                                      options: nil,
+                                      progressBlock: nil)
+            { result in
+                
+                self.indicator.stopAnimating()
+                
                 if let backColor = self.logoImageView.image?.averageColor {
                     self.delegate?.setBackground(color: backColor)
                 }

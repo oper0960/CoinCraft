@@ -16,9 +16,9 @@ class Global {
     
     private let serialQueue = DispatchQueue(label: "serial")
     
-    private var _cryptoCoins: [CompareCoinViewModel] = []
+    private var _cryptoCoins: [CoinMasterViewable] = []
     
-    var cryptoCoins: [CompareCoinViewModel] {
+    var cryptoCoins: [CoinMasterViewable] {
         get {
             return _cryptoCoins
         }

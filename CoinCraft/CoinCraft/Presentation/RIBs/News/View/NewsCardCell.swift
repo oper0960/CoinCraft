@@ -17,6 +17,7 @@ class NewsCardCell: UITableViewCell {
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,8 +32,16 @@ class NewsCardCell: UITableViewCell {
     
     func bind(news: NewsViewable) {
         
+        self.indicator.startAnimating()
+        
         if let imageUrl = URL(string: news.sourceImageUrl) {
-            thumbnailImageView.kf.setImage(with: ImageResource(downloadURL: imageUrl, cacheKey: news.imageUrl))
+            thumbnailImageView.kf.setImage(with: ImageResource(downloadURL: imageUrl, cacheKey: news.imageUrl),
+                                          placeholder: nil,
+                                          options: nil,
+                                          progressBlock: nil)
+            { result in
+                self.indicator.stopAnimating()
+            }
         }
         companyNameLabel.text = news.sourceName
         bodyLabel.text = news.title

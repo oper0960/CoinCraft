@@ -16,7 +16,7 @@ import Domain
 protocol CoinPresentableListener: class {
     // MARK: - To Interactor
     func getCoinMarketCapList()
-    func getCompareCoinInfo(coin: CoinMarketCapViewModel)
+    func getCompareCoinInfo(coin: CoinViewable)
 }
 
 final class CoinViewController: UIViewController {
@@ -26,7 +26,7 @@ final class CoinViewController: UIViewController {
     @IBOutlet weak var coinTableView: UITableView!
     
     private let indicator = IndicatorView(type: .loading)
-    private var coins = [CoinMarketCapViewModel]() {
+    private var coins = [CoinViewable]() {
         didSet {
             coinTableView.reloadData()
         }
@@ -93,7 +93,7 @@ extension CoinViewController {
 
 // MARK: - CoinPresentable
 extension CoinViewController: CoinPresentable {
-    func setCoinList(coins: [CoinMarketCapViewModel]) {
+    func setCoinList(coins: [CoinViewable]) {
         self.coins = coins
     }
     

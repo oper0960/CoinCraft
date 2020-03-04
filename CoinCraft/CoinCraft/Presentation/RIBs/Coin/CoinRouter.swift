@@ -36,7 +36,7 @@ final class CoinRouter: ViewableRouter<CoinInteractable, CoinViewControllable> {
 }
 
 extension CoinRouter: CoinRouting {
-    func routeToDetail(info: CompareCoinDetailViewModel) {
+    func routeToDetail(info: CoinDetailViewable) {
         
         if !children.isEmpty {
             for child in children {

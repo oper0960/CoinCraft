@@ -7,7 +7,6 @@
 //
 
 import RIBs
-import RxSwift
 import Domain
 
 protocol CoinDetailRouting: ViewableRouting {
@@ -18,7 +17,7 @@ protocol CoinDetailPresentable: Presentable {
     var listener: CoinDetailPresentableListener? { get set }
     
     // MARK: - To ViewController
-    func bindViewModel(viewModel: CompareCoinDetailViewModel)
+    func bindViewModel(viewModel: CoinDetailViewable)
 }
 
 protocol CoinDetailListener: class {
@@ -30,7 +29,7 @@ final class CoinDetailInteractor: PresentableInteractor<CoinDetailPresentable>, 
     weak var router: CoinDetailRouting?
     weak var listener: CoinDetailListener?
 
-    init(presenter: CoinDetailPresentable, detailInfo: CompareCoinDetailViewModel) {
+    init(presenter: CoinDetailPresentable, detailInfo: CoinDetailViewable) {
         self.detailInfo = detailInfo
         super.init(presenter: presenter)
         presenter.listener = self
@@ -44,7 +43,7 @@ final class CoinDetailInteractor: PresentableInteractor<CoinDetailPresentable>, 
         super.willResignActive()
     }
     
-    private let detailInfo: CompareCoinDetailViewModel
+    private let detailInfo: CoinDetailViewable
 }
 
 extension CoinDetailInteractor: CoinDetailPresentableListener {

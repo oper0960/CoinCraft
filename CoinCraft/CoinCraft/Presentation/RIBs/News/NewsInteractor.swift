@@ -8,7 +8,6 @@
 
 import RIBs
 import RxSwift
-import RxCocoa
 import Domain
 
 protocol NewsRouting: ViewableRouting {

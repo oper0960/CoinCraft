@@ -20,7 +20,7 @@ final class CoinDetailComponent: Component<CoinDetailDependency> {
 // MARK: - Builder
 
 protocol CoinDetailBuildable: Buildable {
-    func build(withListener listener: CoinDetailListener, detailInfo: CompareCoinDetailViewModel) -> CoinDetailRouting
+    func build(withListener listener: CoinDetailListener, detailInfo: CoinDetailViewable) -> CoinDetailRouting
 }
 
 final class CoinDetailBuilder: Builder<CoinDetailDependency>, CoinDetailBuildable {
@@ -29,7 +29,7 @@ final class CoinDetailBuilder: Builder<CoinDetailDependency>, CoinDetailBuildabl
         super.init(dependency: dependency)
     }
 
-    func build(withListener listener: CoinDetailListener, detailInfo: CompareCoinDetailViewModel) -> CoinDetailRouting {
+    func build(withListener listener: CoinDetailListener, detailInfo: CoinDetailViewable) -> CoinDetailRouting {
         let _ = CoinDetailComponent(dependency: dependency)
         let viewController = CoinDetailViewController()
         let interactor = CoinDetailInteractor(presenter: viewController, detailInfo: detailInfo)

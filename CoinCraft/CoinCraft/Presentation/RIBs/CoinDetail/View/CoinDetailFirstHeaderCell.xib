@@ -54,13 +54,18 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Oha-tT-QRo">
+                        <rect key="frame" x="165" y="40" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="p21-yD-8zw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9UX-J0-AjI"/>
                     <constraint firstAttribute="bottom" secondItem="p21-yD-8zw" secondAttribute="bottom" id="JKW-D5-nkC"/>
                     <constraint firstItem="dwV-Rj-IB6" firstAttribute="centerX" secondItem="p21-yD-8zw" secondAttribute="centerX" id="MEl-FF-WxM"/>
+                    <constraint firstItem="Oha-tT-QRo" firstAttribute="centerY" secondItem="dwV-Rj-IB6" secondAttribute="centerY" id="gTM-YC-pkd"/>
                     <constraint firstItem="p21-yD-8zw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="50" id="qAz-Xj-K4s"/>
+                    <constraint firstItem="Oha-tT-QRo" firstAttribute="centerX" secondItem="dwV-Rj-IB6" secondAttribute="centerX" id="vi5-TS-9pG"/>
                     <constraint firstAttribute="trailing" secondItem="p21-yD-8zw" secondAttribute="trailing" id="xJC-Fh-naO"/>
                     <constraint firstItem="dwV-Rj-IB6" firstAttribute="centerY" secondItem="p21-yD-8zw" secondAttribute="top" id="yVt-pd-reH"/>
                 </constraints>
@@ -70,6 +75,7 @@
             <connections>
                 <outlet property="coinNameLabel" destination="nKa-CH-jIJ" id="gwP-Te-x02"/>
                 <outlet property="coinSymbolLabel" destination="Lt7-NL-rGm" id="D2l-Id-VUJ"/>
+                <outlet property="indicator" destination="Oha-tT-QRo" id="nXR-ar-glk"/>
                 <outlet property="logoImageView" destination="dwV-Rj-IB6" id="Sgm-3J-UKC"/>
             </connections>
             <point key="canvasLocation" x="221.73913043478262" y="215.625"/>

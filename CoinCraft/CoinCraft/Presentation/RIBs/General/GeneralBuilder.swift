@@ -12,10 +12,10 @@ protocol GeneralDependency: Dependency {
     
 }
 
-final class GeneralComponent: Component<GeneralDependency>, NewsDependency, SocialDependency {
+final class GeneralComponent: Component<GeneralDependency>, NewsDependency, MiningDependency {
     fileprivate var segmentInnerViews: [SegmentInnerView] {
         return shared {
-            return [NewsAdapter(dependency: self), SocialAdapter(dependency: self)]
+            return [NewsAdapter(dependency: self), MiningAdapter(dependency: self)]
         }
     }
 }

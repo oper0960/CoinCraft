@@ -3,7 +3,7 @@
 //  CoinCraft
 //
 //  Created by Gilwan Ryu on 2020/03/03.
-//  Copyright © 2020 Buxi. All rights reserved.
+//  Copyright © 2020 Gilwan Ryu. All rights reserved.
 //
 
 import Foundation
@@ -18,15 +18,15 @@ struct CoinRepositoryImplement: CoinRepository {
         self.dataStore = dataStore
     }
     
-    func getCoinMarketCapList() -> Observable<[CoinMarketCapViewModel]> {
+    func getCoinMarketCapList() -> Observable<[CoinViewable]> {
         return dataStore.getCoinMarketCapList()
     }
     
-    func getCryptoCompareList() -> Observable<[CompareCoinViewModel]> {
+    func getCryptoCompareList() -> Observable<[CoinMasterViewable]> {
         return dataStore.getCryptoCompareList()
     }
     
-    func getCryptoCompareDetail(id: String) -> Observable<CompareCoinDetailViewModel> {
+    func getCryptoCompareDetail(id: String) -> Observable<CoinDetailViewable> {
         return dataStore.getCryptoCompareDetail(id: id)
     }
 }

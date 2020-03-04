@@ -8,24 +8,24 @@
 
 import RIBs
 
-class SocialAdapter: SegmentInnerView, SegmentBuildable, SocialListener {
+class MiningAdapter: SegmentInnerView, SegmentBuildable, MiningListener {
 
-    let name = "Social"
+    let name = "Mining"
     
     var builder: SegmentBuildable {
         return self
     }
 
-    private let socialBuilder: SocialBuilder
+    private let miningBuilder: MiningBuilder
 
     private weak var listener: SegmentInnerViewListener?
 
-    init(dependency: SocialDependency) {
-        socialBuilder = SocialBuilder(dependency: dependency)
+    init(dependency: MiningDependency) {
+        miningBuilder = MiningBuilder(dependency: dependency)
     }
 
     func build(withListener listener: SegmentInnerViewListener) -> ViewableRouting {
         self.listener = listener
-        return socialBuilder.build(withListener: self)
+        return miningBuilder.build(withListener: self)
     }
 }

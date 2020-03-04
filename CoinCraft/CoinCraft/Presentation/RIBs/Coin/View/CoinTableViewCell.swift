@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import Domain
+import RxSwift
 
 class CoinTableViewCell: UITableViewCell {
     
@@ -18,6 +19,7 @@ class CoinTableViewCell: UITableViewCell {
     @IBOutlet weak var ascentLabel: UILabel!
     @IBOutlet weak var pricePerPieceLabel: UILabel!
     @IBOutlet weak var totalVolumeLabel: UILabel!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,10 +29,18 @@ class CoinTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func bind(coin: CoinMarketCapViewModel) {
+    func bind(coin: CoinViewable) {
+        
+        self.indicator.startAnimating()
         
         if let imageUrl = URL(string: coin.imageURL) {
-            coinLogoImageView.kf.setImage(with: ImageResource(downloadURL: imageUrl, cacheKey: coin.imageURL))
+            coinLogoImageView.kf.setImage(with: ImageResource(downloadURL: imageUrl, cacheKey: coin.imageURL),
+                                          placeholder: nil,
+                                          options: nil,
+                                          progressBlock: nil)
+            { result in
+                self.indicator.stopAnimating()
+            }
         }
         
         coinAbbreviationLabel.text = coin.name

@@ -3,7 +3,7 @@
 //  CoinCraft
 //
 //  Created by Gilwan Ryu on 2020/03/03.
-//  Copyright © 2020 Buxi. All rights reserved.
+//  Copyright © 2020 Gilwan Ryu. All rights reserved.
 //
 
 import Foundation
@@ -17,41 +17,41 @@ struct CoinDataStoreImplement: CoinDataStore {
     
     init() {}
 
-    func getCoinMarketCapList() -> Observable<[CoinMarketCapViewModel]> {
+    func getCoinMarketCapList() -> Observable<[CoinViewable]> {
         return RxAlamofire.requestData(.get, URL(string: Constants.Coin.CoinMarketCap.list)!,
                                        parameters: DictionaryType(),
                                        encoding: URLEncoding(destination: .methodDependent),
                                        headers: HeadersType())
             .map { _ , data in
-                let decodableJson = try! JSONDecoder().decode([Coin].self, from: data)
+                let decodableJson = try! JSONDecoder().decode([CoinMarketCapCodable].self, from: data)
 
-                var coinViewModels = [CoinMarketCapViewModel]()
+                var coinViewModels = [CoinMarketCapCoinViewModel]()
                 for coin in decodableJson {
-                    coinViewModels.append(CoinMarketCapViewModel(coin: coin))
+                    coinViewModels.append(CoinMarketCapCoinViewModel(coin: coin))
                 }
 
                 return coinViewModels
         }
     }
 
-    func getCryptoCompareList() -> Observable<[CompareCoinViewModel]> {
+    func getCryptoCompareList() -> Observable<[CoinMasterViewable]> {
         return RxAlamofire.requestData(.get, URL(string: Constants.Coin.CryptoCompare.list)!,
                                        parameters: DictionaryType(),
                                        encoding: URLEncoding(destination: .methodDependent),
                                        headers: HeadersType())
             .map { _ , data in
-                let decodableJson = try JSONDecoder().decode(CryptoCompareResponse.self, from: data)
+                let decodableJson = try JSONDecoder().decode(CryptoCompareCoinCodable.self, from: data)
 
-                var compareCoinViewModels = [CompareCoinViewModel]()
+                var compareCoinViewModels = [CryptoCompareCoinViewModel]()
                 for coin in decodableJson.coins {
-                    compareCoinViewModels.append(CompareCoinViewModel(coin: coin))
+                    compareCoinViewModels.append(CryptoCompareCoinViewModel(coin: coin))
                 }
 
                 return compareCoinViewModels
         }
     }
 
-    func getCryptoCompareDetail(id: String) -> Observable<CompareCoinDetailViewModel> {
+    func getCryptoCompareDetail(id: String) -> Observable<CoinDetailViewable> {
         
         var paramaters = DictionaryType()
         paramaters.updateValue(id, forKey: "id")
@@ -61,9 +61,9 @@ struct CoinDataStoreImplement: CoinDataStore {
                                        encoding: URLEncoding(destination: .methodDependent),
                                        headers: HeadersType())
             .map { _ , data in
-                let decodableJson = try! JSONDecoder().decode(CryptoCompareDetailResponse.self, from: data)
+                let decodableJson = try! JSONDecoder().decode(CryptoCompareCoinDetailCodable.self, from: data)
 
-                return CompareCoinDetailViewModel(detail: decodableJson.detail!)
+                return CryptoCompareCoinDetailViewModel(detail: decodableJson.detail!)
         }
     }
 }

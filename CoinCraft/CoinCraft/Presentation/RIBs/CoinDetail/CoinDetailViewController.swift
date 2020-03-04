@@ -36,7 +36,7 @@ final class CoinDetailViewController: UIViewController {
         return array
     }()
     
-    private var coinInfo: CompareCoinDetailViewModel? {
+    private var coinInfo: CoinDetailViewable? {
         didSet {
             detailTableView.reloadData()
         }
@@ -64,7 +64,7 @@ extension CoinDetailViewController {
 
 // MARK: - CoinDetailPresentable
 extension CoinDetailViewController: CoinDetailPresentable {
-    func bindViewModel(viewModel: CompareCoinDetailViewModel) {
+    func bindViewModel(viewModel: CoinDetailViewable) {
         self.coinInfo = viewModel
     }
 }

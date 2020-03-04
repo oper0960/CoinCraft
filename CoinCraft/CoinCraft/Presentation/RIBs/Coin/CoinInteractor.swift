@@ -11,14 +11,14 @@ import RxSwift
 import Domain
 
 protocol CoinRouting: ViewableRouting {
-    func routeToDetail(info: CompareCoinDetailViewModel)
+    func routeToDetail(info: CoinDetailViewable)
 }
 
 protocol CoinPresentable: Presentable {
     var listener: CoinPresentableListener? { get set }
     
     // MARK: - To ViewController
-    func setCoinList(coins: [CoinMarketCapViewModel])
+    func setCoinList(coins: [CoinViewable])
     func stopIndicator()
 }
 
@@ -54,7 +54,7 @@ final class CoinInteractor: PresentableInteractor<CoinPresentable>, CoinInteract
 }
 
 extension CoinInteractor: CoinPresentableListener {
-    func getCompareCoinInfo(coin: CoinMarketCapViewModel) {
+    func getCompareCoinInfo(coin: CoinViewable) {
         
         let compareCoin = Global.current.cryptoCoins.filter { compareCoin in
             return compareCoin.symbol == coin.name

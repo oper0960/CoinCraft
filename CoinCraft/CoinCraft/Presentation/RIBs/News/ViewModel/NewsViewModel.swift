@@ -3,7 +3,7 @@
 //  CoinCraft
 //
 //  Created by Gilwan Ryu on 2020/03/03.
-//  Copyright © 2020 Buxi. All rights reserved.
+//  Copyright © 2020 Gilwan Ryu. All rights reserved.
 //
 
 import Foundation
@@ -11,45 +11,45 @@ import Domain
 
 struct NewsViewModel: NewsViewable {
     
-    private let paper: Paper
+    private let news: News
     
-    init(paper: Paper) {
-        self.paper = paper
+    init(news: News) {
+        self.news = news
     }
     
     var id: String {
-        return paper.id ?? ""
+        return news.id ?? ""
     }
     
     var guid: String {
-        return paper.guid ?? ""
+        return news.guid ?? ""
     }
     
     var title: String {
-        return paper.title ?? ""
+        return news.title ?? ""
     }
     
     var url: String {
-        return paper.url ?? ""
+        return news.url ?? ""
     }
     
     var imageUrl: String {
-        return paper.imageurl ?? ""
+        return news.imageurl ?? ""
     }
     
     var body: String {
-        return paper.body ?? ""
+        return news.body ?? ""
     }
     
     var sourceName: String {
-        return paper.sourceInfo?.name ?? ""
+        return news.sourceInfo?.name ?? ""
     }
     
     var sourceImageUrl: String {
-        return paper.sourceInfo?.img ?? ""
+        return news.sourceInfo?.img ?? ""
     }
     
     var tags: String {
-        return paper.tags ?? ""
+        return news.tags ?? ""
     }
 }

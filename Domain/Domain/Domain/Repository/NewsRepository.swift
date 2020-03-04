@@ -3,7 +3,7 @@
 //  Domain
 //
 //  Created by Gilwan Ryu on 2020/02/27.
-//  Copyright © 2020 GilwanRyu. All rights reserved.
+//  Copyright © 2020 Gilwan Ryu. All rights reserved.
 //
 
 import Foundation

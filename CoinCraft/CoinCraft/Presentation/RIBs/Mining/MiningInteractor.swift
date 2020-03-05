@@ -22,6 +22,7 @@ protocol MiningPresentable: Presentable {
 
 protocol MiningListener: class {
     // TODO: 부모 RIB 과의 통신을 위해 부모 RIB Interactor로 전달할 메소드, 프로퍼티 구현.
+    func requestWebsite(url: String)
 }
 
 final class MiningInteractor: PresentableInteractor<MiningPresentable> {
@@ -60,10 +61,23 @@ extension MiningInteractor: MiningPresentableListener {
     func getMinings() {
         miningUseCase.getMiningList().subscribe(onNext: { [weak self] minings in
             guard let self = self else { return }
-            self.minings = minings
-            self.presenter.setMinings(minings: minings)
+            
+            let miningArray = minings.sorted {
+                $0.sortOrder > $1.sortOrder
+            }
+            
+            self.minings = miningArray
+            self.presenter.setMinings(minings: miningArray)
             }, onError: { error in
                 print(error.localizedDescription)
         }).disposed(by: disposeBag)
+    }
+    
+    func selectedTwitter(index: Int) {
+        listener?.requestWebsite(url: minings[index].twitter)
+    }
+    
+    func selectedWebsite(index: Int) {
+        listener?.requestWebsite(url: minings[index].url)
     }
 }

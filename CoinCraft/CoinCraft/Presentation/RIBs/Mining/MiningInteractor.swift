@@ -18,6 +18,7 @@ protocol MiningPresentable: Presentable {
     var listener: MiningPresentableListener? { get set }
     // TODO: Presenter 를 통해 ViewController로 전달할 메소드, 프로퍼티를 구현.
     func setMinings(minings: [MiningViewable])
+    func stopIndicator()
 }
 
 protocol MiningListener: class {
@@ -70,6 +71,8 @@ extension MiningInteractor: MiningPresentableListener {
             self.presenter.setMinings(minings: miningArray)
             }, onError: { error in
                 print(error.localizedDescription)
+        }, onDisposed: {
+            self.presenter.stopIndicator()
         }).disposed(by: disposeBag)
     }
     

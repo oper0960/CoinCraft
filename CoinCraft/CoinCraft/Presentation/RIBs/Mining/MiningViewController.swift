@@ -24,6 +24,7 @@ final class MiningViewController: UIViewController {
     
     @IBOutlet weak var miningTableView: UITableView!
     
+    private let indicator = IndicatorView(type: .loading)
     private var minings = [MiningViewable]() {
         didSet {
             miningTableView.reloadData()
@@ -32,6 +33,7 @@ final class MiningViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        indicator.play(superView: self.view)
         setup()
         listener?.getMinings()
     }
@@ -50,6 +52,10 @@ extension MiningViewController {
 extension MiningViewController: MiningPresentable {
     func setMinings(minings: [MiningViewable]) {
         self.minings = minings
+    }
+    
+    func stopIndicator() {
+        indicator.stop()
     }
 }
 

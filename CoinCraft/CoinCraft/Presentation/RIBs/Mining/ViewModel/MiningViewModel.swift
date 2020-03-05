@@ -47,8 +47,10 @@ struct MiningViewModel: MiningViewable {
         return datum.serverLocations ?? []
     }
     
-    var twitter: String? {
-        return datum.twitter
+    var twitter: String {
+        guard let twitter = datum.twitter else { return "" }
+        guard !twitter.isEmpty else { return "" }
+        return "https://twitter.com/\(twitter)"
     }
     
     var poolFeatures: [String] {
@@ -61,5 +63,9 @@ struct MiningViewModel: MiningViewable {
     
     var paymentType: [String] {
         return datum.paymentType ?? []
+    }
+    
+    var sortOrder: String {
+        return datum.sortOrder!
     }
 }

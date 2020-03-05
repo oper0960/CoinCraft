@@ -17,8 +17,9 @@ public protocol MiningViewable {
     var averageFee: String { get }
     var logoUrl: String { get }
     var serverLocations: [String] { get }
-    var twitter: String? { get }
+    var twitter: String { get }
     var poolFeatures: [String] { get }
     var coins: [String] { get }
     var paymentType: [String] { get }
+    var sortOrder: String { get }
 }

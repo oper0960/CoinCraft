@@ -10,7 +10,7 @@ import RIBs
 import Domain
 
 protocol SegmentInnerViewListener: class {
-    func presentRequestForGeneral(news: NewsViewable)
+    func presentRequestForGeneral(url: String)
 }
 
 protocol SegmentBuildable: Buildable {

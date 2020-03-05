@@ -23,7 +23,7 @@ protocol NewsPresentable: Presentable {
 }
 
 protocol NewsListener: class {
-    func presentRequestNews(news: NewsViewable)
+    func presentRequestNews(url: String)
 }
 
 final class NewsInteractor: PresentableInteractor<NewsPresentable>, NewsInteractable {
@@ -64,7 +64,7 @@ extension NewsInteractor: NewsPresentableListener {
     }
     
     func getSelectedNews(index: Int) {
-        listener?.presentRequestNews(news: self.news[index])
+        listener?.presentRequestNews(url: self.news[index].url)
         presenter.stopIndicator()
     }
 }

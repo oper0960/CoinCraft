@@ -61,8 +61,8 @@ extension GeneralViewController: GeneralPresentable {
         segmentControl.selectedSegmentIndex = 0
     }
     
-    func presentSafariViewConrtoller(news: NewsViewable) {
-        guard let url = URL(string: news.url) else { return }
+    func presentSafariViewConrtoller(url: String) {
+        guard let url = URL(string: url) else { return }
         let safariViewController = SFSafariViewController(url: url)
         present(safariViewController, animated: true, completion: nil)
     }

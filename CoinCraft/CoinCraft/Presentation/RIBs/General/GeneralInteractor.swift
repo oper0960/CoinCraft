@@ -18,7 +18,7 @@ protocol GeneralPresentable: Presentable {
     var listener: GeneralPresentableListener? { get set }
     
     func setSegment(innerViews: [SegmentInnerView])
-    func presentSafariViewConrtoller(news: NewsViewable)
+    func presentSafariViewConrtoller(url: String)
 }
 
 protocol GeneralListener: class {
@@ -53,8 +53,8 @@ final class GeneralInteractor: PresentableInteractor<GeneralPresentable> {
 
 // MARK: - GeneralInteractable
 extension GeneralInteractor: GeneralInteractable {
-    func presentRequestForGeneral(news: NewsViewable) {
-        presenter.presentSafariViewConrtoller(news: news)
+    func presentRequestForGeneral(url: String) {
+        presenter.presentSafariViewConrtoller(url: url)
     }
 }
 

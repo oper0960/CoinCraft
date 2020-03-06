@@ -131,7 +131,7 @@ extension CoinViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 410
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -145,9 +145,6 @@ extension CoinViewController: UITableViewDelegate, UITableViewDataSource {
             
             self.start = self.limit
             self.limit = self.limit + 100
-            
-            print(">>>>>>>>>>>>>>>>>>>>> start", start)
-            print(">>>>>>>>>>>>>>>>>>>>> limit", limit)
             
             indicator.play(view: self.view)
             listener?.getCoinMarketCapList(start: self.start.description, limit: self.limit.description)

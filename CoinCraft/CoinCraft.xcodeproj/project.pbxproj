@@ -42,11 +42,6 @@
 		EF6AADDE23F3C07700262644 /* NewsCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6AADDC23F3C07700262644 /* NewsCardCell.xib */; };
 		EF6AADE423F53A3B00262644 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADE223F53A3B00262644 /* AboutTableViewCell.swift */; };
 		EF6AADE523F53A3B00262644 /* AboutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6AADE323F53A3B00262644 /* AboutTableViewCell.xib */; };
-		EF6AADED23F554A500262644 /* VersionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADE823F554A500262644 /* VersionRouter.swift */; };
-		EF6AADEE23F554A500262644 /* VersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADE923F554A500262644 /* VersionViewController.swift */; };
-		EF6AADEF23F554A500262644 /* VersionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADEA23F554A500262644 /* VersionBuilder.swift */; };
-		EF6AADF023F554A500262644 /* VersionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADEB23F554A500262644 /* VersionInteractor.swift */; };
-		EF6AADF123F554A500262644 /* VersionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6AADEC23F554A500262644 /* VersionViewController.xib */; };
 		EF6AADF723F554B800262644 /* OpenSourceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADF223F554B800262644 /* OpenSourceRouter.swift */; };
 		EF6AADF823F554B800262644 /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADF323F554B800262644 /* OpenSourceViewController.swift */; };
 		EF6AADF923F554B800262644 /* OpenSourceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6AADF423F554B800262644 /* OpenSourceBuilder.swift */; };
@@ -181,11 +176,6 @@
 		EF6AADDC23F3C07700262644 /* NewsCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCardCell.xib; sourceTree = "<group>"; };
 		EF6AADE223F53A3B00262644 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
 		EF6AADE323F53A3B00262644 /* AboutTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutTableViewCell.xib; sourceTree = "<group>"; };
-		EF6AADE823F554A500262644 /* VersionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionRouter.swift; sourceTree = "<group>"; };
-		EF6AADE923F554A500262644 /* VersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionViewController.swift; sourceTree = "<group>"; };
-		EF6AADEA23F554A500262644 /* VersionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionBuilder.swift; sourceTree = "<group>"; };
-		EF6AADEB23F554A500262644 /* VersionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInteractor.swift; sourceTree = "<group>"; };
-		EF6AADEC23F554A500262644 /* VersionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VersionViewController.xib; sourceTree = "<group>"; };
 		EF6AADF223F554B800262644 /* OpenSourceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceRouter.swift; sourceTree = "<group>"; };
 		EF6AADF323F554B800262644 /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		EF6AADF423F554B800262644 /* OpenSourceBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceBuilder.swift; sourceTree = "<group>"; };
@@ -339,7 +329,6 @@
 				EF5CCDDD240E300600E9B4E3 /* CryptoCompareListUseCaseImplement.swift */,
 				EF5CCDDF240E301D00E9B4E3 /* CryptoCompareDetailUseCaseImplement.swift */,
 				EF5CCDC9240E1B2100E9B4E3 /* NewsUseCaseImplement.swift */,
-				EF5CCE0D240F78BE00E9B4E3 /* MiningUseCaseImplement.swift */,
 			);
 			path = "UseCase Implement";
 			sourceTree = "<group>";
@@ -365,6 +354,7 @@
 		EF5CCDE9240E63A300E9B4E3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EF5CCE0D240F78BE00E9B4E3 /* MiningUseCaseImplement.swift */,
 				EF5CCDEB240E65CB00E9B4E3 /* Codable */,
 			);
 			path = Data;
@@ -485,18 +475,6 @@
 				EF6AADF623F554B800262644 /* OpenSourceViewController.xib */,
 			);
 			path = OpenSource;
-			sourceTree = "<group>";
-		};
-		EF6AADE723F54E1A00262644 /* Version */ = {
-			isa = PBXGroup;
-			children = (
-				EF6AADE823F554A500262644 /* VersionRouter.swift */,
-				EF6AADEB23F554A500262644 /* VersionInteractor.swift */,
-				EF6AADEA23F554A500262644 /* VersionBuilder.swift */,
-				EF6AADE923F554A500262644 /* VersionViewController.swift */,
-				EF6AADEC23F554A500262644 /* VersionViewController.xib */,
-			);
-			path = Version;
 			sourceTree = "<group>";
 		};
 		EF6AADFC23F5592000262644 /* ViewModel */ = {
@@ -620,7 +598,6 @@
 				EF880C5123F2B4F400068CEC /* News */,
 				EF5CCDFF240F49B300E9B4E3 /* Mining */,
 				EF880B6823E2ABAE00068CEC /* About */,
-				EF6AADE723F54E1A00262644 /* Version */,
 				EF6AADE623F54E0900262644 /* OpenSource */,
 				EF6AAE0923F66AFD00262644 /* LicenseText */,
 			);
@@ -862,7 +839,6 @@
 				EF6AAE0823F559C400262644 /* OpenSourceCell.xib in Resources */,
 				EF880B5123E274BA00068CEC /* LaunchScreen.storyboard in Resources */,
 				EF5CCE0A240F49E600E9B4E3 /* MiningViewController.xib in Resources */,
-				EF6AADF123F554A500262644 /* VersionViewController.xib in Resources */,
 				EF880C3023ED4DBA00068CEC /* LaunchLoading.json in Resources */,
 				EF880C0823E9039700068CEC /* NormalLoading.json in Resources */,
 				EF880C5C23F2B50800068CEC /* NewsViewController.xib in Resources */,
@@ -963,15 +939,12 @@
 				EF880B9123E2B5BA00068CEC /* AboutViewController.swift in Sources */,
 				EF6AADE423F53A3B00262644 /* AboutTableViewCell.swift in Sources */,
 				EF880B4523E274B600068CEC /* AppDelegate.swift in Sources */,
-				EF6AADEF23F554A500262644 /* VersionBuilder.swift in Sources */,
 				EF880B8923E2B5AD00068CEC /* GeneralInteractor.swift in Sources */,
 				EF880BE723E3FDC600068CEC /* MainViewController.swift in Sources */,
 				EF6AAE1023F66B8000262644 /* LicenseTextViewController.swift in Sources */,
 				EF880B8723E2B5AD00068CEC /* GeneralViewController.swift in Sources */,
 				EF880BB023E2CA8100068CEC /* GeneralAdapter.swift in Sources */,
-				EF6AADEE23F554A500262644 /* VersionViewController.swift in Sources */,
 				EF5CCDF6240F39D400E9B4E3 /* CoinMarketCapViewModel.swift in Sources */,
-				EF6AADF023F554A500262644 /* VersionInteractor.swift in Sources */,
 				EF6AAE6923FB8B2C00262644 /* OpenSourceStream.swift in Sources */,
 				EF5CCDF1240F391D00E9B4E3 /* CryptoCompareDetailCodable.swift in Sources */,
 				EF880B6223E2A43F00068CEC /* RootRouter.swift in Sources */,
@@ -1019,7 +992,6 @@
 				EF880BE823E3FDC600068CEC /* MainBuilder.swift in Sources */,
 				EF880B9023E2B5BA00068CEC /* AboutRouter.swift in Sources */,
 				EF880B5B23E2A41B00068CEC /* AppComponent.swift in Sources */,
-				EF6AADED23F554A500262644 /* VersionRouter.swift in Sources */,
 				EF6AADF823F554B800262644 /* OpenSourceViewController.swift in Sources */,
 				EF880BE923E3FDC600068CEC /* MainInteractor.swift in Sources */,
 				EF5CCE12240F78D900E9B4E3 /* MiningDataStoreImplement.swift in Sources */,
@@ -1166,6 +1138,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 202003050;
 				DEVELOPMENT_TEAM = HWLJK587ES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1176,6 +1149,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gilwanryu.CoinCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1189,6 +1163,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 202003050;
 				DEVELOPMENT_TEAM = HWLJK587ES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1199,6 +1174,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gilwanryu.CoinCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

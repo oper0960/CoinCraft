@@ -10,39 +10,30 @@ import Foundation
 import Domain
 
 struct CoinMarketCapCoinViewModel: CoinViewable {
-    private let coin: CoinMarketCapCodable
+    private let coin: CoinMarketCapCoin
     
-    init(coin: CoinMarketCapCodable) {
+    init(coin: CoinMarketCapCoin) {
         self.coin = coin
     }
     
     var imageURL: String {
         return Constants.Coin.CoinMarketCap.imageBaseUrl + (self.coin.symbol ?? "")
     }
-    
-    var name: String {
+
+    var symbol: String {
         return coin.symbol ?? ""
     }
-    
-    var coinName: String {
+
+    var name: String {
         return coin.name ?? ""
     }
-    
+
     var percentage: Double {
-        return Double(coin.percent_change_24h ?? "0") ?? 0
+        return coin.quote?.data?.percentChange24H ?? 0
     }
-    
+
     var price: String {
-        let doublePrice = Double(coin.price_usd ?? "0")
-        return "$\(doublePrice?.addComma ?? "0")"
-    }
-    
-    var volume: String {
-        let doubleVolume = Double(coin.volume_usd_24h ?? "0")
-        return "(24Hour) $\(doubleVolume?.addComma ?? "0")"
-    }
-    
-    var sortOrder: String {
-        return coin.rank ?? "0"
+        let doublePrice = Double(coin.quote?.data?.price ?? 0)
+        return "$\(doublePrice.addComma)"
     }
 }

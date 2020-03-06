@@ -20,6 +20,7 @@ protocol CoinPresentable: Presentable {
     // MARK: - To ViewController
     func setCoinList(coins: [CoinViewable])
     func stopIndicator()
+    func presentNoInfomationAlert()
 }
 
 protocol CoinListener: class {
@@ -57,10 +58,14 @@ extension CoinInteractor: CoinPresentableListener {
     func getCompareCoinInfo(coin: CoinViewable) {
         
         let compareCoin = Global.current.cryptoCoins.filter { compareCoin in
-            return compareCoin.symbol == coin.name
+            return compareCoin.symbol == coin.symbol
         }
         
-        guard let coinInfo = compareCoin.first else { return }
+        guard let coinInfo = compareCoin.first else {
+            presenter.stopIndicator()
+            presenter.presentNoInfomationAlert()
+            return
+        }
         
         cryptoCompareDetailUseCase.getCryptoCompareDetail(id: coinInfo.id).subscribe(onNext: { [weak self] detail in
             guard let self = self else { return }
@@ -72,9 +77,9 @@ extension CoinInteractor: CoinPresentableListener {
         }).disposed(by: self.disposeBag)
     }
     
-    func getCoinMarketCapList() {
+    func getCoinMarketCapList(start: String, limit: String) {
         
-        coinMarketCapListUseCase.getCoinMarketCapList().subscribe(onNext: { [weak self] coins in
+        coinMarketCapListUseCase.getCoinMarketCapList(start: start, limit: limit).subscribe(onNext: { [weak self] coins in
             guard let self = self else { return }
             self.presenter.setCoinList(coins: coins)
             }, onError: { error in

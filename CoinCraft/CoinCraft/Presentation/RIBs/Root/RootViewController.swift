@@ -32,7 +32,7 @@ final class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        indicator.play(superView: self.view)
+        indicator.play(view: self.view)
         listener?.getCryptoCompareList()
     }
 }

@@ -10,15 +10,16 @@ import Foundation
 
 public struct Constants {
     
-    private struct Key {
-        static let cryptoCompareKey = "5f8a6d771949191aed7a988ab7dbdc3adb1d569099b2f00da51bb2748c71fc17"
+    public struct Key {
+        public static let coinMarketCapKey = "204918f9-4725-4dfb-acc1-26662aa93bff"
+        public static let cryptoCompareKey = "5f8a6d771949191aed7a988ab7dbdc3adb1d569099b2f00da51bb2748c71fc17"
     }
     
     public struct Coin {
         public struct CoinMarketCap {
-            private static let BaseUrl = "https://api.coinmarketcap.com"
+            private static let BaseUrl = "https://pro-api.coinmarketcap.com"
             public static let imageBaseUrl = "https://chasing-coins.com/api/v1/std/logo/"
-            public static let list = "\(BaseUrl)/v1/ticker/?limit=0"
+            public static let list = "\(BaseUrl)/v1/cryptocurrency/listings/latest"
         }
         
         public struct CryptoCompare {

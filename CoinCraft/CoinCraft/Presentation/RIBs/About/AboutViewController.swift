@@ -35,8 +35,8 @@ final class AboutViewController: UIViewController {
     private var menuArray: [SettingMenu] = {
         var array = [SettingMenu]()
         array.append(.opensource)
-        array.append(.version)
         array.append(.feedback)
+        array.append(.version)
         return array
     }()
     

@@ -18,8 +18,8 @@ struct CoinRepositoryImplement: CoinRepository {
         self.dataStore = dataStore
     }
     
-    func getCoinMarketCapList() -> Observable<[CoinViewable]> {
-        return dataStore.getCoinMarketCapList()
+    func getCoinMarketCapList(start: String, limit: String) -> Observable<[CoinViewable]> {
+        return dataStore.getCoinMarketCapList(start: start, limit: limit)
     }
     
     func getCryptoCompareList() -> Observable<[CoinMasterViewable]> {

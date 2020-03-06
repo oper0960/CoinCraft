@@ -18,7 +18,7 @@ struct CoinMarketCapListUseCaseImplement: CoinMarketCapListUseCase {
         self.coinRepository = coinRepository
     }
 
-    func getCoinMarketCapList() -> Observable<[CoinViewable]> {
-        return coinRepository.getCoinMarketCapList()
+    func getCoinMarketCapList(start: String, limit: String) -> Observable<[CoinViewable]> {
+        return coinRepository.getCoinMarketCapList(start: start, limit: limit)
     }
 }

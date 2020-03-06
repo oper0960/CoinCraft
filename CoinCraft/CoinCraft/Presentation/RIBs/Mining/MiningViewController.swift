@@ -33,7 +33,7 @@ final class MiningViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        indicator.play(superView: self.view)
+        indicator.play(view: self.view)
         setup()
         listener?.getMinings()
     }

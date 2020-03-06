@@ -36,7 +36,7 @@ final class NewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        indicator.play(superView: self.view)
+        indicator.play(view: self.view)
         setup()
         setRx()
         
@@ -57,7 +57,7 @@ extension NewsViewController {
             .itemSelected
             .subscribe (onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                self.indicator.play(superView: self.view)
+                self.indicator.play(view: self.view)
                 self.listener?.getSelectedNews(index: indexPath.row)
             }).disposed(by: disposeBag)
     }

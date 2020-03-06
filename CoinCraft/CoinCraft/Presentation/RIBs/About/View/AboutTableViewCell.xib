@@ -29,9 +29,17 @@
                             <constraint firstAttribute="height" constant="20" id="qts-eD-t9C"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frg-Si-rnT">
+                        <rect key="frame" x="394.5" y="31.5" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="mYT-pR-cx5" secondAttribute="trailing" constant="16" id="CYn-gl-jCd"/>
+                    <constraint firstItem="Frg-Si-rnT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Dms-el-lNF"/>
+                    <constraint firstAttribute="trailing" secondItem="Frg-Si-rnT" secondAttribute="trailing" constant="20" id="Hgp-ht-eFx"/>
                     <constraint firstItem="2gg-vV-OAx" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fwr-Bm-SGY"/>
                     <constraint firstItem="2gg-vV-OAx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="uVd-2h-SEZ"/>
                     <constraint firstItem="mYT-pR-cx5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zrD-Qy-87p"/>
@@ -39,6 +47,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="rightArrowImageView" destination="mYT-pR-cx5" id="iZ6-2g-PEt"/>
+                <outlet property="subTitleLabel" destination="Frg-Si-rnT" id="idj-Ii-vFp"/>
                 <outlet property="titleLabel" destination="2gg-vV-OAx" id="G0i-9u-HNO"/>
             </connections>
             <point key="canvasLocation" x="227.536231884058" y="165.06696428571428"/>

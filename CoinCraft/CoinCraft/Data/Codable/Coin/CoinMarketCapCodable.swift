@@ -10,37 +10,88 @@ import Foundation
 
 // MARK: - Coin
 struct CoinMarketCapCodable: Codable {
-    let percent_change_24h: String?
-    let percent_change_7d: String?
-    let volume_usd_24h: String?
-    let last_updated: String?
-    let name: String?
-    let total_supply: String?
-    let market_cap_usd: String?
-    let price_usd: String?
-    let price_btc: String?
-    let percent_change_1h: String?
-    let max_supply: String?
-    let symbol: String?
-    let id: String?
-    let available_supply: String?
-    let rank: String?
+    let coins: [CoinMarketCapCoin]?
     
     enum CodingKeys: String, CodingKey {
-        case percent_change_24h = "percent_change_24h"
-        case percent_change_7d = "percent_change_7d"
-        case volume_usd_24h = "24h_volume_usd"
-        case last_updated = "last_updated"
-        case name = "name"
-        case total_supply = "total_supply"
-        case market_cap_usd = "market_cap_usd"
-        case price_usd = "price_usd"
-        case price_btc = "price_btc"
-        case percent_change_1h = "percent_change_1h"
-        case max_supply = "max_supply"
-        case symbol = "symbol"
-        case id = "id"
-        case available_supply = "available_supply"
-        case rank = "rank"
+        case coins = "data"
+    }
+}
+
+// MARK: - Datum
+struct CoinMarketCapCoin: Codable {
+    let id: Int?
+    let name: String?
+    let symbol: String?
+    let slug: String?
+    let numMarketPairs: Int?
+    let dateAdded: String?
+    let tags: [String]?
+    let maxSupply: Double?
+    let circulatingSupply: Double?
+    let totalSupply: Double?
+    let platform: Platform?
+    let cmcRank: Int?
+    let lastUpdated: String?
+    let quote: Quote?
+
+    enum CodingKeys: String, CodingKey {
+        case id, name, symbol, slug
+        case numMarketPairs = "num_market_pairs"
+        case dateAdded = "date_added"
+        case tags
+        case maxSupply = "max_supply"
+        case circulatingSupply = "circulating_supply"
+        case totalSupply = "total_supply"
+        case platform
+        case cmcRank = "cmc_rank"
+        case lastUpdated = "last_updated"
+        case quote = "quote"
+    }
+}
+
+// MARK: - Platform
+struct Platform: Codable {
+    let id: Int?
+    let name: String?
+    let symbol: String?
+    let slug: String?
+    let tokenAddress: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case symbol
+        case slug
+        case tokenAddress = "token_address"
+    }
+}
+//
+// MARK: - Quote
+struct Quote: Codable {
+    let data: QuoteInfo?
+    
+    enum CodingKeys: String, CodingKey {
+        case data = "USD"
+    }
+}
+
+// MARK: - Usd
+struct QuoteInfo: Codable {
+    let price: Double?
+    let volume24H: Double?
+    let percentChange1H: Double?
+    let percentChange24H: Double?
+    let percentChange7D: Double?
+    let marketCap: Double?
+    let lastUpdated: String?
+
+    enum CodingKeys: String, CodingKey {
+        case price
+        case volume24H = "volume_24h"
+        case percentChange1H = "percent_change_1h"
+        case percentChange24H = "percent_change_24h"
+        case percentChange7D = "percent_change_7d"
+        case marketCap = "market_cap"
+        case lastUpdated = "last_updated"
     }
 }

@@ -87,10 +87,6 @@ struct General: Codable {
     let startDate, twitter: String?
     let websiteURL: String?
     let website: String?
-    let lastBlockExplorerUpdateTS, blockNumber, blockTime: Int?
-    let netHashesPerSecond, totalCoinsMined: Double?
-    let previousTotalCoinsMined: Double?
-    let blockReward: Double?
 
     private enum CodingKeys: String, CodingKey {
         case id = "Id"
@@ -117,13 +113,6 @@ struct General: Codable {
         case twitter = "Twitter"
         case websiteURL = "WebsiteUrl"
         case website = "Website"
-        case lastBlockExplorerUpdateTS = "LastBlockExplorerUpdateTS"
-        case blockNumber = "BlockNumber"
-        case blockTime = "BlockTime"
-        case netHashesPerSecond = "NetHashesPerSecond"
-        case totalCoinsMined = "TotalCoinsMined"
-        case previousTotalCoinsMined = "PreviousTotalCoinsMined"
-        case blockReward = "BlockReward"
     }
 }
 

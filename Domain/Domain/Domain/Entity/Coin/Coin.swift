@@ -13,8 +13,15 @@ public protocol CoinViewable {
     var imageURL: String { get }
     var symbol: String { get }
     var name: String { get }
-    var percentage: Double { get }
+    var mineable: String { get }
+    var maxSupply: String { get }
+    var circulatingSupply: String { get }
+    var totalSupply: String { get }
     var price: String { get }
+    var volume24h: String { get }
+    var change1h: Double { get }
+    var change24h: Double { get }
+    var change7d: Double { get }
 }
 
 

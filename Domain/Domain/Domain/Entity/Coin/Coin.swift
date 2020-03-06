@@ -11,12 +11,10 @@ import Foundation
 // MARK: - CMCCoin ViewModel
 public protocol CoinViewable {
     var imageURL: String { get }
+    var symbol: String { get }
     var name: String { get }
-    var coinName: String { get }
     var percentage: Double { get }
     var price: String { get }
-    var volume: String { get }
-    var sortOrder: String { get }
 }
 
 

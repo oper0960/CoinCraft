@@ -43,11 +43,11 @@ class CoinTableViewCell: UITableViewCell {
             }
         }
         
-        coinAbbreviationLabel.text = coin.name
-        coinRealNameLabel.text = coin.coinName
+        coinAbbreviationLabel.text = coin.symbol
+        coinRealNameLabel.text = coin.name
         ascentLabel.text = "\(coin.percentage)%"
         ascentLabel.textColor = coin.percentage < 0 ? #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1) : #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         pricePerPieceLabel.text = coin.price
-        totalVolumeLabel.text = coin.volume
+//        totalVolumeLabel.text = coin.volume
     }
 }

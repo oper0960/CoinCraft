@@ -11,6 +11,17 @@ import UIKit
 class AboutTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var rightArrowImageView: UIImageView!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    
+    var version: String? {
+        guard let dictionary = Bundle.main.infoDictionary,
+            let version = dictionary["CFBundleShortVersionString"] as? String,
+            let build = dictionary["CFBundleVersion"] as? String else {return nil}
+        
+        let versionAndBuild: String = "Ver: \(version), Build: \(build)"
+        return versionAndBuild
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,10 +39,17 @@ class AboutTableViewCell: UITableViewCell {
         switch menu {
         case .opensource:
             titleLabel.text = "OpenSource License"
+            rightArrowImageView.isHidden = false
+            subTitleLabel.isHidden = true
         case.feedback:
             titleLabel.text = "Feedback"
+            rightArrowImageView.isHidden = false
+            subTitleLabel.isHidden = true
         case.version:
             titleLabel.text = "Version"
+            subTitleLabel.text = version
+            rightArrowImageView.isHidden = true
+            subTitleLabel.isHidden = false
         }
     }
 }

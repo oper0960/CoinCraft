@@ -15,7 +15,7 @@ import Domain
 
 protocol CoinPresentableListener: class {
     // MARK: - To Interactor
-    func getCoinMarketCapList()
+    func getCoinMarketCapList(start: String, limit: String)
     func getCompareCoinInfo(coin: CoinViewable)
 }
 
@@ -32,6 +32,10 @@ final class CoinViewController: UIViewController {
         }
     }
     
+    private var start: Int = 1
+    private var limit: Int = 100
+    private var isLoadMore: Bool = false
+    
     private let refresh = UIRefreshControl()
     private var disposeBag = DisposeBag()
     private var timer = Timer()
@@ -39,11 +43,11 @@ final class CoinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        indicator.play(superView: self.view)
+        indicator.play(view: self.view)
         setTableView()
         setRx()
         
-        listener?.getCoinMarketCapList()
+        listener?.getCoinMarketCapList(start: start.description, limit: limit.description)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +73,7 @@ extension CoinViewController {
             .itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                self.indicator.play(superView: self.view)
+                self.indicator.play(view: self.view)
                 self.listener?.getCompareCoinInfo(coin: self.coins[indexPath.row])
                 }, onError: { error in
                     print(error)
@@ -81,24 +85,30 @@ extension CoinViewController {
             .controlEvent(.valueChanged)
             .subscribe { [weak self] _ in
                 guard let self = self else { return }
-                self.listener?.getCoinMarketCapList()
+                self.start = 1
+                self.limit = 100
+                self.listener?.getCoinMarketCapList(start: self.start.description, limit: self.limit.description)
                 self.refresh.endRefreshing()
         }.disposed(by: disposeBag)
-    }
-    
-    @objc private func getList() {
-        listener?.getCoinMarketCapList()
     }
 }
 
 // MARK: - CoinPresentable
 extension CoinViewController: CoinPresentable {
     func setCoinList(coins: [CoinViewable]) {
-        self.coins = coins
+        self.coins = self.coins + coins
+        isLoadMore = false
     }
     
     func stopIndicator() {
         indicator.stop()
+    }
+    
+    func presentNoInfomationAlert() {
+        let alert = UIAlertController(title: "No infomation", message: "This Coin is No infomation", preferredStyle: .alert)
+        let done = UIAlertAction(title: "Done", style: .cancel, handler: nil)
+        alert.addAction(done)
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -128,6 +138,20 @@ extension CoinViewController: UITableViewDelegate, UITableViewDataSource {
         let coinCell = tableView.dequeueReusableCell(withIdentifier: "coinCell", for: indexPath) as! CoinTableViewCell
         let coin = coins[indexPath.row]
         coinCell.bind(coin: coin)
+        
+        
+        if !isLoadMore && indexPath.row >= self.coins.count - 3 {
+            isLoadMore = true
+            
+            self.start = self.limit
+            self.limit = self.limit + 100
+            
+            print(">>>>>>>>>>>>>>>>>>>>> start", start)
+            print(">>>>>>>>>>>>>>>>>>>>> limit", limit)
+            
+            indicator.play(view: self.view)
+            listener?.getCoinMarketCapList(start: self.start.description, limit: self.limit.description)
+        }
         return coinCell
     }
 }

@@ -23,8 +23,9 @@ class IndicatorView {
     }
     
     private let type: IndicatorType
+    private var superView: UIView = UIView()
     
-    func play(superView: UIView) {
+    func play(view: UIView) {
         switch type {
         case .launch:
             animationView = AnimationView(name: "LaunchLoading")
@@ -33,11 +34,11 @@ class IndicatorView {
         }
         
         animationView.contentMode = .scaleAspectFill
-        animationView.tag = 0
+        animationView.tag = 999
         
-        superView.addSubview(animationView)
+        view.addSubview(animationView)
         animationView.snp.makeConstraints {
-            $0.center.equalTo(superView.snp.center)
+            $0.center.equalTo(view.snp.center)
             switch type {
             case .launch:
                 $0.height.equalTo(100)
@@ -48,6 +49,8 @@ class IndicatorView {
             }
         }
         animationView.loopMode = .loop
+        superView = view
+        
         DispatchQueue.main.async {
             self.animationView.play()
         }
@@ -56,7 +59,15 @@ class IndicatorView {
     func stop() {
         DispatchQueue.main.async {
             self.animationView.stop()
-            self.animationView.removeFromSuperview()
+            self.remove()
+        }
+    }
+    
+    private func remove() {
+        for subview in superView.subviews {
+            if subview.tag == 999 {
+                subview.removeFromSuperview()
+            }
         }
     }
 }

@@ -12,5 +12,5 @@ import RxSwift
 // MARK: - 실제로 사용 될 데이터를 가공하고 가공된 데이터를 전달
 
 public protocol CoinMarketCapListUseCase {
-    func getCoinMarketCapList() -> Observable<[CoinViewable]>
+    func getCoinMarketCapList(start: String, limit: String) -> Observable<[CoinViewable]>
 }

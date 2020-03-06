@@ -17,19 +17,31 @@ struct CoinDataStoreImplement: CoinDataStore {
     
     init() {}
 
-    func getCoinMarketCapList() -> Observable<[CoinViewable]> {
+    func getCoinMarketCapList(start: String, limit: String) -> Observable<[CoinViewable]> {
+        
+        
+        var paramaters = DictionaryType()
+        paramaters.updateValue(start, forKey: "start")
+        paramaters.updateValue(limit, forKey: "limit")
+        
+        var headers = HeadersType()
+        headers.updateValue(Constants.Key.coinMarketCapKey, forKey: "X-CMC_PRO_API_KEY")
+        
         return RxAlamofire.requestData(.get, URL(string: Constants.Coin.CoinMarketCap.list)!,
-                                       parameters: DictionaryType(),
+                                       parameters: paramaters,
                                        encoding: URLEncoding(destination: .methodDependent),
-                                       headers: HeadersType())
+                                       headers: headers)
             .map { _ , data in
-                let decodableJson = try! JSONDecoder().decode([CoinMarketCapCodable].self, from: data)
+                
+                let decodableJson = try! JSONDecoder().decode(CoinMarketCapCodable.self, from: data)
 
                 var coinViewModels = [CoinMarketCapCoinViewModel]()
-                for coin in decodableJson {
+                
+                guard let coins = decodableJson.coins else { return [CoinMarketCapCoinViewModel]() }
+                
+                for coin in coins {
                     coinViewModels.append(CoinMarketCapCoinViewModel(coin: coin))
                 }
-
                 return coinViewModels
         }
     }

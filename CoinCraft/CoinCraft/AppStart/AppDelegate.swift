@@ -27,5 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private var launchRouter: LaunchRouting?
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        
+        
+        
+        
+    }
 }
 
